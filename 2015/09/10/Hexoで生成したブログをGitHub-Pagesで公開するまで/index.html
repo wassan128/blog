@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexoで生成したブログをGitHub Pagesで公開するまで | クロワッサンは黒くない</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="どうも、太鼓の達人(実機)をしばらくプレイしないうちに腕がなまってしまった太古の達人(?)わっさんです。さて、今回はこのブログを生成してGitHubを使って公開するまでの流れを書き残しておきたいと思います。
+要約(というか超雑な流れ)長文になるので、今回の説明の大まかな流れを示します。
+
+Node.jsをインストール
+Hexoをnpmでインストール
+GitHubリポジトリを用意し、Git周りの設定">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexoで生成したブログをGitHub Pagesで公開するまで">
+<meta property="og:url" content="http://wassan128.github.io/blog/2015/09/10/Hexoで生成したブログをGitHub-Pagesで公開するまで/index.html">
+<meta property="og:site_name" content="クロワッサンは黒くない">
+<meta property="og:description" content="どうも、太鼓の達人(実機)をしばらくプレイしないうちに腕がなまってしまった太古の達人(?)わっさんです。さて、今回はこのブログを生成してGitHubを使って公開するまでの流れを書き残しておきたいと思います。
+要約(というか超雑な流れ)長文になるので、今回の説明の大まかな流れを示します。
+
+Node.jsをインストール
+Hexoをnpmでインストール
+GitHubリポジトリを用意し、Git周りの設定">
+<meta property="og:updated_time" content="2015-09-10T14:26:29.325Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexoで生成したブログをGitHub Pagesで公開するまで">
+<meta name="twitter:description" content="どうも、太鼓の達人(実機)をしばらくプレイしないうちに腕がなまってしまった太古の達人(?)わっさんです。さて、今回はこのブログを生成してGitHubを使って公開するまでの流れを書き残しておきたいと思います。
+要約(というか超雑な流れ)長文になるので、今回の説明の大まかな流れを示します。
+
+Node.jsをインストール
+Hexoをnpmでインストール
+GitHubリポジトリを用意し、Git周りの設定">
+  
+    <link rel="alternative" href="/blog/atom.xml" title="クロワッサンは黒くない" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css" type="text/css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">クロワッサンは黒くない</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">とある高専生の備忘録的な何かになるかもしれない</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://wassan128.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Hexoで生成したブログをGitHub-Pagesで公開するまで" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2015/09/10/Hexoで生成したブログをGitHub-Pagesで公開するまで/" class="article-date">
+  <time datetime="2015-09-10T14:26:24.000Z" itemprop="datePublished">2015-09-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Hexoで生成したブログをGitHub Pagesで公開するまで
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>どうも、太鼓の達人(実機)をしばらくプレイしないうちに腕がなまってしまった太古の達人(?)わっさんです。さて、今回はこのブログを生成してGitHubを使って公開するまでの流れを書き残しておきたいと思います。</p>
+<h2 id="要約(というか超雑な流れ)">要約(というか超雑な流れ)</h2><p>長文になるので、今回の説明の大まかな流れを示します。</p>
+<ol>
+<li>Node.jsをインストール</li>
+<li>Hexoをnpmでインストール</li>
+<li>GitHubリポジトリを用意し、Git周りの設定を完了する</li>
+<li>デプロイ&amp;確認</li>
+</ol>
+<a id="more"></a>
+<h2 id="環境">環境</h2><ul>
+<li>Windows 7 Enterprise</li>
+<li>Node.js(v0.12.7)</li>
+<li>npm(v2.11.3)</li>
+</ul>
+<h2 id="Node-jsをインストール">Node.jsをインストール</h2><p>Node.jsはサーバーサイドで使用できるJavaScriptの事で、従来フロントエンドで使用してきたJavaScriptをサーバーサイドで使おう、というものです。こちらのインストールはWindows環境ということで、インストーラを使って行いました(<a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js 公式サイト</a>)。インストールが終わったら、コマンドプロンプトで<br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v   <span class="comment">//v0.12.7</span></span><br><span class="line">npm -v   <span class="comment">//2.11.3</span></span><br></pre></td></tr></table></figure></p>
+<p>として確認を行いました。npmは、「Node Package Manager」の略称らしいです。その名の通り、Node.js関連のモジュールインストールなどで活躍してくれるに違いありません。今回も何回か使います。</p>
+<h2 id="Hexoをインストール">Hexoをインストール</h2><p>次に、ブログの生成ツールをインストールします。今回は、静的サイトジェネレーターの<a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>を使ってブログ本体を生成します。こちらは、先ほど確認を行ったnpmを使ってインストールします。<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="operator"><span class="keyword">install</span> -<span class="keyword">g</span> hexo-cli</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="Hexoを使ってみる">Hexoを使ってみる</h2><p>Hexoでは、コマンドを打ち込むことでブログのひな形を生成したり、記事を作成したりしていきます。まずはひな形を作っていきます。作業用フォルダを生成する場所を決めたらコマンドプロンプトでその場所まで移動して、<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">hexo</span> init FOLDER</span><br></pre></td></tr></table></figure></p>
+<p>というコマンドを実行します。「FOLDER」の部分は、好きな名前にして実行してください(作業用フォルダ名になるだけです)。<br>次に、<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> FOLDER</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure></p>
+<p>として、モジュールをインストールします。これだけでひな形の作成は完了です。<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">hexo</span> s</span><br></pre></td></tr></table></figure></p>
+<p>としてローカルサーバーを起動し、<a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a>にアクセスしてみましょう。宇宙感あふれるページが表示されているかと思います。</p>
+<h2 id="生成したブログの編集">生成したブログの編集</h2><p>ひな形を作れたのは良いですが、このままでは面白くありませんね。ここで生成したフォルダを見てみましょう。「_config.yml」というファイルがあると思いますが、この中身を編集することでブログの全般的な設定をすることが出来ます。<a href="https://hexo.io/docs/configuration.html" target="_blank" rel="external">こちら</a>(Hexo公式ページ)を参考にしながら、ブログのタイトル等を編集していきます。それぞれhtmlに変換した際にmetaタグなどに反映されていきます。</p>
+<p>そのほかにもいろいろとフォルダやらファイルがありますが、例えば「themes」というフォルダの中にブログのデザインに関するスタイラスのファイルなどが入っていますので、その辺を変更することで見た目を変えることが出来ます。</p>
+<p>デフォルトの宇宙感あふれるテーマは「landscape」という名前ですが、ネット上に<a href="https://hexo.io/themes/" target="_blank" rel="external">テーマが多く存在</a>するので、好きに変更することもできます。僕はこのデフォルトのテーマを少しいじったものを使っています。</p>
+<h2 id="GitHubをセットアップ">GitHubをセットアップ</h2><p>まず<a href="https://github.com/" target="_blank" rel="external">GitHub</a>リポジトリを作成します。GitHub Pagesにブログを置くことももちろんできますが、今回僕はサブディレクトリに配置したかったので「blog」というリポジトリを作成しました。「gh-pages」ブランチを作成したら、お手元のGit Bash等を使ってsshキーをジェネレートしてGitHub側に登録しておきます。これでGitHubとマシンのひも付けができるので、GitHub側の準備は完了です。</p>
+<p>(ちなみに僕はこの作業を忘れていたためにデプロイで躓きました…(´・ω・`))</p>
+<h2 id="HexoからGitHubへデプロイ">HexoからGitHubへデプロイ</h2><p>ここまで来たらいよいよデプロイです。先ほど編集した「_config.yml」を開き、<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">url:</span> <span class="string">'http://USER_ID.github.io/REPO_NAME/'</span></span><br><span class="line"><span class="string">root:</span> <span class="regexp">/REPO_NAME/</span></span><br></pre></td></tr></table></figure></p>
+<p>というように先ほど作成したリポジトリ名を指定します。<br>しかし、このままだと「themes」内の「_config.yml」の内容が悪さをしてアーカイブなどのリンクがうまく生成されないので、ファイルの下の方に<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">theme_config</span>:</span><br><span class="line">  <span class="attribute">menu</span>:</span><br><span class="line">    <span class="attribute">Home</span>: /REPO_NAME</span><br><span class="line">    <span class="attribute">Archives</span>: /REPO_NAME/archives</span><br></pre></td></tr></table></figure></p>
+<p>と記述しておきます。その後、<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">deploy</span>:</span><br><span class="line">  <span class="attribute">type</span>: git</span><br><span class="line">  <span class="attribute">repo</span>: <span class="string">'git@github.com:USER_ID/REPO_NAME.git'</span></span><br><span class="line">  <span class="attribute">branch</span>: gh-pages</span><br></pre></td></tr></table></figure></p>
+<p>といった形でデプロイ用の設定を記述します。では、デプロイしましょう！<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">d</span> -<span class="keyword">g</span></span><br></pre></td></tr></table></figure></p>
+<p>「hexo d」コマンドでデプロイできますが、「-g」オプションを付加するとデプロイ前にhtmlなどを生成してくれます(生成の結果、作業用フォルダ内に「public」というフォルダが作られます)。</p>
+<p>エラーが出なければ成功です！指定したURLにアクセスして、確認しましょう。</p>
+<h2 id="まとめと今後の展望">まとめと今後の展望</h2><p>今回は、Hexoを利用して生成したブログをGitHub Pagesに公開することを目的として作業を行いました。作業にあたって、いろんなサイトを参考にさせてもらいましたが、Windows環境でやって記事にしている方が少なかったので、少し苦労しました(Gitについてよく知らないことが一番の原因だとは思いますが)。</p>
+<p>また、この記事はMarkdown形式で書いていますが、まだ書き方がよくわからないのでわかりにくいところや間違ってるところ等あればコメントで教えていただけると幸いです。ブログのテーマについてはファイルをいじることで簡単に変更でき、良さげなので、これからしばらく運営していこうと思います。</p>
+<h2 id="参考にさせていただいたサイト">参考にさせていただいたサイト</h2><ul>
+<li><a href="https://hexo.io/" target="_blank" rel="external">Hexo(公式サイト)</a></li>
+<li><a href="http://liginc.co.jp/web/programming/server/104594" target="_blank" rel="external">所要時間3分!? Github PagesとHEXOで爆速ブログ構築してみよう！</a></li>
+<li><a href="http://pagent.github.io/2014/11/24/hexo-windows-deploy/" target="_blank" rel="external">WindowsでHexoを使う(deploy)</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wassan128.github.io/blog/2015/09/10/Hexoで生成したブログをGitHub-Pagesで公開するまで/" data-id="ciecr81j90000w0dod1wc9qg3" class="article-share-link">Share</a>
+      
+        <a href="http://wassan128.github.io/blog/2015/09/10/Hexoで生成したブログをGitHub-Pagesで公開するまで/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Git/">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Node-js/">Node.js</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/blog/2015/09/08/ブログはじめました/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ブログはじめました</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Git/">Git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Hexo/">Hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Node-js/">Node.js</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/Git/" style="font-size: 20px;">Git</a> <a href="/blog/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/blog/tags/Node-js/" style="font-size: 10px;">Node.js</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/09/">September 2015</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2015/09/10/Hexoで生成したブログをGitHub-Pagesで公開するまで/">Hexoで生成したブログをGitHub Pagesで公開するまで</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2015/09/08/ブログはじめました/">ブログはじめました</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 wassan128<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'wassan128';
+  
+  var disqus_url = 'http://wassan128.github.io/blog/2015/09/10/Hexoで生成したブログをGitHub-Pagesで公開するまで/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/blog/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>
