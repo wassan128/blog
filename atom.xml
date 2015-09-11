@@ -4,7 +4,7 @@
   <subtitle><![CDATA[とある高専生の備忘録的な何かになるかもしれない]]></subtitle>
   <link href="/blog/atom.xml" rel="self"/>
   <link href="http://wassan128.github.io/blog/"/>
-  <updated>2015-09-11T13:58:12.684Z</updated>
+  <updated>2015-09-11T14:06:56.807Z</updated>
   <id>http://wassan128.github.io/blog/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://wassan128.github.io/blog/2015/09/11/"/>
     <id>http://wassan128.github.io/blog/2015/09/11/</id>
     <published>2015-09-11T10:23:00.000Z</published>
-    <updated>2015-09-11T13:58:12.684Z</updated>
+    <updated>2015-09-11T14:06:56.807Z</updated>
     <content type="html"><![CDATA[<h2 id="今回の記事について">今回の記事について</h2><p>昨日書いた記事の中で、Hexoで新しい記事を作成するところについて触れていなかったので、その追記がてら、しれっと追加したコメント機能のところについて書き残しておきます。<br><a id="more"></a></p>
 <h2 id="記事を追加する「へくそにゅー」">記事を追加する「へくそにゅー」</h2><p>さて、「新しい記事を追加する」という作業は記事に書き忘れるほど<strong>とても簡単</strong>にできます。その作業とは、コマンドプロンプトで作業用フォルダ上まで行き、<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> <span class="string">"ARTICLE_TITLE"</span></span><br></pre></td></tr></table></figure></p>
 <p>とするだけです。簡単ですね…。このコマンドによって「作業用フォルダ &gt; source &gt; _posts」内に「ARTICLE_TITLE.md」というファイルが作成されます。ですので、あとはこの中にMarkdown形式で記事を書いていけばOKです。</p>
@@ -27,6 +27,11 @@
 <p>あとはHexo側の設定をすればコメント欄が自動的に追加されます。Hexo側は手動で「_config.yml」の設定をするか以下のコマンドで<br><figure class="highlight puppet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo config <span class="name">disqus_shortname</span> &#123;YOUR_SHORTNAME&#125;</span><br><span class="line"><span class="name">hexo</span> --config themes/light/_config.yml config comment_provider disqus</span><br></pre></td></tr></table></figure></p>
 <p>とすることで設定が完了します。これでコメント欄が使えるようになりました！<br><img src="/blog/2015/09/11/disqus_comment.png" alt="やせいの コメント欄 があらわれた!" title="やせいの コメント欄 があらわれた!"></p>
 <h2 id="まとめ">まとめ</h2><p>今回は記事の追加方法とコメント欄の追加について書きました。どちらも簡単にできました。Disqusのようにプラグインを簡単に導入できるのもHexoの強みなんでしょうね。これからも良さげなプラグインがあったら入れてみたいと思います。</p>
+<h2 id="参考にさせていただいたサイト">参考にさせていただいたサイト</h2><ul>
+<li><a href="http://liginc.co.jp/web/programming/server/104594" target="_blank" rel="external">所要時間3分!? Github PagesとHEXOで爆速ブログ構築してみよう！</a></li>
+<li><a href="http://kazunorimiura.com/post/86205749581/tumblr%E3%81%ABdisqus%E3%82%B3%E3%83%A1%E3%83%B3%E3%83%88%E3%82%92%E5%B0%8E%E5%85%A5%E3%81%99%E3%82%8B%E3%83%A1%E3%83%AA%E3%83%83%E3%83%88%E3%82%84%E8%A8%AD%E7%BD%AE%E6%96%B9%E6%B3%95%E3%81%AA%E3%81%A9" target="_blank" rel="external">TumblrにDisqusコメントを導入するメリットや設置方法など</a></li>
+<li><a href="http://harasou.github.io/2015/05/05/hexo-%E3%81%AB-DISQUS-%E3%82%92%E8%BF%BD%E5%8A%A0/" target="_blank" rel="external">hexo に DISQUS を追加</a></li>
+</ul>
 ]]></content>
     <summary type="html">
     <![CDATA[<h2 id="今回の記事について">今回の記事について</h2><p>昨日書いた記事の中で、Hexoで新しい記事を作成するところについて触れていなかったので、その追記がてら、しれっと追加したコメント機能のところについて書き残しておきます。<br>]]>
