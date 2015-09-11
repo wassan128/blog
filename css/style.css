@@ -588,8 +588,12 @@ a.article-title:hover {
   line-height: 1.1em;
   margin: 1.1em 0;
 }
+.article-entry h2 {
+  padding-top: 10px;
+  border-bottom: 1px solid #ddd;
+}
 .article-entry a {
-  color: #777;
+  color: #4169e1;
   text-decoration: none;
 }
 .article-entry a:hover {
