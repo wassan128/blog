@@ -4,7 +4,7 @@
   <subtitle><![CDATA[とある高専生の備忘録的な何かになるかもしれない]]></subtitle>
   <link href="/blog/atom.xml" rel="self"/>
   <link href="http://wassan128.github.io/blog/"/>
-  <updated>2015-09-11T02:05:24.987Z</updated>
+  <updated>2015-09-11T13:58:12.684Z</updated>
   <id>http://wassan128.github.io/blog/</id>
   
   <author>
@@ -13,6 +13,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Hexoでの記事の追加とコメント機能について]]></title>
+    <link href="http://wassan128.github.io/blog/2015/09/11/"/>
+    <id>http://wassan128.github.io/blog/2015/09/11/</id>
+    <published>2015-09-11T10:23:00.000Z</published>
+    <updated>2015-09-11T13:58:12.684Z</updated>
+    <content type="html"><![CDATA[<h2 id="今回の記事について">今回の記事について</h2><p>昨日書いた記事の中で、Hexoで新しい記事を作成するところについて触れていなかったので、その追記がてら、しれっと追加したコメント機能のところについて書き残しておきます。<br><a id="more"></a></p>
+<h2 id="記事を追加する「へくそにゅー」">記事を追加する「へくそにゅー」</h2><p>さて、「新しい記事を追加する」という作業は記事に書き忘れるほど<strong>とても簡単</strong>にできます。その作業とは、コマンドプロンプトで作業用フォルダ上まで行き、<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> <span class="string">"ARTICLE_TITLE"</span></span><br></pre></td></tr></table></figure></p>
+<p>とするだけです。簡単ですね…。このコマンドによって「作業用フォルダ &gt; source &gt; _posts」内に「ARTICLE_TITLE.md」というファイルが作成されます。ですので、あとはこの中にMarkdown形式で記事を書いていけばOKです。</p>
+<h2 id="コメント機能">コメント機能</h2><p>次に、コメント機能についてですが、Hexoのテーマによっては最初からコメント欄がついているものもあるみたいですが、このデフォルトのテーマ「landscape」にはついていませんでした。どうやってつけるのか調べていたら、「<a href="https://disqus.com/" target="_blank" rel="external">DISQUS</a>」というディスカッションツール(?)を導入できることがわかりました。<br><img src="/blog/2015/09/11/disqus.png" alt="DISQUS" title="DISQUS"><br>まずDisqusの<a href="https://disqus.com/profile/signup/?next=https%3A%2F%2Fdisqus.com%2F" target="_blank" rel="external">アカウントを取得</a>、もしくは既存のSNSアカウントでログインします。今回僕はTwitterアカウントでログインしました。その後、歯車アイコンの中の「Add Disqus To Site」というメニューから登録したいサイトのURLとshortnameという項目を設定します。このshortnameという項目に指定したものは後で「_config.yml」に設定します。「Finish registration」というボタンを押して登録完了です。<br><img src="/blog/2015/09/11/disqus_site.png" alt="shortnameは覚えやすいものにした方がよいです" title="shortnameは覚えやすいものにした方がよいです"></p>
+<p>あとはHexo側の設定をすればコメント欄が自動的に追加されます。Hexo側は手動で「_config.yml」の設定をするか以下のコマンドで<br><figure class="highlight puppet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo config <span class="name">disqus_shortname</span> &#123;YOUR_SHORTNAME&#125;</span><br><span class="line"><span class="name">hexo</span> --config themes/light/_config.yml config comment_provider disqus</span><br></pre></td></tr></table></figure></p>
+<p>とすることで設定が完了します。これでコメント欄が使えるようになりました！<br><img src="/blog/2015/09/11/disqus_comment.png" alt="やせいの コメント欄 があらわれた!" title="やせいの コメント欄 があらわれた!"></p>
+<h2 id="まとめ">まとめ</h2><p>今回は記事の追加方法とコメント欄の追加について書きました。どちらも簡単にできました。Disqusのようにプラグインを簡単に導入できるのもHexoの強みなんでしょうね。これからも良さげなプラグインがあったら入れてみたいと思います。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="今回の記事について">今回の記事について</h2><p>昨日書いた記事の中で、Hexoで新しい記事を作成するところについて触れていなかったので、その追記がてら、しれっと追加したコメント機能のところについて書き残しておきます。<br>]]>
+    
+    </summary>
+    
+      <category term="disqus" scheme="http://wassan128.github.io/blog/tags/disqus/"/>
+    
+      <category term="hexo" scheme="http://wassan128.github.io/blog/tags/hexo/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Hexoで生成したブログをGitHub Pagesで公開するまで]]></title>
