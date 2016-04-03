@@ -4,7 +4,7 @@
   <subtitle><![CDATA[とある高専生の備忘録的な何かになるかもしれない]]></subtitle>
   <link href="/blog/atom.xml" rel="self"/>
   <link href="http://wassan128.github.io/blog/"/>
-  <updated>2015-09-11T14:06:56.807Z</updated>
+  <updated>2016-04-03T04:57:04.627Z</updated>
   <id>http://wassan128.github.io/blog/</id>
   
   <author>
@@ -13,6 +13,60 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[図書館が開いてるか教えてくれるだけのbotを作った話]]></title>
+    <link href="http://wassan128.github.io/blog/2016/04/03/"/>
+    <id>http://wassan128.github.io/blog/2016/04/03/</id>
+    <published>2016-04-03T02:17:29.000Z</published>
+    <updated>2016-04-03T04:57:04.627Z</updated>
+    <content type="html"><![CDATA[<h2 id="概要">概要</h2><img src="/blog/2016/04/03/siri.png" alt="”わかりて”" title="”わかりて”">
+<p>時は2016年4月。人工知能が世の中で盛り上がりを見せる中、某O高専の学生は「図書館今日開いてたっけ」と思った時、お手元の人工知能に尋ねるわけにもいかず、通常は直接足を運ぶか、インターネット上に公開されている「開館カレンダー」を見ることで開館状況を確認する。しかしそのためだけにいちいちPCを起動し、n回のクリックを経てサイトにアクセスするのは面倒だ。もう少し気軽に開館状況を知ることができれば…。<br>するとそこへ一羽の青い鳥が颯爽と現れ、大丈夫さ、と呟く…。</p>
+<blockquote>
+<p>――そう、Twitterならね。</p>
+</blockquote>
+<p>ということで、今回はPythonの勉強も兼ねて、開館状況を知りたい日付をリプライすると、その日の開館状況を返してくれるだけのTwitterBotを作りました(なお現在(2016/4/3時点)は動作させていません)。</p>
+<a id="more"></a>
+<h2 id="開発環境">開発環境</h2><p>OS: Windows7<br>言語: Python(2.7.11)</p>
+<h2 id="開館状況の取得方法を検討する">開館状況の取得方法を検討する</h2><p>開館カレンダーは画像に示すように、開館の状況によって日付の背景色を帰る表示方法を採用しています。カレンダーはHTMLのtableタグで構成されており、日付がそれぞれtdタグ(セル)に収まっています。よって、任意の日付の開館状況を知りたければ、その日付のtdの背景色を取得・判定できれば良さそうです。</p>
+<img src="/blog/2016/04/03/library_calendar.png" alt="開館カレンダーの見た目。開館状況と背景色の対応表も示されている。" title="開館カレンダーの見た目。開館状況と背景色の対応表も示されている。">
+<h2 id="スクレイピングの方法を検討する">スクレイピングの方法を検討する</h2><p>上記の通り、カレンダーはHTMLで構成されているため、その要素であるtdにアクセスするためにスクレイピングを行います。今回は、pythonでスクレイピングに使用できるライブラリ</p>
+<ul>
+<li>lxml(<a href="http://lxml.de/" target="_blank" rel="external">http://lxml.de/</a>)</li>
+<li>BeautifulSoup4(<a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/" target="_blank" rel="external">https://www.crummy.com/software/BeautifulSoup/bs4/doc/</a>)</li>
+</ul>
+<p>を試用しましたが、今回はBeautifulSoup4(以下bs4)を選択しました。bs4ではPure Python以外のHTMLパーサーが選択でき、試用の際にインストールしていたlxmlをパーサーとして選択することで、パース速度と、パース結果の正確性の向上が期待できます。<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip <span class="keyword">install</span> lxml</span><br><span class="line">pip <span class="keyword">install</span> beautifulsoup4</span><br></pre></td></tr></table></figure></p>
+<p>ここまでで、bs4のfindメソッド(<a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/#find" target="_blank" rel="external">→doc</a>)を用いてtdタグに以下のようにアクセスできるようになります。<br><figure class="highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> bs4 import BeautifulSoup</span><br><span class="line"><span class="preprocessor"># 第1引数にHTMLのデータ(urllibなどで取得してくる)、第2引数でパーサーを指定</span></span><br><span class="line">soup = BeautifulSoup(HTML_DATA, <span class="string">"lxml"</span>)</span><br><span class="line"><span class="preprocessor"># findメソッドを使用し、検索条件としてtdの値がDATEのものを探す</span></span><br><span class="line">td_data = soup.find(<span class="string">"td"</span>, <span class="keyword">text</span>=<span class="built_in">DATE</span>)</span><br></pre></td></tr></table></figure></p>
+<p>また、スクレイピング等のテストで実際のURLにプログラムから何度もアクセスをかけているとそのうち怒られるような気がしたので、スクレイピングに関する全ての動作テストは、実際のカレンダーを模倣したHTMLファイルを作成し、localhost上で行いました。</p>
+<h2 id="Twitterとの連携を行う方法を検討する">Twitterとの連携を行う方法を検討する</h2><p>今回は定期的に呟くタイプのBot形式ではなく、StreamingAPIを使用してリプライに反応するような仕様にしました。特にStreamingAPIにこだわる理由はありませんでしたが、pythonでStreamingAPIを叩いたことがなかったので、やってみたかったという感じです。ライブラリには「<a href="https://pypi.python.org/pypi/twitter" target="_blank" rel="external">twitter(1.17.1)</a>」を使用しました。<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip <span class="keyword">install</span> twitter</span><br></pre></td></tr></table></figure></p>
+<p>Streamingへの接続方法は以下のとおりです。<br><figure class="highlight capnproto"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> twitter <span class="keyword">import</span> *</span><br><span class="line"><span class="comment"># OAuth認証用のキーを指定して認証情報を生成</span></span><br><span class="line">auth = OAuth(ACCESSTOKEN, ACCESSSECRET, CONSUMERKEY, CONSUMERSECRET)</span><br><span class="line"><span class="comment"># 接続</span></span><br><span class="line">stream = TwitterStream(auth=auth, domain=<span class="string">"userstream.twitter.com"</span>)</span><br></pre></td></tr></table></figure></p>
+<p>反応の仕方は、<br>「@islibopen islib N」(Nは任意の日付)<br>というリプライを受け取ったら処理を実行し、結果をリプライする、という感じです。</p>
+<h2 id="できたもの">できたもの</h2><img src="/blog/2016/04/03/exec_test.png" alt="図書館が開いているか実際に聞いてみた。やってる事自体は難しくないので、ちゃんと動作している。" title="図書館が開いているか実際に聞いてみた。やってる事自体は難しくないので、ちゃんと動作している。">
+<h2 id="Botの公開・運営について">Botの公開・運営について</h2><p>未定です。</p>
+<h2 id="作って思ったこととかまとめ">作って思ったこととかまとめ</h2><ul>
+<li>td内にstyle属性が直書きされてるタイプのHTMLだったので、ザルな正規表現で背景色が取得できた。</li>
+<li>今回は当月分しか対応していないが、201n年n月(カレンダー登録状況に依存するため、限界あり)対応はパラメータを変更することで簡単に実現できる。しかしやっていいのか…。てかそもそも作って使うのだろうか(何かを悟る)。</li>
+<li>開発用に新たにTwitterアカウントを作成したが、これまでにもいくつか開発用にアカウントを作成しており、今回ついに巷で噂のスパム確認(電話番号登録)を強いられた(なんとかなった)。</li>
+<li><del>作った後に改めて思ったけどあんまり役に立たない(重要)。</del></li>
+<li>今後のためにも、スクレイピング関連の法律ちゃんと知っておきたい。</li>
+</ul>
+<p>以上です。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="概要">概要</h2><img src="/blog/2016/04/03/siri.png" alt="”わかりて”" title="”わかりて”">
+<p>時は2016年4月。人工知能が世の中で盛り上がりを見せる中、某O高専の学生は「図書館今日開いてたっけ」と思った時、お手元の人工知能に尋ねるわけにもいかず、通常は直接足を運ぶか、インターネット上に公開されている「開館カレンダー」を見ることで開館状況を確認する。しかしそのためだけにいちいちPCを起動し、n回のクリックを経てサイトにアクセスするのは面倒だ。もう少し気軽に開館状況を知ることができれば…。<br>するとそこへ一羽の青い鳥が颯爽と現れ、大丈夫さ、と呟く…。</p>
+<blockquote>
+<p>――そう、Twitterならね。</p>
+</blockquote>
+<p>ということで、今回はPythonの勉強も兼ねて、開館状況を知りたい日付をリプライすると、その日の開館状況を返してくれるだけのTwitterBotを作りました(なお現在(2016/4/3時点)は動作させていません)。</p>]]>
+    
+    </summary>
+    
+      <category term="python" scheme="http://wassan128.github.io/blog/tags/python/"/>
+    
+      <category term="twitter" scheme="http://wassan128.github.io/blog/tags/twitter/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Hexoでの記事の追加とコメント機能について]]></title>
