@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>ピラミッドに遊びに行ったら野生の10000次正方数列が現れた話 | クロワッサンは黒くない</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="概要高校生5年生なので、HSCTF(High School CTF)に登録して参加してみました。というのはもちろん嘘で、実際は大学生枠(?)で参加してみたんですが、その中でも「Egyptian Tomb」という問題についてメモしておきたくなったので、ブログに備忘録的に書き残そうかと思いました。ちなみにチーム制CTFで、最終的にはラボの同級生と先輩と僕という感じのチームでした。もっと貢献したかった(">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ピラミッドに遊びに行ったら野生の10000次正方数列が現れた話">
+<meta property="og:url" content="http://wassan128.github.io/blog/2016/05/22/index.html">
+<meta property="og:site_name" content="クロワッサンは黒くない">
+<meta property="og:description" content="概要高校生5年生なので、HSCTF(High School CTF)に登録して参加してみました。というのはもちろん嘘で、実際は大学生枠(?)で参加してみたんですが、その中でも「Egyptian Tomb」という問題についてメモしておきたくなったので、ブログに備忘録的に書き残そうかと思いました。ちなみにチーム制CTFで、最終的にはラボの同級生と先輩と僕という感じのチームでした。もっと貢献したかった(">
+<meta property="og:image" content="http://wassan128.github.io/blog/blog/2016/05/22/squares.png">
+<meta property="og:image" content="http://wassan128.github.io/blog/blog/2016/05/22/matrix_calc.png">
+<meta property="og:updated_time" content="2016-05-22T07:54:11.222Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ピラミッドに遊びに行ったら野生の10000次正方数列が現れた話">
+<meta name="twitter:description" content="概要高校生5年生なので、HSCTF(High School CTF)に登録して参加してみました。というのはもちろん嘘で、実際は大学生枠(?)で参加してみたんですが、その中でも「Egyptian Tomb」という問題についてメモしておきたくなったので、ブログに備忘録的に書き残そうかと思いました。ちなみにチーム制CTFで、最終的にはラボの同級生と先輩と僕という感じのチームでした。もっと貢献したかった(">
+  
+    <link rel="alternative" href="/blog/atom.xml" title="クロワッサンは黒くない" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+</head>
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">クロワッサンは黒くない</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/blog/" id="subtitle">とある高専生の備忘録的な何かになるかもしれない</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives/">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://wassan128.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-ピラミッドに遊びに行ったら野生の10000次正方数列が現れた話" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2016/05/22/" class="article-date">
+  <time datetime="2016-05-22T07:54:46.000Z" itemprop="datePublished">2016-05-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ピラミッドに遊びに行ったら野生の10000次正方数列が現れた話
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="概要">概要</h2><p>高校生5年生なので、HSCTF(High School CTF)に登録して参加してみました。というのはもちろん嘘で、実際は大学生枠(?)で参加してみたんですが、その中でも「Egyptian Tomb」という問題についてメモしておきたくなったので、ブログに備忘録的に書き残そうかと思いました。<br>ちなみにチーム制CTFで、最終的にはラボの同級生と先輩と僕という感じのチームでした。もっと貢献したかった(´・ω・｀)</p>
+<h2 id="問題文の要約">問題文の要約</h2><p>Keithさんという人がいて、エジプトに行きましたと。ピラミッドを見に。するとKeithさんはこんなパズルを見つけたそうです。</p>
+<p>$$<br>\begin{pmatrix}<br>1 &amp; 2 \\ 3 &amp; 4<br>\end{pmatrix}<br>$$</p>
+<p>このパズルの答えは「20」になるそうです。ほーん。と思ったあなたには良いものを上げましょう(おもむろに$ 10000 \times 10000 $の数列を投げつけられる)。ではどうぞ、解いてください！<br>ざっくりいうとこんな感じです。ここからいろいろ考えたり殴ったりするターンになります。</p>
+<a id="more"></a>
+<h2 id="このパズルは何か">このパズルは何か</h2><p>このパズルは問題文によると「sum of all sums of subsquares」、つまり$ n \times n $の正方形の中の$ 1 \times 1, \cdots (n - 1) \times (n - 1), n \times n $までの全ての正方形(all subsquares)の中の数字の和を、足したものがパズルの答え、ということだそうです。上の例だと$ 1 \times 1 $の正方形が4つ、$ 2 \times 2 $の正方形が1つなので、</p>
+<p>$$<br>1+2+3+4+(1+2+3+4)=20<br>$$</p>
+<img src="/blog/2016/05/22/squares.png" alt="2×2の数列内には合計5個の正方形がある" title="2×2の数列内には合計5個の正方形がある">
+<p>ということになります。解き方がわかったので、早速$ 10000 \times 10000 $の数列をこの方法で解いてみましょう!ところで、$ 2 \times 2 $の数列内には5個の正方形がありましたが、$ 10000 \times 10000 $だといったいいくつの正方形があるんですかね?$ n \times n $の数列内には</p>
+<p>$$<br>\sum_{k=1}^{n}k^2<br>$$</p>
+<p>個の正方形があるので、$ n=10000 $では</p>
+<p>$$<br>\sum_{k=1}^{10000}k^2=1+2^2+3^2+\cdots+10000^2=333383335000<br>$$</p>
+<p>個の正方形があることになります。たったの3000億個か～／(^o^)＼<br>…これを上の式みたいにのんびり解くと大変なことになりそうなので、他の解き方を考えます。</p>
+<h2 id="考えてみる">考えてみる</h2><p>上の式を見ると、数列の要素$ \{1, 2, 3, 4\} $がそれぞれ2回ずつたされていることに気づきます。つまり、</p>
+<p>$$<br>1\times2+2\times2+3\times2+4\times2=20<br>$$</p>
+<p>というように、「{各要素の値} $ \times $ {各要素が足される回数}の総和」で計算できると考えられます。今回問題は$ 10000 \times 10000 $なので、$ n \times n $の$ n $は偶数と考えた上で、各要素が足される回数を要素とした係数数列を考えると、$ 2 \times 2 $の場合は、</p>
+<p>$$<br>\begin{pmatrix}<br>2 &amp; 2 \\ 2 &amp; 2<br>\end{pmatrix}<br>$$</p>
+<p>となりました。同様に、$ 4 \times 4 $、$ 6 \times 6 $ではそれぞれ</p>
+<p>$$<br>\begin{pmatrix}<br>4 &amp; 6 &amp; 6 &amp; 4 \\<br>6 &amp; 10 &amp; 10 &amp; 6 \\<br>6 &amp; 10 &amp; 10 &amp; 6 \\<br>4 &amp; 6 &amp; 6 &amp; 4 \\<br>\end{pmatrix},\quad<br>\begin{pmatrix}<br>6 &amp; 10 &amp; 12 &amp; 12 &amp; 10 &amp; 6 \\<br>10 &amp; 18 &amp; 22 &amp; 22 &amp; 18 &amp; 10 \\<br>12 &amp; 22 &amp; 28 &amp; 28 &amp; 22 &amp; 12 \\<br>12 &amp; 22 &amp; 28 &amp; 28 &amp; 22 &amp; 12 \\<br>10 &amp; 18 &amp; 22 &amp; 22 &amp; 18 &amp; 10 \\<br>6 &amp; 10 &amp; 12 &amp; 12 &amp; 10 &amp; 6 \\<br>\end{pmatrix}<br>$$</p>
+<p>が係数数列となります。この値は何か計算をして出したわけではなくて、友人(@koreander2001)と「$ 1 \times 1 $の時は全て1回ずつ足されて、$ 2 \times 2 $の時は$ 1, 2, 2,…, 2, 1 $で…」というように数え上げてそれぞれ何回足されるか書き出してみたものです:-)<br>これを見ると、それぞれ図の赤い三角形部分の数字を求められればどうにか全ての要素を網羅できそうな気がしてきます。実際できるので、これを元に頑張って一般化します。<br><img src="/blog/2016/05/22/matrix_calc.png" alt="係数数列の全ての要素を求める必要はなく、赤い三角形の部分を求めて適用すれば良い" title="係数数列の全ての要素を求める必要はなく、赤い三角形の部分を求めて適用すれば良い"></p>
+<p>例えば、$ n=6 $だった場合、$ \frac{n}{2} $ すなわち$ 3 \times 3 $ の、さらに右上三角地帯を計算すれば良く、係数数列の当該部分は<br>$$<br>\begin{Bmatrix}<br>\begin{pmatrix}<br>1 &amp; 1 &amp; 1 \\<br>  &amp; 1 &amp; 1 \\<br>  &amp;   &amp; 1 \\<br>\end{pmatrix}+<br>\begin{pmatrix}<br>1 &amp; 2 &amp; 2 \\<br>  &amp; 4 &amp; 4 \\<br>  &amp;   &amp; 4 \\<br>\end{pmatrix}+<br>\begin{pmatrix}<br>1 &amp; 2 &amp; 3\\<br>  &amp; 4 &amp; 6\\<br>  &amp;   &amp; 9\\<br>\end{pmatrix}<br>\end{Bmatrix}<br>\times2<br>$$</p>
+<p>のように分解できます。それぞれ$ 1 \times 1 $、$ 2 \times 2 $、$ 3 \times 3 $数列で足される回数をカウントしたものです。$ \times2 $をする理由は、$ 1 \times 1 $行列の正方形の個数と$ 6 \times 6 $、$ 2 \times 2 $と$ 5 \times 5 $、$ 3 \times 3 $と$ 4 \times 4 $でそれぞれ足し合わせの回数が対応している、すなわち$ 1 \times 1 $～$ 3 \times 3 $で折り返しているので、全体の足し合わせの回数は$ 1 \times 1 $～$ \frac{n}{2} \times \frac{n}{2} $までの和を2倍すると導出できるためです。<br>実際に計算をして、上で示した$ 6 \times 6 $の係数数列の値と対応しているか確認しつつ一般式の立式を目指します。座標$ (m, l) $が$ (1, 1), (2, 1), (3, 1) $のときそれぞれ<br>$$<br>(1, 1) = (1+1+1) \times 2 = 6\\<br>(2, 1) = (1+2+2) \times 2 = 10\\<br>(3, 1) = (1+2+3) \times 2 = 12\\<br>$$<br>となります。同様に$ (2, 2), (3, 2) $では、<br>$$<br>(2, 2) = (1+4+4) \times 2 = 18\\<br>(3, 2) = (1+4+6) \times 2 = 22\\<br>$$<br>となり、$ (3, 3) $では、<br>$$<br>(3, 3) = (1+4+9) \times 2 = 28\\<br>$$<br>が求まります。<br>ここで、$ (3, 3) $の式が<br>$$<br>\sum_{k=1}^{3}k^2<br>$$<br>になっていることに気づきます。各座標にも、部分的に二乗の総和の式が当てはまっています。これらを利用して、例えば$ (m, 2) $での部分的な一般化を試します(実際は$ n=8 $なども試したほうが良い(というか試した)ですが、今回は記事が長くなりすぎるので、割愛します)。<br>$ (m, 2) $においては、$ 1+4 $までは共通しており、3項目で$ 2 \times m $が足されています。$ n=8, n=10 $などを試すとよりはっきりとわかりますが、これは次のような法則に従って足されています。<br>$$<br>(m, 2) = (1+4+6+8+\cdots+2m+\cdots+2m) \times 2<br>$$<br>同様に$ (m, 3) $での部分的な一般化を試すと、<br>$$<br>(m, 3) = (1+4+9+12+15+\cdots+3m+\cdots+3m) \times 3<br>$$<br>という法則が得られます。この式は3つのパートに分けることができ、1つ目のパートが「二乗の和」、2つ目のパートが「mの倍数の和 - 二乗の和との重複部」、3つ目が「$ \frac{n}{2}-m $個の$ l \times m $」です。つまり、$ (m, l) $においては<br>$$<br>(m, l) = \begin{Bmatrix}(1+4+9+\cdots+l^2)+l \times ((1+2+3+\cdots+m) - (1+2+3+\cdots+l))+(\frac{n}{2}- m) \times l \times m\end{Bmatrix} \times 2<br>$$</p>
+<p>と表すことができ、これを記号を用いて整理すると、</p>
+<p>$$<br>(m, l) = \sum_{i=1}^{n} i^2 + l \times (\sum_{j=1}^{m} j - \sum_{k=1}^{l} k) + lm \times (\frac{n}{2}- m)<br>$$<br>となり、さらにこれを2乗和の公式などを用いて展開して計算すると、</p>
+<p>$$<br>(m, l) = \frac{l(l+1)(2l+1)}{6} + l(\frac{m(m+1)}{2} - \frac{l(l+1)}{2}) + lm(\frac{n}{2}-m)\\<br>= \frac{l}{3}((l+1)(2l+1) + 3(m(m+1) - l(l+1)+m(3n-6m))\\<br>= \frac{l}{3}(2l^2+3l+1+3m^2+3m-3l^2-3l+3mn-6m^2)\\<br>= \frac{l}{3}(3mn-l^2-3m^2+3m+1)\\<br>= lm(n-m+1)-\frac{l}{3}(l^2-1)\\<br>\therefore (m, l) = lm(n-m+1)-\frac{l}{3}(l^2-1)\\<br>(ただし、l \leq m)<br>$$</p>
+<p>という一般式を得られました。</p>
+<h2 id="プログラムにしてみる">プログラムにしてみる</h2><p>今回はPythonで書いてみました。問題の$ 10000 \times 10000 $数列は「egypt.in」というファイルで与えられたので、それを読み込んで計算させます。</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">N</span> = 10000</span><br><span class="line">def formula(<span class="keyword">l</span>, <span class="keyword">m</span>):</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">l</span> * <span class="keyword">m</span> * (<span class="keyword">N</span> - <span class="keyword">m</span> + 1) - (<span class="keyword">l</span> * (pow(<span class="keyword">l</span>, 2) - 1)) / 3</span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">	# load <span class="keyword">input</span> <span class="literal">matrix</span></span><br><span class="line">	data = [item[:-2].<span class="keyword">split</span>(<span class="string">" "</span>) <span class="keyword">for</span> item <span class="keyword">in</span> <span class="keyword">open</span>(<span class="string">"egypt.in"</span>, <span class="string">"r"</span>)]</span><br><span class="line">	<span class="keyword">mat</span> = [[int(elm) <span class="keyword">for</span> elm <span class="keyword">in</span> v] <span class="keyword">for</span> v <span class="keyword">in</span> data]</span><br><span class="line"></span><br><span class="line">	# calc value</span><br><span class="line">	<span class="keyword">sum</span> = 0</span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> <span class="keyword">range</span>(0, <span class="keyword">N</span> / 2):</span><br><span class="line">		<span class="keyword">for</span> j <span class="keyword">in</span> <span class="keyword">range</span>(i, <span class="keyword">N</span> / 2):</span><br><span class="line">			coef = formula(i + 1, j + 1)</span><br><span class="line">			<span class="keyword">sum</span> += coef * (<span class="keyword">mat</span>[i][j] + <span class="keyword">mat</span>[i][<span class="keyword">N</span> - j - 1] + <span class="keyword">mat</span>[<span class="keyword">N</span> - i - 1][j] + <span class="keyword">mat</span>[<span class="keyword">N</span> - i - 1][<span class="keyword">N</span> - j - 1])</span><br><span class="line">			<span class="keyword">if</span> i != j:</span><br><span class="line">				<span class="keyword">sum</span> += coef * (<span class="keyword">mat</span>[j][i] + <span class="keyword">mat</span>[j][<span class="keyword">N</span> - i - 1] + <span class="keyword">mat</span>[<span class="keyword">N</span> - j - 1][i] + <span class="keyword">mat</span>[<span class="keyword">N</span> - j - 1][<span class="keyword">N</span> - i - 1])</span><br><span class="line"></span><br><span class="line">	# result</span><br><span class="line">	<span class="keyword">print</span> <span class="string">"result: %d"</span> % <span class="literal">sum</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">	main()</span><br></pre></td></tr></table></figure>
+<p>3分くらい待って出てきた答えがそのままFLAGでした。<br>この問題はAlgorithm: 300に分類されてました。</p>
+<h2 id="感想">感想</h2><ul>
+<li>解き方が良いかどうかはさておき、なかなか楽しかった(?)</li>
+<li>@koreander2001が神だった(以前にもCTFではない時に共に数学を鈍器にしたことがあり、その時も楽しかったし神だった)</li>
+<li>CTFもPythonもまだまだ未熟なので頑張ります</li>
+</ul>
+<p>以上です。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wassan128.github.io/blog/2016/05/22/" data-id="cioiagppo0000e0dopcn8u7eq" class="article-share-link">Share</a>
+      
+        <a href="http://wassan128.github.io/blog/2016/05/22/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/ctf/">ctf</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/math/">math</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/python/">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/blog/2016/04/03/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">図書館が開いてるか教えてくれるだけのbotを作った話</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Node-js/">Node.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ctf/">ctf</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/disqus/">disqus</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/git/">git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hexo/">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/math/">math</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/python/">python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/twitter/">twitter</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/blog/tags/ctf/" style="font-size: 10px;">ctf</a> <a href="/blog/tags/disqus/" style="font-size: 10px;">disqus</a> <a href="/blog/tags/git/" style="font-size: 15px;">git</a> <a href="/blog/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/blog/tags/math/" style="font-size: 10px;">math</a> <a href="/blog/tags/python/" style="font-size: 15px;">python</a> <a href="/blog/tags/twitter/" style="font-size: 10px;">twitter</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/05/">May 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/09/">September 2015</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2016/05/22/">ピラミッドに遊びに行ったら野生の10000次正方数列が現れた話</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2016/04/03/">図書館が開いてるか教えてくれるだけのbotを作った話</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2015/09/11/">Hexoでの記事の追加とコメント機能について</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2015/09/10/">Hexoで生成したブログをGitHub Pagesで公開するまで</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2015/09/08/">ブログはじめました</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 wassan128<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives/" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'wassan128';
+  
+  var disqus_url = 'http://wassan128.github.io/blog/2016/05/22/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/blog/js/script.js" type="text/javascript"></script>
+
+  </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+</html>
