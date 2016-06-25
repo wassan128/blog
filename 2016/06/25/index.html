@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>プレゼンへのコメントをリアルタイムにスライドの上に流す話 | クロワッサンは黒くない</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="あらすじ夏ですね、暑いですね。世間ではこの時期流しそうめんをやったりするのかもしれませんが、僕は手元にそうめんがないので、別の何かを流していきたいと思います。ということで、今回の記事は、プレゼンへのコメントをリアルタイムでスクリーンに流すツールを作って使ったメモです(某科目の学科紹介プレゼンにて使用)。
+プレゼン中にコメントを流すというアイデア自体は、1年か2年の頃に見た弊学での「ちびLT」という">
+<meta property="og:type" content="article">
+<meta property="og:title" content="プレゼンへのコメントをリアルタイムにスライドの上に流す話">
+<meta property="og:url" content="http://wassan128.github.io/blog/2016/06/25/index.html">
+<meta property="og:site_name" content="クロワッサンは黒くない">
+<meta property="og:description" content="あらすじ夏ですね、暑いですね。世間ではこの時期流しそうめんをやったりするのかもしれませんが、僕は手元にそうめんがないので、別の何かを流していきたいと思います。ということで、今回の記事は、プレゼンへのコメントをリアルタイムでスクリーンに流すツールを作って使ったメモです(某科目の学科紹介プレゼンにて使用)。
+プレゼン中にコメントを流すというアイデア自体は、1年か2年の頃に見た弊学での「ちびLT」という">
+<meta property="og:image" content="http://wassan128.github.io/blog/blog/2016/06/25/system_image.png">
+<meta property="og:image" content="http://wassan128.github.io/blog/blog/2016/06/25/test.png">
+<meta property="og:updated_time" content="2016-06-25T11:49:53.815Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="プレゼンへのコメントをリアルタイムにスライドの上に流す話">
+<meta name="twitter:description" content="あらすじ夏ですね、暑いですね。世間ではこの時期流しそうめんをやったりするのかもしれませんが、僕は手元にそうめんがないので、別の何かを流していきたいと思います。ということで、今回の記事は、プレゼンへのコメントをリアルタイムでスクリーンに流すツールを作って使ったメモです(某科目の学科紹介プレゼンにて使用)。
+プレゼン中にコメントを流すというアイデア自体は、1年か2年の頃に見た弊学での「ちびLT」という">
+  
+    <link rel="alternative" href="/blog/atom.xml" title="クロワッサンは黒くない" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+</head>
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">クロワッサンは黒くない</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/blog/" id="subtitle">とある高専生の備忘録的な何かになるかもしれない</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives/">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://wassan128.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-某先輩をリスペクトしてニコニコメソッドツールもどきを作った話" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2016/06/25/" class="article-date">
+  <time datetime="2016-06-25T11:16:02.000Z" itemprop="datePublished">2016-06-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      プレゼンへのコメントをリアルタイムにスライドの上に流す話
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="あらすじ">あらすじ</h2><p>夏ですね、暑いですね。世間ではこの時期流しそうめんをやったりするのかもしれませんが、僕は手元にそうめんがないので、別の何かを流していきたいと思います。ということで、今回の記事は、プレゼンへのコメントをリアルタイムでスクリーンに流すツールを作って使ったメモです(某科目の学科紹介プレゼンにて使用)。</p>
+<p>プレゼン中にコメントを流すというアイデア自体は、1年か2年の頃に見た弊学での「ちびLT」という勉強会(?)でとある先輩が開発・紹介していたものが元なので、オリジナルではないですが、自分でも作ってみたくなったのでやってみました。しかし、当時の先輩がどのように作ったのかわからなかったので、とりあえずいろいろ調べたり考えてやってみたので、その過程をメモします。ちなみに最終的にはComet(Python, JavaScript) on Adobe Airで良い感じにやりました。</p>
+<a id="more"></a>
+<h2 id="開発が始まるまでの流れ">開発が始まるまでの流れ</h2><p>くどいようですが、やりたいことは「PowerPointプレゼンテーションのスライド上を、聴衆のコメントが流れていく」ということです。したがって、</p>
+<ol>
+<li>聴衆がコメントを打ち込む画面</li>
+<li>コメントを画面上に流す何らかの仕組み</li>
+</ol>
+<p>の2つが必要になります。1については、ひとまず適当なwebアプリのページを作って、URLを黒板かスライドにでも書いてアクセスしてもらい、コメントを打ってもらえば良いか、という感じで後回しにし、2の方に先にとりかかりました。思いついた当初はだいぶ楽観的で、<br>「まあ、PowerPointだし、Excelみたいにマクロあるっしょ(おもむろにAlt + F11を押す)。ほらVBA書けるやん、良い感じにDOMのデータ取ってきてテキストオブジェクト作ってアニメーション当てれば行けるっしょ～」<br>と考えていた時期が僕にもありますた。実際、VBAではInternetExplorerを起動してDOMの操作もでき、さらにreadyState(サイトのロードステータス)を扱った処理もできるようでした(※1)。また、検索の途中で面白そうな資料も発見しました(※2、いつかVBAやらないといけなくなった時にまた見たい)。</p>
+<h2 id="でもやっぱり?">でもやっぱり?</h2><p>そうはいってもreadyStateにはブラウザによって実装のされ方が違うらしく、その影響なのかVBAから使う際の良さみが浅い感じでした。また、開発期間もあまり長くない状況で使い慣れない言語を使うよりは”い つ も の”でどうにかしたい気持ちが強くなり、その方向へ転換してグーグリングを継続しました。というかPowerPoint VBAとExcel VBAで若干言語仕様が違って、PPT VBAの資料が圧倒的に少ないのがだいぶ辛かったです。さて、ここからようやく開発本編です(僕の記事は前置きというか無駄話が長いことであまりにも有名)。</p>
+<h2 id="い_つ_も_の">い つ も の</h2><p>やっぱりWebベースで全部やりたくなるんですよ。その願いを叶えてくれたのが、「<strong>Adobe Air</strong>」でした。恥ずかしながら存在自体を今回の開発時まで知らず、「へーこんなのあるんだー」「Flashと何が違うんや…」「でもActionScriptで開発しないといけないんじゃないの…？」などいろいろ疑問がありました。実際はAir SDKをダウンロードすることで「HTML + JavaScript」で開発ができるので、VBAの沼にはまりかけた時に比べればだいぶ気は楽でした。後はやるだけ。<br>ただ当初WebSocketで通信できないかなと思ってたんですが、AirではWebSocketがサポートされておらず、独自のSocketAPIが…(※3)とあったので、今回はSocketを捨てて「Comet」方式で実装することにしました(逃げ)。以下の図は全体のイメージをまとめたものです。Cometでファイルの変更を監視し、変更差分を画面に投げます。</p>
+<img src="/blog/2016/06/25/system_image.png" alt="ユーザーからのインプットが画面を流れるまで" title="ユーザーからのインプットが画面を流れるまで">
+<h2 id="開発環境">開発環境</h2><p>OS: Windows7<br>言語: Python(2.7.11) + JavaScript(jquery(v1.12.4))</p>
+<h2 id="核となるコードを書く">核となるコードを書く</h2><p>PHP+JSでのCometの実装(※4)を参考に、ファイルの差分をJSONで返すPythonのコード(こんなのしか思いつかなかったのでもっと良い書き方あったら教えて下さい)。<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">prevLines = <span class="function"><span class="title">int</span><span class="params">(form[<span class="string">"prev"</span>].value)</span></span></span><br><span class="line">while True:</span><br><span class="line">	nowLines = <span class="function"><span class="title">sum</span><span class="params">(<span class="number">1</span> for line in open(LOGFILE)</span></span>)</span><br><span class="line">	<span class="keyword">if</span> prevLines != nowLines:</span><br><span class="line">		ret = []</span><br><span class="line">		<span class="keyword">for</span> <span class="tag">i</span> <span class="keyword">in</span> <span class="function"><span class="title">range</span><span class="params">(<span class="number">0</span>, nowLines - prevLines)</span></span>:</span><br><span class="line">			ret.<span class="function"><span class="title">append</span><span class="params">(linecache.getline(LOGFILE, nowLines - i)</span></span>)</span><br><span class="line">		break</span><br><span class="line">	<span class="tag">time</span>.<span class="function"><span class="title">sleep</span><span class="params">(<span class="number">1</span>)</span></span></span><br><span class="line"></span><br><span class="line">linecache.<span class="function"><span class="title">clearcache</span><span class="params">()</span></span></span><br><span class="line">print json.<span class="function"><span class="title">dumps</span><span class="params">(&#123;<span class="string">"ret"</span>: ret, <span class="string">"prev"</span>: nowLines&#125;)</span></span></span><br></pre></td></tr></table></figure></p>
+<p>と、それを投げたり良い感じにするJS側のコード。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> firstFlag = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">var</span> prev = <span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">cometCheck</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	$.ajax(&#123;</span><br><span class="line">		url: <span class="string">"./cgi/comet.py?prev="</span> + prev,</span><br><span class="line">		type: <span class="string">"get"</span></span><br><span class="line">	&#125;)</span><br><span class="line">	.done(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">		<span class="keyword">var</span> json = <span class="built_in">JSON</span>.parse(data);</span><br><span class="line">		prev = json.prev;</span><br><span class="line"></span><br><span class="line">		<span class="comment">//起動時にもログが読み込まれてくるが、それは表示しない</span></span><br><span class="line">		<span class="keyword">if</span> (firstFlag) &#123;</span><br><span class="line">			firstFlag = <span class="literal">false</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; (json.ret).length; i++) &#123;</span><br><span class="line">				nicoscreen.add(json.ret[i], <span class="string">"white"</span>, <span class="string">"48pt"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;)</span><br><span class="line">	.fail(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="comment">//do something</span></span><br><span class="line">	&#125;)</span><br><span class="line">	.always(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		cometCheck();</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>JSコード中のnicoscreen関数ですが、これはニコニココメント風に画面に文字を流すプログラム(※5)があったので拝借し、少し中身を改造して使わせていただきました。以下動作確認時のスクリーンショットです(左側が入力用のユーザーが見るページ、右側が拡張ディスプレイに表示したPowerPointスライドと、その上を流れるコメント)。</p>
+<img src="/blog/2016/06/25/test.png" alt="実際に使った入力画面からのコメントが、画面を流れる様子を確認" title="実際に使った入力画面からのコメントが、画面を流れる様子を確認">
+<h2 id="なにもないところを文字が流れているように見えるんだけど…？">なにもないところを文字が流れているように見えるんだけど…？</h2><p>これについてはAdobe Airの力でして、Airのアプリを書く際はまずxmlを書くんですが、その中でウィンドウを透明にしたり、フルスクリーンモードをオンにしたりなど設定ができます。また、詳しくはHTML + JavaScript開発者用ドキュメント(※6)を読めばわかりますが、簡潔に言うとSDKにJSを拡張するJSが入っていて、そいつを読み込んでやるとAirアプリのウィンドウを最前面に配置したりできます。</p>
+<h2 id="作ってみての感想など">作ってみての感想など</h2><p>最初からVBAじゃなくてWebの方法にあたりをつければよかった(VBAでしばらくはまり、Webベースに切り替えてから2～3日で作ったので)です。まあでもこんな機会でもなければVBA(ましてやPowerPoint VBA)を触る機会がない(ような気がする)ので良い経験にはなったかな、と思うようにしてます。<br>実際に使ってみて受けが良かったのかは正直よくわかりませんが、コメント書き込んでもらえて良かったです(誰もPC開いてない or コメント書いてくれないケースを想像すると…())。今後このツールを使う機会があるかは謎ですが、同じようなことをしようと考える方の参考に少しでもなれれば幸いです。以上です。</p>
+<h2 id="参考にさせていただいたサイト">参考にさせていただいたサイト</h2><p>※1 <a href="http://www.vba-ie.net/" target="_blank" rel="external">VBAのIE制御入門 | IE操作の自動化</a><br>※2 <a href="http://www.slideshare.net/satoshiohya/vba-62341558" target="_blank" rel="external">こじらせVBA - SlideShare</a><br>※3 <a href="http://help.adobe.com/ja_JP/air/html/dev/WSb2ba3b1aad8a27b0-67c0013e126afbe6c4d-8000.html" target="_blank" rel="external">Adobe&#160;Flash&#160;Platform * AIR でサポートされていない WebKit の機能</a><br>※4 <a href="http://rewish.jp/blog/tech/php_with_jquery_comet" target="_blank" rel="external">PHPとjQueryでCometっぽいモノを実装する</a><br>※5 <a href="http://labs.r9game.com/nicoscreen/" target="_blank" rel="external">NicoScreen.js：画像や動画の上に、ニコニコ動画のような文字を流すことが出来るjqueryプラグイン</a><br>※6 <a href="http://help.adobe.com/ja_JP/air/html/dev/index.html" target="_blank" rel="external">Adobe Air用HTML開発ガイド</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wassan128.github.io/blog/2016/06/25/" data-id="cipf7hvyh00002wdouttw176k" class="article-share-link">Share</a>
+      
+        <a href="http://wassan128.github.io/blog/2016/06/25/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/python/">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/blog/2016/05/22/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ピラミッドに遊びに行ったら野生の10000次正方数列が現れた話</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Node-js/">Node.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ctf/">ctf</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/disqus/">disqus</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/git/">git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hexo/">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/math/">math</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/python/">python</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/twitter/">twitter</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/blog/tags/ctf/" style="font-size: 10px;">ctf</a> <a href="/blog/tags/disqus/" style="font-size: 10px;">disqus</a> <a href="/blog/tags/git/" style="font-size: 15px;">git</a> <a href="/blog/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/blog/tags/math/" style="font-size: 10px;">math</a> <a href="/blog/tags/python/" style="font-size: 20px;">python</a> <a href="/blog/tags/twitter/" style="font-size: 10px;">twitter</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/05/">May 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/09/">September 2015</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2016/06/25/">プレゼンへのコメントをリアルタイムにスライドの上に流す話</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2016/05/22/">ピラミッドに遊びに行ったら野生の10000次正方数列が現れた話</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2016/04/03/">図書館が開いてるか教えてくれるだけのbotを作った話</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2015/09/11/">Hexoでの記事の追加とコメント機能について</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2015/09/10/">Hexoで生成したブログをGitHub Pagesで公開するまで</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 wassan128<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives/" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'wassan128';
+  
+  var disqus_url = 'http://wassan128.github.io/blog/2016/06/25/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/blog/js/script.js" type="text/javascript"></script>
+
+  </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>
