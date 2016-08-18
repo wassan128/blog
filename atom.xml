@@ -4,7 +4,7 @@
   <subtitle><![CDATA[とある高専生の備忘録的な何かになるかもしれない]]></subtitle>
   <link href="/blog/atom.xml" rel="self"/>
   <link href="http://wassan128.github.io/blog/"/>
-  <updated>2016-06-25T12:24:16.294Z</updated>
+  <updated>2016-08-18T13:25:22.000Z</updated>
   <id>http://wassan128.github.io/blog/</id>
   
   <author>
@@ -13,6 +13,45 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[x64マシンでpy2exeを使ってx86バイナリを吐き出した話]]></title>
+    <link href="http://wassan128.github.io/blog/2016/08/18/"/>
+    <id>http://wassan128.github.io/blog/2016/08/18/</id>
+    <published>2016-08-18T10:50:39.000Z</published>
+    <updated>2016-08-18T13:25:22.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="今回の記事(というかメモ)">今回の記事(というかメモ)</h2><p>pythonのコードをバイナリにできるのは知っていたが、実際に使ったことはなかったのでやってみた。手元のマシンはx64、pythonもx64用しかなかったので、このままではx64バイナリしか吐けない。そこで今回はx64マシンに新たにx86用pythonをインストールし、pythonコードからバイナリを吐き出すユーティリティである「py2exe」(もちろんx86用)を導入してx86バイナリを出力させる。</p>
+<a id="more"></a>
+<h2 id="py2exe導入手順">py2exe導入手順</h2><p>py2exeはpythonコードからWindows実行形式ファイル(以下、バイナリ)を出力するpythonのユーティリティである。導入にはインストーラを用いる。pipを使わない理由は、pipでインストールできるpy2exeはpython3対応のもののみだから(手元では現在python2.7を使用している)。<br>インストーラは<a href="https://sourceforge.net/projects/py2exe/files/py2exe/" target="_blank" rel="external">ここ</a>から入手する。適当なバージョンを選択し、ダウンロード、インストールを行う。この時、x64のpythonしかない環境でx86のpy2exeをインストールしようとすると、「Python version 2.x required, which was not found in the registry」という感じのエラーが出る。手元にはpython2.7(x64)しかインストールされていないため、レジストリの参照に失敗していると考えられる。これは<a href="https://www.python.org/download/releases/2.7/" target="_blank" rel="external">x86のpythonをダウンロード、インストール</a>することで解決する。バージョンは2.7で揃えた(特に意味は無いが)。ちゃんと見つかるとこんな感じの画面になる(図1)。あとは通常通りインストールを行えば良い。</p>
+<img src="/blog/2016/08/18/py2exe_x86python_found.png" alt="py2exeインストール正常進行の途中画面" title="py2exeインストール正常進行の途中画面">
+<h2 id="使ってみる">使ってみる</h2><p>py2exeでバイナリを吐き出すには次の手順を踏む。</p>
+<ol>
+<li>バイナリにしたいpythonのコードを書く</li>
+<li>setup.pyを書く</li>
+<li>バイナリを出力</li>
+</ol>
+<p>(1)はそのまま。(2)のsetup.pyだが、py2exeではバイナリ出力のオプションなどをこのファイル内に記述しなければならない。具体的には、<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> distutils.core <span class="keyword">import</span> setup</span><br><span class="line"><span class="keyword">import</span> py2exe</span><br><span class="line"></span><br><span class="line">option = &#123;</span><br><span class="line">        <span class="string">"compressed"</span>:	<span class="keyword">True</span>,</span><br><span class="line">        <span class="string">"optimize"</span>:	<span class="number">2</span>,</span><br><span class="line">        <span class="string">"bundle_files"</span>:	<span class="number">2</span></span><br><span class="line">&#125;</span><br><span class="line">setup(</span><br><span class="line">        options = &#123;</span><br><span class="line">                <span class="string">"py2exe"</span>:       option</span><br><span class="line">        &#125;,</span><br><span class="line">        console = [</span><br><span class="line">                &#123;<span class="string">"script"</span>:      <span class="string">"test.py"</span>&#125;</span><br><span class="line">        ],</span><br><span class="line">        zipfile = <span class="keyword">None</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
+<p>このように。「option」では出力圧縮の有無(compressed[True|False])、最適化の有無(optimize[0|1|2])、ランタイムDLLを含めるか(bundle_files[1|2])を指定できる。「console」では対象のpythonコードを指定する(test.pyの部分は適宜変更)。Zipファイルを生成する場合は「zipfile」にファイル名を指定する。他にも除外するDLLのオプション指定などができるらしいが、今回は試していない。<br>setup.pyの記述が終わったら(3)実行。<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python setup<span class="class">.py</span> py2exe</span><br></pre></td></tr></table></figure></p>
+<p>これでdistディレクトリ内にバイナリが出力されているのが確認できるはずである。fileコマンドで確認してみると、<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ file test<span class="class">.exe</span></span><br><span class="line">test<span class="class">.exe</span>: PE32 executable (console) Intel <span class="number">80386</span>, <span class="keyword">for</span> MS Windows</span><br></pre></td></tr></table></figure></p>
+<p>x86バイナリが出力できている。<br>なお、zipfileがNoneの状態でbunfle_filesが1(ランタイムDLLを含める)だと、Runtime Errorが出てバイナリが生成できなかった。zipfileに適当なファイル名を指定するか、bundle_filesを2(含めない)として実行すればエラー自体は消えるがスタンドアロンのバイナリは出力できなかった。</p>
+<h2 id="出力されたバイナリ">出力されたバイナリ</h2><p>今回バイナリを出力したpythonコードは<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="built_in">print</span> <span class="string">"Hello, World!"</span></span><br></pre></td></tr></table></figure></p>
+<p>これだけ。IDA Pro Free(x86バイナリを出力したかった理由の一つ)で開いてStringsタブを確認してみる。が、Hello, Worldの文字列は見当たらない。VM上のLinuxで<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings test.<span class="keyword">exe</span> | <span class="keyword">grep</span> Hello</span><br></pre></td></tr></table></figure></p>
+<p>を実行すると「Hello, World(」の文字が出力される。知識不足でなぜIDAのstringsでは確認できないのかわからなかった。</p>
+<h2 id="最後に">最後に</h2><p>ランタイムDLLを含めるオプションで実行したにも関わらずスタンドアロンバイナリを出力できなかった。x86バイナリになったことでIDA Pro Freeでファイルを開けたのは良かったものの、出力されたバイナリの構造が知識不足でよくわからず…。バイナリ力がまだまだ足りないので、これからも精進したい。py2exeでのバイナリ出力はこれから活用していくか正直まだわからないが、一つメモとして残しておきたかったので記事に残した。</p>
+<h2 id="参考資料">参考資料</h2><ul>
+<li><a href="http://cocodrips.hateblo.jp/entry/2015/06/03/232419" target="_blank" rel="external">py2exeでPythonのスクリプトを実行ファイル(exe)にする【py2exe】</a></li>
+<li><a href="http://code.activestate.com/lists/python-announce-list/9973/" target="_blank" rel="external">py2exe for Python 3 released</a></li>
+<li><a href="http://www.python.jp/Zope/Zope/articles/tips/py2exe" target="_blank" rel="external">Python スクリプトからスタンドアロンのWindowsプログラムへの変換</a></li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="今回の記事(というかメモ)">今回の記事(というかメモ)</h2><p>pythonのコードをバイナリにできるのは知っていたが、実際に使ったことはなかったのでやってみた。手元のマシンはx64、pythonもx64用しかなかったので、このままではx64バイナリしか吐けない。そこで今回はx64マシンに新たにx86用pythonをインストールし、pythonコードからバイナリを吐き出すユーティリティである「py2exe」(もちろんx86用)を導入してx86バイナリを出力させる。</p>]]>
+    
+    </summary>
+    
+      <category term="python" scheme="http://wassan128.github.io/blog/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[プレゼンへのコメントをリアルタイムにスライドの上に流す話]]></title>
