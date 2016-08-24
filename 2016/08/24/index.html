@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>VirusTotalでのファイルスキャン結果をRaspberry Piに喋ってもらう話 | クロワッサンは黒くない</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="概要ふと、VirusTotalでAPIが提供されていたことを思い出し、なんとなく叩こうという気持ちが高まったのがきっかけです。しかしただ触るだけでは面白く無いので、今回は帰ってきた結果を喋らせてみようかなと独り言を放ちました。すると、昔々某企業様から某イベントの某賞で頂いたRaspberry Pi(Model B)が仲間になりたそうな目でこちらを見てきたので、喋ってもらうことにしました。なお、プロ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VirusTotalでのファイルスキャン結果をRaspberry Piに喋ってもらう話">
+<meta property="og:url" content="http://wassan128.github.io/blog/2016/08/24/index.html">
+<meta property="og:site_name" content="クロワッサンは黒くない">
+<meta property="og:description" content="概要ふと、VirusTotalでAPIが提供されていたことを思い出し、なんとなく叩こうという気持ちが高まったのがきっかけです。しかしただ触るだけでは面白く無いので、今回は帰ってきた結果を喋らせてみようかなと独り言を放ちました。すると、昔々某企業様から某イベントの某賞で頂いたRaspberry Pi(Model B)が仲間になりたそうな目でこちらを見てきたので、喋ってもらうことにしました。なお、プロ">
+<meta property="og:updated_time" content="2016-08-24T09:45:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="VirusTotalでのファイルスキャン結果をRaspberry Piに喋ってもらう話">
+<meta name="twitter:description" content="概要ふと、VirusTotalでAPIが提供されていたことを思い出し、なんとなく叩こうという気持ちが高まったのがきっかけです。しかしただ触るだけでは面白く無いので、今回は帰ってきた結果を喋らせてみようかなと独り言を放ちました。すると、昔々某企業様から某イベントの某賞で頂いたRaspberry Pi(Model B)が仲間になりたそうな目でこちらを見てきたので、喋ってもらうことにしました。なお、プロ">
+  
+    <link rel="alternative" href="/blog/atom.xml" title="クロワッサンは黒くない" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+</head>
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">クロワッサンは黒くない</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/blog/" id="subtitle">とある高専生の備忘録的な何かになるかもしれない</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives/">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://wassan128.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-VirusTotalでのファイルスキャン結果をRaspberry-Piに喋ってもらう話" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2016/08/24/" class="article-date">
+  <time datetime="2016-08-24T07:47:59.000Z" itemprop="datePublished">2016-08-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      VirusTotalでのファイルスキャン結果をRaspberry Piに喋ってもらう話
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">喋るraspberry piです。 <a href="https://t.co/IF1PRYHnJy">pic.twitter.com/IF1PRYHnJy</a></p>&mdash; わっさん (@wassan128) <a href="https://twitter.com/wassan128/status/768416472401969152">2016年8月24日</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    
+        <h2 id="概要">概要</h2><p>ふと、<a href="https://www.virustotal.com/ja/" target="_blank" rel="external">VirusTotal</a>でAPIが提供されていたことを思い出し、なんとなく叩こうという気持ちが高まったのがきっかけです。しかしただ触るだけでは面白く無いので、今回は帰ってきた結果を喋らせてみようかなと独り言を放ちました。すると、昔々某企業様から某イベントの某賞で頂いたRaspberry Pi(Model B)が仲間になりたそうな目でこちらを見てきたので、喋ってもらうことにしました。なお、プログラミング言語にはPythonを、音声合成には<a href="http://komeisugiura.jp/software/software_jp.html" target="_blank" rel="external">非モノローグ音声合成</a>を用いました。</p>
+<a id="more"></a>
+<h2 id="VirusTotal_APIについて">VirusTotal APIについて</h2><p>VirusTotalにファイルを投げると、50個くらいのウイルス対策ソフトでファイルをスキャンしてくれます。そのAPIを叩いていくということになりますが、提供されている機能は</p>
+<ol>
+<li>ファイルを投げる(スキャンキューに追加、スキャン実施。制限は4個/分。)</li>
+<li>スキャン結果レポートの受信</li>
+<li>過去にスキャンしたことのあるファイルの再スキャン</li>
+</ol>
+<p>と言った感じ(他にもあるので興味のある方は<a href="https://www.virustotal.com/ja/documentation/public-api" target="_blank" rel="external">公式ドキュメント</a>を読むと良いと思います)。レスポンスはJSON形式でくれるので、良い感じにパースしてやれば良いです。今回は1, 2を使ってファイルを投げる→結果をパースして喋らせることをやります。<br>基本的にはドキュメントに書いてあるとおりに通りにやったので、ハマりどころはほとんどありませんでした。</p>
+<h2 id="ステップ1-ファイルを投げる">ステップ1.ファイルを投げる</h2><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http<span class="variable">s:</span>//www.virustotal.<span class="keyword">com</span>/vtapi/v2/<span class="keyword">file</span>/scan</span><br></pre></td></tr></table></figure>
+<p>にファイルを送ります。ドキュメントにも書いてありますが、multipart/form-dataを転送するコードを先人が用意してくださっているので、利用します。なお、httpsでリクエストするように先人のコードに手を加えておかないと、「Bad Request」と怒られてしまうのでここだけ気をつけます。<br>今回は先人のコードをクラス化してimportして利用しました。それ以外はほぼドキュメント通りです。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> postfile</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">post_bin</span><span class="params">(target)</span>:</span></span><br><span class="line">	pf = postfile.postfile()</span><br><span class="line">	host = <span class="string">"www.virustotal.com"</span></span><br><span class="line">	selector = <span class="string">"https://www.virustotal.com/vtapi/v2/file/scan"</span></span><br><span class="line">	fields = [(<span class="string">"apikey"</span>, APIKEY)]</span><br><span class="line">	file_to_send = open(target, <span class="string">"rb"</span>).read()</span><br><span class="line">	files = [(<span class="string">"file"</span>, target, file_to_send)]</span><br><span class="line">	sent = pf.post_multipart(host, selector, fields, files)</span><br><span class="line">	<span class="keyword">return</span> sent</span><br></pre></td></tr></table></figure></p>
+<p>sentにはファイル送信に対するレスポンスが入ります。レスポンスは<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	"<span class="attribute">scan_id</span>": <span class="value"><span class="string">"SCAN\_HASH"</span></span>,</span><br><span class="line">	"<span class="attribute">sha1</span>": <span class="value"><span class="string">"SHA1_HASH"</span></span>,</span><br><span class="line">	"<span class="attribute">resource</span>": <span class="value"><span class="string">"RESOURCE_HASH"</span></span>,</span><br><span class="line">	"<span class="attribute">response_code</span>": <span class="value"><span class="number">1</span></span>,</span><br><span class="line">	"<span class="attribute">sha256</span>": <span class="value"><span class="string">"SHA256_HASH"</span></span>,</span><br><span class="line">	"<span class="attribute">permalink</span>": <span class="value"><span class="string">"PERMALINK"</span></span>,</span><br><span class="line">	 "<span class="attribute">md5</span>": <span class="value"><span class="string">"MD5_HASH"</span></span>,</span><br><span class="line">	 "<span class="attribute">verbose_msg</span>": <span class="value"><span class="string">"Scan request successfully queued, come back later for the report"</span></span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure></p>
+<p>という形式で、この中の<strong>“scan_id”</strong>キーに対応する値を使って結果レポートを取得していきます。帰ってきているJSONレスポンスのキー順序が若干ドキュメントに示されているものと前後しているのは気にしない方針でやっていきます(特に困らないので)。</p>
+<h2 id="ステップ2-結果レポートの受信">ステップ2.結果レポートの受信</h2><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http<span class="variable">s:</span>//www.virustotal.<span class="keyword">com</span>/vtapi/v2/<span class="keyword">file</span>/report</span><br></pre></td></tr></table></figure>
+<p>に取得したスキャンIDを添えてリクエストを投げます。といっても送信後すぐにレポートが見られるわけではなくて、VirusTotalでのファイルスキャンにはある程度の時間(2~5分くらい?)を要します。ので、スキャンが完了してからレポートをパースするような設計にすれば良いです。スキャンが終了しているかどうかは、レスポンスJSON内の<strong>“response_code”</strong>で識別できます。このキーに対応する値が-2の時はまだスキャン中なので、その間は大人しく待ちます。今回は1待ち間隔を30秒にしましたが、本家では確か5秒に一回更新していたので、もう少し短くても良いかもわかりません。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">read_report</span><span class="params">(sent)</span>:</span></span><br><span class="line">	r = json.loads(sent)</span><br><span class="line">	<span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">		url = <span class="string">"https://www.virustotal.com/vtapi/v2/file/report"</span></span><br><span class="line">		parameters = &#123;</span><br><span class="line">			<span class="string">"resource"</span>: r[<span class="string">"scan_id"</span>], <span class="comment"># ここでscan_idを指定する</span></span><br><span class="line">			<span class="string">"apikey"</span>: APIKEY</span><br><span class="line">		&#125;</span><br><span class="line">		data = urllib.urlencode(parameters)</span><br><span class="line">		req = urllib2.Request(url, data)</span><br><span class="line">		res = urllib2.urlopen(req)</span><br><span class="line">		j = json.loads(res.read())</span><br><span class="line"></span><br><span class="line">		<span class="comment"># レスポンスコードが-2の間は気長に待つ心が大事です</span></span><br><span class="line">		<span class="keyword">if</span> j[<span class="string">"response_code"</span>] != -<span class="number">2</span>:</span><br><span class="line">			<span class="keyword">break</span></span><br><span class="line">		<span class="keyword">else</span>:</span><br><span class="line">			<span class="keyword">print</span> <span class="string">"still work..."</span></span><br><span class="line">			time.sleep(<span class="number">30</span>) <span class="comment"># 30秒後にもう一回リクエストを投げる(連投防止)</span></span><br><span class="line">	<span class="keyword">return</span> j</span><br></pre></td></tr></table></figure></p>
+<h2 id="ステップ3-_結果をパースして音声合成する">ステップ3. 結果をパースして音声合成する</h2><p>ここまでで検知結果のJSONが取得できているはずなので、結果を元に音声合成をします。音声合成の部分もサンプルコードとして提示されているものをそのまま使えば良いです(今回ほとんどコード書いてない!w)。base64エンコードされたwav音声が手に入ります。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">voice</span><span class="params">(message)</span>:</span></span><br><span class="line">	tts_url =<span class="string">"http://rospeex.ucri.jgn-x.jp/nauth_json/jsServices/VoiceTraSS"</span></span><br><span class="line">	tts_command = &#123;</span><br><span class="line">		<span class="string">"method"</span>:<span class="string">"speak"</span>,</span><br><span class="line">		<span class="string">"params"</span>: [</span><br><span class="line">			<span class="string">"1.1"</span>,</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="string">"language"</span>: <span class="string">"ja"</span>,</span><br><span class="line">				<span class="string">"text"</span>: message,</span><br><span class="line">				<span class="string">"voiceType"</span>: <span class="string">"*"</span>,</span><br><span class="line">				<span class="string">"audioType"</span>: <span class="string">"audio/x-wav"</span>&#125;]&#125;</span><br><span class="line"></span><br><span class="line">	obj_command = json.dumps(tts_command)</span><br><span class="line">	req = urllib2.Request(tts_url, obj_command)</span><br><span class="line">	received = urllib2.urlopen(req).read()</span><br><span class="line">	 </span><br><span class="line">	obj_received = json.loads(received)</span><br><span class="line">	tmp = obj_received[<span class="string">'result'</span>][<span class="string">'audio'</span>]</span><br><span class="line">	speech = base64.decodestring(tmp.encode(<span class="string">'utf-8'</span>))</span><br><span class="line"></span><br><span class="line">	f = open (<span class="string">"out.wav"</span>,<span class="string">'wb'</span>)</span><br><span class="line">	f.write(speech)</span><br><span class="line">	f.close</span><br></pre></td></tr></table></figure></p>
+<p>引数のmessageは<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># "positives"の値 =&gt; ウイルス対策ソフトによる陽性反応の数</span></span><br><span class="line"><span class="comment"># "total"の値 =&gt; ファイルスキャンを実施したウイルス対策ソフトの合計数</span></span><br><span class="line"><span class="keyword">if</span> result[<span class="string">"positives"</span>] &gt; <span class="number">0</span>:</span><br><span class="line">	voice(<span class="string">"%d個中%d個のウイルス対策ソフトがマルウェアと判定しました！"</span> % (result[<span class="string">"total"</span>], result[<span class="string">"positives"</span>]))</span><br><span class="line">	<span class="keyword">print</span> <span class="string">"malware detected."</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">	voice(<span class="string">"危険なソフトウェアではない可能性が高いと判定されました。"</span>)</span><br><span class="line">	<span class="keyword">print</span> <span class="string">"maybe it's benign."</span></span><br></pre></td></tr></table></figure></p>
+<p>こんな感じで決めてやります。</p>
+<h2 id="ステップ4-_喋らせる">ステップ4. 喋らせる</h2><p>やっと喋らせるターンです。ステップ3でwavファイルが手に入っているので、雑ですが<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line">os.<span class="function"><span class="title">system</span><span class="params">(<span class="string">"aplay out.wav"</span>)</span></span></span><br></pre></td></tr></table></figure></p>
+<p>で再生してしまいます。aplayはCUI上で音声再生を行えるものです。やるだけ感が半端ないのですが、今回ラズパイが久々の起動だったからかrpi-update, apt-get update/upgrade周りが失敗したらしく、aplayやamixer, alsamixerといったツール群がすべて使用不能になり、やむなくraspbian OSの再インストール・設定を行いました(ここで一番時間溶かした)。OS再インストール後は普通に再生ができました。</p>
+<h2 id="おわりに">おわりに</h2><p>今回はRaspberr Piを長き封印から解き放ち、言葉を喋らせることをやりました。VirusTotal本家でファイルを投げてブラウザの画面が忙しく更新され、無機質なレポート(失礼)が表示されるのを待つよりも、待っている間のわくわく感が高まった感じがあります(※個人差が有ります)。ラズパイを採択した理由は本当になんとなくでしたが、今回使用したNICTの音声合成エンジンが元々ROS向けに開発されたもの(らしい)なので、せっかくだしPCではなくこれで、と言った理由がないわけでもないです。まあしかしラズパイの特徴を活かせているかと言われるとう～んという感じなので、個人的には今度はロボットとか作ってみたいです。</p>
+<h2 id="参考資料">参考資料</h2><ul>
+<li><a href="https://www.virustotal.com/ja/documentation/public-api" target="_blank" rel="external">VirusTotal Public API v2.0(https://www.virustotal.com/ja/documentation/public-api)</a></li>
+<li><a href="http://code.activestate.com/recipes/146306/" target="_blank" rel="external">Http client to POST using multipart/form-data (Python recipe)(http://code.activestate.com/recipes/146306/)</a></li>
+<li><a href="http://qaoverflow.com/question/virus-total-api-bad-request-malformed-or-illegal-request/" target="_blank" rel="external">Virus Total API – Bad Request; Malformed or Illegal Request(http://qaoverflow.com/question/virus-total-api-bad-request-malformed-or-illegal-request/)</a></li>
+<li><a href="http://linux.die.net/man/1/aplay" target="_blank" rel="external">aplay(1) - Linux man page(http://linux.die.net/man/1/aplay)</a></li>
+<li><a href="http://komeisugiura.jp/software/software_jp.html" target="_blank" rel="external">KOMEI SUGIURA(非モノローグ音声合成)(http://komeisugiura.jp/software/software_jp.html)</a></li>
+<li><a href="https://sites.google.com/site/semilleroadt/home/raspberry-pi" target="_blank" rel="external">Raspberry-Pi Enable Sound(https://sites.google.com/site/semilleroadt/home/raspberry-pi)</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wassan128.github.io/blog/2016/08/24/" data-id="cis8tu3zg000008do0nmprbgr" class="article-share-link">Share</a>
+      
+        <a href="http://wassan128.github.io/blog/2016/08/24/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/malware/">malware</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/raspberry-pi/">raspberry pi</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/blog/2016/08/18/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">x64マシンでpy2exeを使ってx86バイナリを吐き出した話</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Node-js/">Node.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ctf/">ctf</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/disqus/">disqus</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/git/">git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hexo/">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/malware/">malware</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/math/">math</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/python/">python</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/raspberry-pi/">raspberry pi</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/twitter/">twitter</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/blog/tags/ctf/" style="font-size: 10px;">ctf</a> <a href="/blog/tags/disqus/" style="font-size: 10px;">disqus</a> <a href="/blog/tags/git/" style="font-size: 13.33px;">git</a> <a href="/blog/tags/hexo/" style="font-size: 16.67px;">hexo</a> <a href="/blog/tags/malware/" style="font-size: 10px;">malware</a> <a href="/blog/tags/math/" style="font-size: 10px;">math</a> <a href="/blog/tags/python/" style="font-size: 20px;">python</a> <a href="/blog/tags/raspberry-pi/" style="font-size: 10px;">raspberry pi</a> <a href="/blog/tags/twitter/" style="font-size: 10px;">twitter</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/08/">August 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/05/">May 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/09/">September 2015</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2016/08/24/">VirusTotalでのファイルスキャン結果をRaspberry Piに喋ってもらう話</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2016/08/18/">x64マシンでpy2exeを使ってx86バイナリを吐き出した話</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2016/06/25/">プレゼンへのコメントをリアルタイムにスライドの上に流す話</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2016/05/22/">ピラミッドに遊びに行ったら野生の10000次正方数列が現れた話</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2016/04/03/">図書館が開いてるか教えてくれるだけのbotを作った話</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 wassan128<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives/" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'wassan128';
+  
+  var disqus_url = 'http://wassan128.github.io/blog/2016/08/24/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/blog/js/script.js" type="text/javascript"></script>
+
+  </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>
