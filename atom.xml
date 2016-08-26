@@ -4,7 +4,7 @@
   <subtitle><![CDATA[とある高専生の備忘録的な何かになるかもしれない]]></subtitle>
   <link href="/blog/atom.xml" rel="self"/>
   <link href="http://wassan128.github.io/blog/"/>
-  <updated>2016-08-26T11:20:35.469Z</updated>
+  <updated>2016-08-26T11:24:07.324Z</updated>
   <id>http://wassan128.github.io/blog/</id>
   
   <author>
@@ -15,11 +15,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[Windows Media Playerの見た目を1ph0n3にする話]]></title>
+    <title><![CDATA[Windows Media Playerのスキンを作る話]]></title>
     <link href="http://wassan128.github.io/blog/2016/08/26/"/>
     <id>http://wassan128.github.io/blog/2016/08/26/</id>
     <published>2016-08-26T07:01:34.000Z</published>
-    <updated>2016-08-26T11:20:35.469Z</updated>
+    <updated>2016-08-26T11:24:07.324Z</updated>
     <content type="html"><![CDATA[<h2 id="概要">概要</h2><p>Windows Media Player(以下、WMP)はスキンを何らかの手段で入手して、自分の好きな見た目に変更することができます。もちろん自分で作ることもでき、xml/javascriptを用いて比較的簡単にできるので、やっていきます。僕はn年前にiphon…1ph0n3の4sをモデルにしたものを作ったことがあり、今回はそれをip..1ph0n3の5sモデルで作りなおそうと思います。なぜ6系ではないかというと僕の携帯が5sだからです(どうでもいい)。ちなみに作ったものはできればここでダウンロードできるようにしたいのですが、現在著作権利用(林檎社公式音楽再生アプリのスクショを使用しており、著作権利用ガイドラインを読んだ感じ大丈夫ではあると思うが念のため)に関する確認の途中なので、ダウンロードファイルの設置はそこら辺が明確になり次第ということにします。では、やっていきます。</p>
 <a id="more"></a>
 <h2 id="WMP_Skinについて">WMP Skinについて</h2><p>世の中の大半のスキン内部はおおよそ以下のようなファイル構成になって(いると思)います。</p>
