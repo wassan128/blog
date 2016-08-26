@@ -607,10 +607,12 @@ a.article-title:hover {
 }
 .article-entry img,
 .article-entry video {
-  max-width: 100%;
+  max-width: 70%;
   height: auto;
   display: block;
   margin: auto;
+  -webkit-box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
 }
 .article-entry iframe {
   border: none;
