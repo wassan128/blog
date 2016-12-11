@@ -4,7 +4,7 @@
   <subtitle><![CDATA[とある高専生の備忘録的な何かになるかもしれない]]></subtitle>
   <link href="/blog/atom.xml" rel="self"/>
   <link href="http://wassan128.github.io/blog/"/>
-  <updated>2016-12-11T13:33:18.370Z</updated>
+  <updated>2016-12-11T13:45:59.646Z</updated>
   <id>http://wassan128.github.io/blog/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://wassan128.github.io/blog/2016/12/11/"/>
     <id>http://wassan128.github.io/blog/2016/12/11/</id>
     <published>2016-12-11T08:45:36.000Z</published>
-    <updated>2016-12-11T13:33:18.370Z</updated>
+    <updated>2016-12-11T13:45:59.646Z</updated>
     <content type="html"><![CDATA[<h2 id="概要">概要</h2><p>2016/12/10 15：00～の24時間、SECCON 2016 online CTF(オンライン予選)が開催されました。私はチームEanbai(先輩、同級生、私の三人)として初参加を果たし、チーム得点は500点、順位は1834チーム中159位で終えました。<br>ちなみに12月10日は<a href="http://www.city.nago.okinawa.jp/9/8944.html" target="_blank" rel="external">やんばるツーデーマーチ</a>というウォーキングイベントも開催されていて、例年通り私は40kmコースに友人たちと4：00～15：30まで参加してからのSECCONログインだったので身体も頭もくたくたになりましたが、どちらも楽しかったです。<br>では早速、解けた問題のWriteupをば。</p>
 <img src="/blog/2016/12/11/eanbai.png" alt="Eanbaiで参加しました" title="Eanbaiで参加しました">
 <a id="more"></a>
@@ -56,6 +56,7 @@
 <p>Flag: SECCON{_h3110_w3_h4ve_fun<em>w4rg4m3</em>}</p>
 <h2 id="その他取り組んだ問題1:_VoIP(Forensics_-_100)">その他取り組んだ問題1: VoIP(Forensics - 100)</h2><p>pcapファイルが渡されて、中にVoIP電話の音声パケットデータが入っているので、それを聞き取る問題。これはEnglishをlistenする問題で英語パーフェクトマスター!wの私は「余裕やんけ」と言いながら聞き取った「SECCON{9001IBR}」をポストするも無残に散りました。正しいフラグは「SECCON{9001I<strong>V</strong>R}」。チームメンバーの先輩が無事得点してくれました。良かったです。</p>
 <h2 id="その他取り組んだ問題2:_PNG_over_Telegraph(Crypto_-_300)">その他取り組んだ問題2: PNG over Telegraph(Crypto - 300)</h2><p>愉快な動きをするSECCON TOWER(<a href="https://www.youtube.com/watch?v=Y6voaURtKlM&amp;feature=youtu.be" target="_blank" rel="external">YouTubeへのリンク</a>)の動きからアルファベットを読み出して、その結果をどうにかデコードしてPNGファイルを出力する問題。最初の趣旨説明部分で21文字(ただし.(ピリオド)含む)がわかるように説明してくれていて、それを表にまとめるとその他のわかっていない6文字もなんとなく推察できるようになっていました。ただ、とにかく動画が長くて、色々しんどい問題だ…ってなったところで解くのをやめてしまいました。面白かったので時間があったらやってみようかなという感じです。</p>
+<img src="/blog/2016/12/11/pngovertel.png" alt="対応表を作っていた。赤文字部分は冒頭の英文に出てこなかったために判明しなかったので予想した文字" title="対応表を作っていた。赤文字部分は冒頭の英文に出てこなかったために判明しなかったので予想した文字">
 <h2 id="まとめ">まとめ</h2><p>上に挙げた以外の問題もいくつか触ったりしましたが、pwnの問題もflag.txtという文字がスタック上に見えるのに手が届かない、そういう感じで悔しかったです。あとWeb問も解けなかったので、この辺できるようになりたいなと思いました。</p>
 <h2 id="そういえば">そういえば</h2><p>来週は<a href="http://www.security-camp.org/minicamp/okinawa2016.html" target="_blank" rel="external">セキュリティミニキャンプ in 沖縄</a>ですね。</p>
 <p>以上です。</p>
