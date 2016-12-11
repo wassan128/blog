@@ -87,45 +87,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="概要">概要</h2><p>2016/12/10 15：00～の24時間、SECCON 2016 online CTF(オンライン予選)が開催されました。私はチームEanbai(先輩、同級生、私の三人)として初参加を果たし、チーム得点は500点、順位は159位で終えました。<br>ちなみに12月10日は<a href="http://www.city.nago.okinawa.jp/9/8944.html" target="_blank" rel="external">やんばるツーデーマーチ</a>というウォーキングイベントも開催されていて、例年通り私は40kmコースに友人たちと4：00～15：30まで参加してからのSECCONログインだったので身体も頭もくたくたになりましたが、どちらも楽しかったです。<br>では早速、解けた問題のWriteupをば。</p>
+        <h2 id="概要">概要</h2><p>2016/12/10 15：00～の24時間、SECCON 2016 online CTF(オンライン予選)が開催されました。私はチームEanbai(先輩、同級生、私の三人)として初参加を果たし、チーム得点は500点、順位は159位で終えました。<br>ちなみに12月10日は<a href="http://www.city.nago.okinawa.jp/9/8944.html">やんばるツーデーマーチ</a>というウォーキングイベントも開催されていて、例年通り私は40kmコースに友人たちと4：00～15：30まで参加してからのSECCONログインだったので身体も頭もくたくたになりましたが、どちらも楽しかったです。<br>では早速、解けた問題のWriteupをば。</p>
 <img src="/blog/2016/12/11/eanbai.png" alt="Eanbaiで参加しました" title="Eanbaiで参加しました">
-<h2 id="Anti-Debugging(Binary_-_100)">Anti-Debugging(Binary - 100)</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Anti-Debugging&#10;Reverse it.</span><br></pre></td></tr></table></figure>
-<p>シンプルな問題文にbinというファイルが添えられていました。fileコマンドで何のファイルなのか確認すると</p>
-<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ file</span><br><span class="line"><span class="function">bin: <span class="title">PE32</span> <span class="title">executable</span> (<span class="title">console</span>) <span class="title">Intel</span> 80386, <span class="title">for</span> <span class="title">MS</span> <span class="title">Windows</span></span></span><br></pre></td></tr></table></figure>
-<p>とのことだったので、ひとまず拡張子をexeに変えて実行します。すると、「Input password &gt;」と表示されて入力待ち状態になります。適当に「hogehoge」とか打つと「password is wrong.」と怒られてしまうので、ひとまず次の手順に従ってパスワードを入手しました。</p>
-<ol>
-<li>「Input password &gt;」をセットしている部分のアドレスを確認</li>
-<li>ollydbgで1で調べたアドレスにブレークポイントをセット</li>
-<li>ステップ実行していき、入力値を検査している箇所に来たらレジスタの値を確認</li>
-</ol>
-<p>1はIDAで確認しました。この時ついでにIDAが吐いてくれるアセンブリのグラフビューを眺めてbinがどのようなプログラムになっているのか、大きなプログラムでもなかったので大まかに把握しました。2、3までやったところで、パスワードが「I have a pen.」であることがわかりました。流行を抑えていくスタイルなんですね。正しいパスワードがわかったのでもう一度プログラムを(デバッガ無しで)普通に起動して打ち込んでやると今度は「Your password is correct.」と言われてプログラムは終了します。やったぜ！…ところでフラグは?デバッガでどうなっているのかもう一度見ていきます。</p>
-<img src="/blog/2016/12/11/obtain_password.png" alt="パスワードは「I have a pen.」" title="パスワードは「I have a pen.」">
-<p>そして、ここから問題名にもある通りAnti-debugとの戦いになります。ollydbgで掴んだ状態でもう一度I have a pen.を唱えると今度は「But detected debugger!」とも言われるようになりました。該当部分のコードを確認すると、どうやらIsDebuggerPresent関数を使って自分自身がデバッガに掴まれていることを検知してフラグを守っている健気な姿が見られました。</p>
-<img src="/blog/2016/12/11/ntglobalflag.png" alt="NtGlobalFlag" title="NtGlobalFlag">
-<p>これを突破するためにOlly AdvancedというAnti-Anti-debugを実装したプラグインがあったので、それを使おうと思ったのですが、IsDebuggerPresentの次のNtGlobalFlag隠しを有効にしても突破できず、その後は結局手動でバイナリを書き換えていきました。ちゃんと読まないでプログラムのバイナリを書き換えるのはあまりよろしくないですが、Anti-debugに関しては少しの命令を実行して、その結果レジスタにロードされる値などを元に検出を行っているものが大半なので、cmp命令の部分をnopで埋めればプログラムの大元の動作を破壊することなく突破できてしまいます。<br>例えば、先程のNtGlobalFlagもcmp命令をなかったことでJNZ命令に引っかからなくなり、スキップできます。少なくとも今回のバイナリに関しては手元で試した全ての検出手法がこのcmp2nop(勝手にそう呼んでる)でスキップできました。</p>
-<img src="/blog/2016/12/11/ntglobalflag_ok.png" alt="cmp2nop!" title="cmp2nop!">
-<p>ただ最後の最後、(暗号化された)フラグっぽい文字列がollydbgでも見えるようになってきたところで0と1を比較して違ったらフラグ見せない、みたいな処理があったのでそこは比較結果が一致になるように改変して突破しました。</p>
-<img src="/blog/2016/12/11/almost_flag_get.png" alt="フラグっぽいやつが見える" title="フラグっぽいやつが見える">
-<p>全ての検出機構を無事突破し、フラグの復号処理を抜けたら終わりです。ちなみに出てきたフラグを見てもわかりますが、Ascii85というエンコード方式なんだそう。へー。また一つ知見を得ました。<br>以上、pafish.exeが頭に浮かんだ状態で終始取り組んだ問題でした。</p>
-<p>Flag: SECCON{check_Ascii85}</p>
-<h2 id="Memory_Analysis(Forensics_-_100)">Memory Analysis(Forensics - 100)</h2><p>メモリダンプのファイルが渡されて、中身を解析してフラグをくれるWebサイトにアクセスしてね！という問題。ヒントが2つ与えられていて、とりあえず1つ目のヒントに従ってVolatility<a href="http://www.volatilityfoundation.org/" target="_blank" rel="external">(公式サイトリンク)</a>というフォレンジックツールを導入しました。CUIツールで、引数に色々とオプションを付けるとよしなにやってくれる良い奴です。下記の例では、imageinfoオプションを付けて推奨Profileを調べています(このダンプファイルはWinXPSP2x86でやっていけば良さそう。後でも使います)。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ volatility.exe -f f.raw imageinfo&#10;Volatility Foundation Volatility Framework 2.5&#10;INFO    : volatility.debug    : Determining profile based on KDBG search...&#10;          Suggested Profile(s) : WinXPSP2x86, WinXPSP3x86 (Instantiated with WinXPSP2x86)&#10;          (&#20013;&#30053;)&#10;           Image date and time : 2016-12-06 05:28:47 UTC+0000&#10;     Image local date and time : 2016-12-06 14:28:47 +0900</span><br></pre></td></tr></table></figure>
-<p>さて、2つ目のヒントにhostsを見ろと書いてあったので、とりあえずファイルのダンプの仕方を調べてやってみます。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ volatility.exe -f f.raw filescan | grep hosts&#10;Volatility Foundation Volatility Framework 2.5&#10;0x000000000217b748      1      0 R--rw- \Device\HarddiskVolume1\WINDOWS\system32\drivers\etc\hosts&#10;&#10;$ volatility.exe -f f.raw dumpfiles -Q 0x000000000217b748 --name -D ./&#10;Volatility Foundation Volatility Framework 2.5&#10;DataSectionObject 0x0217b748   None   \Device\HarddiskVolume1\WINDOWS\system32\drivers\etc\hosts</span><br></pre></td></tr></table></figure>
-<p>これでカレントディレクトリにfile.None.0x819a3008.hosts.datみたいなファイルが生成されて、この中身を見ると<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># Copyright (c) 1993-1999 Microsoft Corp.&#10;#&#10;# This is a sample HOSTS file used by Microsoft TCP/IP for Windows.&#10;#&#10;# This file contains the mappings of IP addresses to host names. Each&#10;# entry should be kept on an individual line. The IP address should&#10;# be placed in the first column followed by the corresponding host name.&#10;# The IP address and the host name should be separated by at least one&#10;# space.&#10;#&#10;# Additionally, comments (such as these) may be inserted on individual&#10;# lines or following the machine name denoted by a &#39;#&#39; symbol.&#10;#&#10;# For example:&#10;#&#10;#      102.54.94.97     rhino.acme.com          # source server&#10;#       38.25.63.10     x.acme.com              # x client host&#10;&#10;127.0.0.1       localhost&#10;153.127.200.178    crattack.tistory.com</span><br></pre></td></tr></table></figure></p>
-<p>hostsですね。注目すべきは最後の行のcrattack.tistory.comというやつ。果たして本当にそうでしょうか？と33分探偵ばり(ネタが古い)にnslookupすると</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#21517;&#21069;:    crattack.tistory.com&#10;Addresses:  175.126.170.70&#10;          175.126.170.110</span><br></pre></td></tr></table></figure>
-<p>ほらね。やっぱり何かありそうです。問題文でも偽のアクセスがどうのこうのと言ってるので、方針は良さそうです。ここからはコマンドリファレンスとにらめっこして情報を幾つか見ましたが、最終的に答えにたどり着けたのは「<a href="https://github.com/volatilityfoundation/volatility/wiki/Command%20Reference#iehistory" target="_blank" rel="external">iehistory</a>」というオプションでした。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ volatility.exe -f f.raw iehistory | grep crattack.tistory.com&#10;Volatility Foundation Volatility Framework 2.5&#10;Location: http://crattack.tistory.com/entry/Data-Science-import-pandas-as-pd&#10;Location: Visited: SYSTEM@http://crattack.tistory.com/rss&#10;Location: Visited: SYSTEM@http://crattack.tistory.com/entry/Data-Science-import-pandas-as-pd&#10;Location: Visited: SYSTEM@http://crattack.tistory.com/entry/Data-Science-import-pandas-as-pd&#10;Location: http://crattack.tistory.com/entry/Data-Science-import-pandas-as-pd&#10;Location: Visited: SYSTEM@http://crattack.tistory.com/rss&#10;Location: Visited: SYSTEM@http://crattack.tistory.com/entry/Data-Science-import-pandas-as-pd&#10;Location: Visited: SYSTEM@http://crattack.tistory.com/entry/Data-Science-import-pandas-as-pd&#10;Location: :2016120620161207: SYSTEM@http://crattack.tistory.com/entry/Data-Science-import-pandas-as-pd&#10;Location: :2016120620161207: SYSTEM@:Host: crattack.tistory.com&#10;Location: :2016120620161207: SYSTEM@http://crattack.tistory.com/entry/Data-Science-import-pandas-as-pd</span><br></pre></td></tr></table></figure>
-<p>このサイト自体はアクセスしても特にフラグらしいものは得られませんでしたが、iehistoryで出てきた/Data-Science-import-pandas-as-pdというやつにアクセスするとファイルが落ちてきて、それをテキストエディタとかで読むとフラグが書いてある、というオチでした。</p>
-<p>これらの作業をするにあたって、<a href="http://downloads.volatilityfoundation.org/releases/2.4/CheatSheet_v2.4.pdf" target="_blank" rel="external">Volatility CheatSheet_v2.4.pdf</a>と<a href="https://github.com/volatilityfoundation/volatility/wiki/Command%20Reference#iehistory" target="_blank" rel="external">Command Reference(at github)</a>を大いに活用しました。</p>
-<p>Flag: SECCON{_h3110_w3_h4ve_fun<em>w4rg4m3</em>}</p>
-<h2 id="その他取り組んだ問題1:_VoIP(Forensics_-_100)">その他取り組んだ問題1: VoIP(Forensics - 100)</h2><p>pcapファイルが渡されて、中にVoIP電話の音声パケットデータが入っているので、それを聞き取る問題。これはEnglishをlistenする問題で英語パーフェクトマスター!wの私は「余裕やんけ」と言いながら聞き取った「SECCON{9001IBR}」をポストするも無残に散りました。正しいフラグは「SECCON{9001I<strong>V</strong>R}」。チームメンバーの先輩が無事得点してくれました。良かったです。</p>
-<h2 id="その他取り組んだ問題2:_PNG_over_Telegraph(Crypto_-_300)">その他取り組んだ問題2: PNG over Telegraph(Crypto - 300)</h2><p>愉快な動きをするSECCON TOWER(<a href="https://www.youtube.com/watch?v=Y6voaURtKlM&amp;feature=youtu.be" target="_blank" rel="external">YouTubeへのリンク</a>)の動きからアルファベットを読み出して、その結果をどうにかデコードしてPNGファイルを出力する問題。最初の趣旨説明部分で21文字(ただし.(ピリオド)含む)がわかるように説明してくれていて、それを表にまとめるとその他のわかっていない6文字もなんとなく推察できるようになっていました。ただ、とにかく動画が長くて、色々しんどい問題だ…ってなったところで解くのをやめてしまいました。面白かったので時間があったらやってみようかなという感じです。</p>
-<h2 id="まとめ">まとめ</h2><p>上に挙げた以外の問題もいくつか触ったりしましたが、pwnの問題もflag.txtという文字がスタック上に見えるのに手が届かない、そういう感じで悔しかったです。あとWeb問も解けなかったので、この辺できるようになりたいなと思いました。</p>
-<h2 id="そういえば">そういえば</h2><p>来週は<a href="http://www.security-camp.org/minicamp/okinawa2016.html" target="_blank" rel="external">セキュリティミニキャンプ in 沖縄</a>ですね。</p>
-<p>以上です。</p>
-
+        
+          <p class="article-more-link">
+            <a href="/blog/2016/12/11/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">

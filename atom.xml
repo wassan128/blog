@@ -4,7 +4,7 @@
   <subtitle><![CDATA[とある高専生の備忘録的な何かになるかもしれない]]></subtitle>
   <link href="/blog/atom.xml" rel="self"/>
   <link href="http://wassan128.github.io/blog/"/>
-  <updated>2016-12-11T13:21:59.184Z</updated>
+  <updated>2016-12-11T13:22:48.653Z</updated>
   <id>http://wassan128.github.io/blog/</id>
   
   <author>
@@ -19,9 +19,10 @@
     <link href="http://wassan128.github.io/blog/2016/12/11/"/>
     <id>http://wassan128.github.io/blog/2016/12/11/</id>
     <published>2016-12-11T08:45:36.000Z</published>
-    <updated>2016-12-11T13:21:59.184Z</updated>
+    <updated>2016-12-11T13:22:48.653Z</updated>
     <content type="html"><![CDATA[<h2 id="概要">概要</h2><p>2016/12/10 15：00～の24時間、SECCON 2016 online CTF(オンライン予選)が開催されました。私はチームEanbai(先輩、同級生、私の三人)として初参加を果たし、チーム得点は500点、順位は159位で終えました。<br>ちなみに12月10日は<a href="http://www.city.nago.okinawa.jp/9/8944.html" target="_blank" rel="external">やんばるツーデーマーチ</a>というウォーキングイベントも開催されていて、例年通り私は40kmコースに友人たちと4：00～15：30まで参加してからのSECCONログインだったので身体も頭もくたくたになりましたが、どちらも楽しかったです。<br>では早速、解けた問題のWriteupをば。</p>
 <img src="/blog/2016/12/11/eanbai.png" alt="Eanbaiで参加しました" title="Eanbaiで参加しました">
+<a id="more"></a>
 <h2 id="Anti-Debugging(Binary_-_100)">Anti-Debugging(Binary - 100)</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Anti-Debugging&#10;Reverse it.</span><br></pre></td></tr></table></figure>
 <p>シンプルな問題文にbinというファイルが添えられていました。fileコマンドで何のファイルなのか確認すると</p>
 <figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ file</span><br><span class="line"><span class="function">bin: <span class="title">PE32</span> <span class="title">executable</span> (<span class="title">console</span>) <span class="title">Intel</span> 80386, <span class="title">for</span> <span class="title">MS</span> <span class="title">Windows</span></span></span><br></pre></td></tr></table></figure>
@@ -60,7 +61,9 @@
 <p>以上です。</p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<h2 id="概要">概要</h2><p>2016/12/10 15：00～の24時間、SECCON 2016 online CTF(オンライン予選)が開催されました。私はチームEanbai(先輩、同級生、私の三人)として初参加を果たし、チーム得点は500点、順位は159位で終]]>
+    <![CDATA[<h2 id="概要">概要</h2><p>2016/12/10 15：00～の24時間、SECCON 2016 online CTF(オンライン予選)が開催されました。私はチームEanbai(先輩、同級生、私の三人)として初参加を果たし、チーム得点は500点、順位は159位で終えました。<br>ちなみに12月10日は<a href="http://www.city.nago.okinawa.jp/9/8944.html">やんばるツーデーマーチ</a>というウォーキングイベントも開催されていて、例年通り私は40kmコースに友人たちと4：00～15：30まで参加してからのSECCONログインだったので身体も頭もくたくたになりましたが、どちらも楽しかったです。<br>では早速、解けた問題のWriteupをば。</p>
+<img src="/blog/2016/12/11/eanbai.png" alt="Eanbaiで参加しました" title="Eanbaiで参加しました">]]>
+    
     </summary>
     
       <category term="ctf" scheme="http://wassan128.github.io/blog/tags/ctf/"/>
