@@ -4,7 +4,7 @@
   <subtitle><![CDATA[とある高専生の備忘録的な何かになるかもしれない]]></subtitle>
   <link href="/blog/atom.xml" rel="self"/>
   <link href="http://wassan128.github.io/blog/"/>
-  <updated>2016-12-11T13:45:59.646Z</updated>
+  <updated>2017-02-07T09:00:22.145Z</updated>
   <id>http://wassan128.github.io/blog/</id>
   
   <author>
@@ -13,6 +13,45 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[AlexCTFに出て少し問題を解いた話]]></title>
+    <link href="http://wassan128.github.io/blog/2017/02/06/"/>
+    <id>http://wassan128.github.io/blog/2017/02/06/</id>
+    <published>2017-02-06T08:54:02.000Z</published>
+    <updated>2017-02-07T09:00:22.145Z</updated>
+    <content type="html"><![CDATA[<h2 id="はじめに">はじめに</h2><p>2017/02/03 19:00~2017/02/06 17:00(日本時間)、AlexCTFがアレクサンドリア大学主催で開催されていました。例によってチームEAnbaiの一員として参加し、チームとしては1190ptで215位(/1029?)で終了しました。以下、解いた/取り組んだ問題について簡単に書きます。</p>
+<h2 id="解いた問題">解いた問題</h2><h3 id="Reversing_1_(50pt)">Reversing 1 (50pt)</h3><p>Stringsコマンドで文字列を見るだけで終わり。<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ strings gifted&#10;(&#20013;&#30053;)&#10;ALEXCTF&#123;Y0u_h4v3_45t0n15h1ng_futur3_1n_r3v3r5ing&#125;&#10;(&#20013;&#30053;)</span><br></pre></td></tr></table></figure></p>
+<p>Flag: ALEXCTF{Y0u_h4v3_45t0n15h1ng_futur3_1n_r3v3r5ing}</p>
+<h3 id="Forensic_3_(150pt)">Forensic 3 (150pt)</h3><p>USB通信のキャプチャが渡されるのでWiresharkで確認する。どうやらUSB_BULK outというのが怪しく、データが入ってるっぽい。いくつかあるが、その中にそれらしきものを見つけた。</p>
+<img src="/blog/2017/02/06/fore21.png" alt="Wiresharkで開いたところ" title="Wiresharkで開いたところ">
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">89:50:4e:47:0d:0a:1a:0a:00:00:00:0d:49:48:44:.....</span><br></pre></td></tr></table></figure>
+<p>先頭2byteを見るとどうやらpngっぽいのでファイルにして中身を見る。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> struct</span><br><span class="line">data = <span class="string">"89504e470d0a1a0a0000000d...(省略)"</span></span><br><span class="line">raw = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(data), <span class="number">2</span>):</span><br><span class="line">	raw.append(int(<span class="string">"0x"</span> + data[i:i + <span class="number">2</span>], <span class="number">16</span>))</span><br><span class="line"></span><br><span class="line">f = open(<span class="string">"fore2.png"</span>, <span class="string">"wb"</span>)</span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> raw:</span><br><span class="line">	f.write(struct.pack(<span class="string">"B"</span>, x))</span><br><span class="line"></span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+<img src="/blog/2017/02/06/fore22.png" alt="flag" title="flag">
+<p>Flag: ALEXCTF{SN1FF_TH3_FL4G_OV3R_USB}</p>
+<h3 id="Trivia_2_(20pt)">Trivia 2 (20pt)</h3><p><div style="text-align: left; font-size: 10pt; font-family: メイリオ; background: #EEE; padding: 1em; font-style: italic;"><br>    <span style="font-size: 12pt; color: #999">問題文</span><br>    SSL 0day<br>    It lead to memory leakage between servers and clients rending large number of private keys accessible. (one word)<br></div><br>ALEXCTF{Heartbleed}?しかしこれが通らない。ここで問題文末尾の「one word」というのが引っかかる。フラグフォーマットはALEXCTF{[A-Za-z0-9_]*}となっているが、それは問題文で指定されていない時に限るとの記述が…。</p>
+<p>Flag: Heartbleed</p>
+<h3 id="Trivia_4_(40pt)">Trivia 4 (40pt)</h3><p>AlexCTFのページにロゴにフラグが隠されているので探してね、という問題。<br>フラグをテキストで保存し、vimで以下の置換を適用。</p>
+<img src="/blog/2017/02/06/tr4.png" alt="「随分文字の小さいアスキーアートだなぁ」というフラグは回収された" title="「随分文字の小さいアスキーアートだなぁ」というフラグは回収された">
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:%s/[^(A-Z0-9a-z|&#123;|&#125;)|\n|_]//g</span><br></pre></td></tr></table></figure>
+<p>Flag: ALEXCTF{OUR_LOGO_ROCKS}</p>
+<h2 id="取り組んだ問題">取り組んだ問題</h2><h3 id="Reversing_4_(250pt)">Reversing 4 (250pt)</h3><p>pycが渡されてフラグを探す問題。<a href="https://github.com/zrax/pycdc" target="_blank" rel="external">pycdc</a>を用いてPythonソースコードを復元した。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install cmake&#10;cmake&#10;make&#10;./pycdc unvm_me.pyc</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Source Generated with Decompyle++</span></span><br><span class="line"><span class="comment"># File: unvm_me.pyc (Python 2.7)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> md5</span><br><span class="line">md5s = [</span><br><span class="line">    <span class="number">0x831DAA3C843BA8B087C895F0ED305CE7L</span>,</span><br><span class="line">    <span class="number">0x6722F7A07246C6AF20662B855846C2C8L</span>,</span><br><span class="line">    <span class="number">0x5F04850FEC81A27AB5FC98BEFA4EB40CL</span>,</span><br><span class="line">    <span class="number">0xECF8DCAC7503E63A6A3667C5FB94F610L</span>,</span><br><span class="line">    <span class="number">0xC0FD15AE2C3931BC1E140523AE934722L</span>,</span><br><span class="line">    <span class="number">0x569F606FD6DA5D612F10CFB95C0BDE6DL</span>,</span><br><span class="line">    <span class="number">0x68CB5A1CF54C078BF0E7E89584C1A4EL</span>,</span><br><span class="line">    <span class="number">0xC11E2CD82D1F9FBD7E4D6EE9581FF3BDL</span>,</span><br><span class="line">    <span class="number">0x1DF4C637D625313720F45706A48FF20FL</span>,</span><br><span class="line">    <span class="number">0x3122EF3A001AAECDB8DD9D843C029E06L</span>,</span><br><span class="line">    <span class="number">0xADB778A0F729293E7E0B19B96A4C5A61L</span>,</span><br><span class="line">    <span class="number">0x938C747C6A051B3E163EB802A325148EL</span>,</span><br><span class="line">    <span class="number">0x38543C5E820DD9403B57BEFF6020596DL</span>]</span><br><span class="line"><span class="keyword">print</span> <span class="string">'Can you turn me back to python ? ...'</span></span><br><span class="line">flag = raw_input(<span class="string">'well as you wish.. what is the flag: '</span>)</span><br><span class="line"><span class="keyword">if</span> len(flag) &gt; <span class="number">69</span>:</span><br><span class="line">    <span class="keyword">print</span> <span class="string">'nice try'</span></span><br><span class="line">    exit()</span><br><span class="line"><span class="keyword">if</span> len(flag) % <span class="number">5</span> != <span class="number">0</span>:</span><br><span class="line">    <span class="keyword">print</span> <span class="string">'nice try'</span></span><br><span class="line">    exit()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(flag), <span class="number">5</span>):</span><br><span class="line">    s = flag[i:i + <span class="number">5</span>]</span><br><span class="line">    <span class="keyword">if</span> int(<span class="string">'0x'</span> + md5.new(s).hexdigest(), <span class="number">16</span>) != md5s[i / <span class="number">5</span>]:</span><br><span class="line">        <span class="keyword">print</span> <span class="string">'nice try'</span></span><br><span class="line">        exit()</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line"><span class="keyword">print</span> <span class="string">'Congratz now you have the flag'</span></span><br></pre></td></tr></table></figure>
+<p>フラグを5文字ずつに区切ってMD5ハッシュにしたものをソースコード内に保持しているので、ソースコード内のmd5ハッシュを復元すれば終わり。<a href="https://hashkiller.co.uk/md5-decrypter.aspx" target="_blank" rel="external">onlineのデコードサイト</a>でdecryptしたものをつなげて投げたものの通らず、何でだろう…と思っていたら7つ目のハッシュが1文字足りていなかった。チームSlackに投げたところ先輩が解いてくれたので結果オーライ(とは言え悔しいので精進します(´・ω・｀))。頭に0をつけるだけの発想がどうして出てこなかったんだろう…。</p>
+<h3 id="Trivia_3">Trivia 3</h3><p>僕「CA issueって言ってるし何か問題あるんじゃね！？」<br>sio「issuedだと『発行する』の意になるってよ」<br>僕「魔剤！？(ｶﾁｶﾁ…)letsencrypt」</p>
+<p>＞ フラグだった ＜</p>
+<p>問題文適当に読みすぎた。英語勉強し直したほうが良い。</p>
+<h2 id="おわりに">おわりに</h2><p>これはCTFに限らず、自分で箱を作ってその中で考えるのではなく、試せるだけの可能性を試すことが大事だと感じました(特にfore3)。<br>また、暗号系の問題を先輩に任せっきりなので、どうにか来年は暗号系もある程度解けるように真面目に数学勉強し直そうと思いました。<br>以上です。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="はじめに">はじめに</h2><p>2017/02/03 19:00~2017/02/06 17:00(日本時間)、AlexCTFがアレクサンドリア大学主催で開催されていました。例によってチームEAnbaiの一員として参加し、チームとしては1190ptで215位(]]>
+    </summary>
+    
+      <category term="ctf" scheme="http://wassan128.github.io/blog/tags/ctf/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[SECCON 2016 online CTFで解けた問題とかの話]]></title>
