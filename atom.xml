@@ -4,7 +4,7 @@
   <subtitle><![CDATA[とある高専生の備忘録的な何かになるかもしれない]]></subtitle>
   <link href="/blog/atom.xml" rel="self"/>
   <link href="http://wassan128.github.io/blog/"/>
-  <updated>2017-05-03T12:56:38.270Z</updated>
+  <updated>2017-05-03T12:58:40.269Z</updated>
   <id>http://wassan128.github.io/blog/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://wassan128.github.io/blog/2017/05/03/"/>
     <id>http://wassan128.github.io/blog/2017/05/03/</id>
     <published>2017-05-03T09:30:42.000Z</published>
-    <updated>2017-05-03T12:56:38.270Z</updated>
+    <updated>2017-05-03T12:58:40.269Z</updated>
     <content type="html"><![CDATA[<h2 id="はじめに">はじめに</h2><p>どうも、EAnbai『Web』担当(自称)です。もうしばらく前の話になってしまいましたが、picoctf2017にいつも通りEAnbaiで参加していました。Web問題メインで取り組んだので、解くことができたWeb問をメモしておきます。</p>
 <a id="more"></a>
 <h2 id="解いたWeb問たち">解いたWeb問たち</h2><h3 id="What_Is_Web_(level1,_20pt)">What Is Web (level1, 20pt)</h3><p>問題のサイトを見ると、良い感じのサイトが出てきます。ソースコードを見ると下の方にコメントで</p>
@@ -47,11 +47,11 @@
 <li>1で作成したユーザーでログインする</li>
 <li>ログイン後画面にadminのpass(フラグ)が表示されて優勝</li>
 </ol>
-<p>という手順で解けます。<br>しかしまだどのtableにユーザー情報が格納されているかわからないので、unionを使って情報収集します。ここで問題文の<code>I like lite sql:)</code>という部分からデータベースにsqliteが採用されていることが窺えるので、sqlite_masterテーブルから情報を抜き出します(図3)。これでusersテーブルと言うものが存在することがわかりました(ユーザー登録時のSQLによってエラー情報を表示(サーバー側でエラーを吐くようになっている)させ、ポスト部分のtable名「posts」をリークし、そこからusersテーブルの存在をエスパーする方法もある)。</p>
+<p>という手順で解けます。<br>しかしまだどのtableにユーザー情報が格納されているかわからないので、unionを使って情報収集します。ここで問題文の<code>I like lite sql:)</code>という部分からデータベースにsqliteが採用されていることが窺えるので、sqlite_masterテーブルから情報を抜き出します(図3)。これでusersテーブルと言うものが存在することがわかりました(ユーザー登録時のSQLによってエラー情報を表示(サーバー側でエラーを吐くようになっている)させ、ポスト部分のtable名「posts」をリークし、そこからusersテーブルの存在をエスパーする方法もある)。あとは前述の手順に従ってusersテーブルから情報を抜き出すSQLを混入したユーザーでログインすればフラグが貰えそうです。</p>
 <img src="/blog/2017/05/03/web110_2.png" alt="図3.usersテーブルから情報を抜き出せば良さそう" title="図3.usersテーブルから情報を抜き出せば良さそう">
 <p>詰まったところとしてはユーザー名部分でSQLを組み立てる時にシングルクォーテーションを意識しなければならない点、カラム数を合わせる必要がある点でした。前者はコメントでは回避できなかったので、pass取得のための命令の後に</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">where user='admin</span><br></pre></td></tr></table></figure>
-<p>を付け加えて回避しました。後者は最終的にnullをselectのリストに加えることで回避しました。この手順を踏むと無事フラグを取得することができました(図3)。unionベースSQLiの原理把握にあたり、<a href="http://www.sqlinjection.net/union/" target="_blank" rel="external">このあたり</a>などを参考にしました。</p>
+<p>を付け加えて回避しました。後者は最終的にnullをselectのリストに加えることで回避しました。この手順を踏むと無事フラグを取得することができました(図3)。unionベースSQLiの内容把握にあたり、<a href="http://www.sqlinjection.net/union/" target="_blank" rel="external">このあたり</a>などを参考にしました。</p>
 <img src="/blog/2017/05/03/web110_3.png" alt="図4.フラグがもらえた" title="図4.フラグがもらえた">
 <h2 id="おわりに">おわりに</h2><p>気合いを入れて解いたのはTW_GR_E1_ARTとHappy Unionで、それ以外の問題は割りとサクっといきました(というかTWはゲームを進めてフロア4まで行くのが普通に楽しかったので遊んでしまった)。特にHappy Unionが解けた時はEAnbai『Web』担当を自称しておきながら今まであまりちゃんとWeb問を解けなかったので、嬉しかったです。ただLevel3の残り2問と4のWeb問などまだまだ解けていないものがあるので、精進します。</p>
 <p>あとpwnもそろそろちゃんとできるようになりたいので、チーム内でpwnable.krの問題を解いたりしていますがpicoctfの問題も難易度が良い感じなのでwriteupを適宜見ながらやっていきたいです。</p>
