@@ -5,22 +5,19 @@
   
   <title>AlexCTFに出て少し問題を解いた話 | クロワッサンは黒くない</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="はじめに2017/02/03 19:00~2017/02/06 17:00(日本時間)、AlexCTFがアレクサンドリア大学主催で開催されていました。例によってチームEAnbaiの一員として参加し、チームとしては1190ptで215位(/1029?)で終了しました。以下、解いた/取り組んだ問題について簡単に書きます。
-解いた問題Reversing 1 (50pt)Stringsコマンドで文字列を見">
+  <meta name="description" content="はじめに2017/02/03 19:00~2017/02/06 17:00(日本時間)、AlexCTFがアレクサンドリア大学主催で開催されていました。例によってチームEAnbaiの一員として参加し、チームとしては1190ptで215位(/1029?)で終了しました。以下、解いた/取り組んだ問題について簡単に書きます。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AlexCTFに出て少し問題を解いた話">
 <meta property="og:url" content="http://wassan128.github.io/blog/2017/02/06/index.html">
 <meta property="og:site_name" content="クロワッサンは黒くない">
-<meta property="og:description" content="はじめに2017/02/03 19:00~2017/02/06 17:00(日本時間)、AlexCTFがアレクサンドリア大学主催で開催されていました。例によってチームEAnbaiの一員として参加し、チームとしては1190ptで215位(/1029?)で終了しました。以下、解いた/取り組んだ問題について簡単に書きます。
-解いた問題Reversing 1 (50pt)Stringsコマンドで文字列を見">
+<meta property="og:description" content="はじめに2017/02/03 19:00~2017/02/06 17:00(日本時間)、AlexCTFがアレクサンドリア大学主催で開催されていました。例によってチームEAnbaiの一員として参加し、チームとしては1190ptで215位(/1029?)で終了しました。以下、解いた/取り組んだ問題について簡単に書きます。">
 <meta property="og:image" content="http://wassan128.github.io/blog/blog/2017/02/06/fore21.png">
 <meta property="og:image" content="http://wassan128.github.io/blog/blog/2017/02/06/fore22.png">
 <meta property="og:image" content="http://wassan128.github.io/blog/blog/2017/02/06/tr4.png">
-<meta property="og:updated_time" content="2017-02-07T09:00:22.145Z">
+<meta property="og:updated_time" content="2017-05-03T11:29:43.508Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AlexCTFに出て少し問題を解いた話">
-<meta name="twitter:description" content="はじめに2017/02/03 19:00~2017/02/06 17:00(日本時間)、AlexCTFがアレクサンドリア大学主催で開催されていました。例によってチームEAnbaiの一員として参加し、チームとしては1190ptで215位(/1029?)で終了しました。以下、解いた/取り組んだ問題について簡単に書きます。
-解いた問題Reversing 1 (50pt)Stringsコマンドで文字列を見">
+<meta name="twitter:description" content="はじめに2017/02/03 19:00~2017/02/06 17:00(日本時間)、AlexCTFがアレクサンドリア大学主催で開催されていました。例によってチームEAnbaiの一員として参加し、チームとしては1190ptで215位(/1029?)で終了しました。以下、解いた/取り組んだ問題について簡単に書きます。">
   
     <link rel="alternative" href="/blog/atom.xml" title="クロワッサンは黒くない" type="application/atom+xml">
   
@@ -93,6 +90,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="はじめに">はじめに</h2><p>2017/02/03 19:00~2017/02/06 17:00(日本時間)、AlexCTFがアレクサンドリア大学主催で開催されていました。例によってチームEAnbaiの一員として参加し、チームとしては1190ptで215位(/1029?)で終了しました。以下、解いた/取り組んだ問題について簡単に書きます。</p>
+<a id="more"></a>
 <h2 id="解いた問題">解いた問題</h2><h3 id="Reversing_1_(50pt)">Reversing 1 (50pt)</h3><p>Stringsコマンドで文字列を見るだけで終わり。<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ strings gifted&#10;(&#20013;&#30053;)&#10;ALEXCTF&#123;Y0u_h4v3_45t0n15h1ng_futur3_1n_r3v3r5ing&#125;&#10;(&#20013;&#30053;)</span><br></pre></td></tr></table></figure></p>
 <p>Flag: ALEXCTF{Y0u_h4v3_45t0n15h1ng_futur3_1n_r3v3r5ing}</p>
 <h3 id="Forensic_3_(150pt)">Forensic 3 (150pt)</h3><p>USB通信のキャプチャが渡されるのでWiresharkで確認する。どうやらUSB_BULK outというのが怪しく、データが入ってるっぽい。いくつかあるが、その中にそれらしきものを見つけた。</p>
