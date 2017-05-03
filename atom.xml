@@ -4,7 +4,7 @@
   <subtitle><![CDATA[とある高専生の備忘録的な何かになるかもしれない]]></subtitle>
   <link href="/blog/atom.xml" rel="self"/>
   <link href="http://wassan128.github.io/blog/"/>
-  <updated>2017-05-03T11:28:55.807Z</updated>
+  <updated>2017-05-03T12:36:36.434Z</updated>
   <id>http://wassan128.github.io/blog/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://wassan128.github.io/blog/2017/05/03/"/>
     <id>http://wassan128.github.io/blog/2017/05/03/</id>
     <published>2017-05-03T09:30:42.000Z</published>
-    <updated>2017-05-03T11:28:55.807Z</updated>
+    <updated>2017-05-03T12:36:36.434Z</updated>
     <content type="html"><![CDATA[<h2 id="はじめに">はじめに</h2><p>どうも、EAnbai『Web』担当(自称)です。もうしばらく前の話になってしまいましたが、picoctf2017にいつも通りEAnbaiで参加していました。Web問題メインで取り組んだので、解くことができたWeb問をメモしておきます。</p>
 <a id="more"></a>
 <h2 id="解いたWeb問たち">解いたWeb問たち</h2><h3 id="What_Is_Web_(level1,_20pt)">What Is Web (level1, 20pt)</h3><p>問題のサイトを見ると、良い感じのサイトが出てきます。ソースコードを見ると下の方にコメントで</p>
@@ -41,7 +41,7 @@
 <h3 id="Biscuit_(level3,_75pt)">Biscuit (level3, 75pt)</h3><p>開くと「Access Denied」と言われるのでソースコードを見るとコメントでcookies.sqliteというファイルにクッキーを隠してるから安全だぜと言った趣旨の文章が書かれていて、/private/cookies.sqliteにアクセスするとダウンロードすることができます。この中身をsqliteを使って見てみるとそれっぽい文字列が入っているのが見えるのでこれを問題サイトのIDというクッキーを書き換えて設定、再アクセスするとフラグがもらえます。</p>
 <h3 id="A_Happy_Union_(level3,_110pt)">A Happy Union (level3, 110pt)</h3><p>開くとLogin/Registerボタンが出てきて、流石にlevel1の問題のようには行きません。とりあえずhogeみたいな適当なアカウントをRegisterしてLoginすると何かポストできるページが出てきます(図2)。</p>
 <img src="/blog/2017/05/03/web110_1.png" alt="図2.ログイン後のページ" title="図2.ログイン後のページ">
-<p>問題文からSQLのunionを使ったSQLiであることが推察でき、色々試しているうちにユーザー登録時にSQL命令を混入させることでログイン後のページに情報を表示させることができそう、ということがわかりました。ということでまとめると</p>
+<p>問題文からSQLのunionを使ったSQLiであることが推察でき、色々試しているうちにユーザー登録時にSQL命令を混入させることでログイン後のページに情報を表示させることができそう、ということがわかりました。さらに、正しくないSQLを混入させることでエラーを発生させ、テーブル名が「users」であるということも分かりました。ということでまとめると</p>
 <ol>
 <li>SQL(union selectでadminのpassを取得するようなものを作る)を混入させたユーザー名でユーザーを新規登録する</li>
 <li>1で作成したユーザーでログインする</li>
