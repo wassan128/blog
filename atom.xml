@@ -4,7 +4,7 @@
   <subtitle><![CDATA[とある高専生の備忘録的な何かになるかもしれない]]></subtitle>
   <link href="/blog/atom.xml" rel="self"/>
   <link href="http://wassan128.github.io/blog/"/>
-  <updated>2017-02-07T09:00:22.145Z</updated>
+  <updated>2017-05-03T11:28:55.807Z</updated>
   <id>http://wassan128.github.io/blog/</id>
   
   <author>
@@ -13,6 +13,56 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[picoctf2017で解いたWeb問の話]]></title>
+    <link href="http://wassan128.github.io/blog/2017/05/03/"/>
+    <id>http://wassan128.github.io/blog/2017/05/03/</id>
+    <published>2017-05-03T09:30:42.000Z</published>
+    <updated>2017-05-03T11:28:55.807Z</updated>
+    <content type="html"><![CDATA[<h2 id="はじめに">はじめに</h2><p>どうも、EAnbai『Web』担当(自称)です。もうしばらく前の話になってしまいましたが、picoctf2017にいつも通りEAnbaiで参加していました。Web問題メインで取り組んだので、解くことができたWeb問をメモしておきます。</p>
+<a id="more"></a>
+<h2 id="解いたWeb問たち">解いたWeb問たち</h2><h3 id="What_Is_Web_(level1,_20pt)">What Is Web (level1, 20pt)</h3><p>問題のサイトを見ると、良い感じのサイトが出てきます。ソースコードを見ると下の方にコメントで</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- The first part of the flag (there are 3 parts) is 72b28b258d2 --&gt;</span></span><br></pre></td></tr></table></figure>
+<p>と書かれているので、他のファイル(cssやjs)も探索すると同じようにパーツが出てきてそれらをつなげるとフラグになります。</p>
+<h3 id="My_First_SQL_(level1,_50pt)">My First SQL (level1, 50pt)</h3><p>ログインフォームが出てくるのでインジェクションするとフラグがもらえます。</p>
+<h3 id="TW_GR_E1_ART(level2,_100pt)">TW_GR_E1_ART(level2, 100pt)</h3><p><code>Oh, sweet, they made a spinoff game to Toaster Wars! That last room has a lot of flags in it though. I wonder which is the right one...? Check it out here.</code></p>
+<p>こんな感じの問題文で、リンクを叩くとゲームが始まりました(図1)。クライアント側からは特に有用な情報を見つけられず、問題に付されているヒントを見ると</p>
+<p><code>I think this game is running on a Node.js server. If it&#39;s configured poorly, you may be able to access the server&#39;s source.</code></p>
+<p>とあり、なるほどpackage.jsonとかが見えるのか、というあたりを付けることができました。実際に「/package.json」としてみるとサーバー側のソースコードがserverディレクトリで管理されており、起動時はserv.jsが実行されていることがわかりました。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">"scripts": &#123;</span><br><span class="line">   "prestart": "node server/init.js",</span><br><span class="line">   "start": "node server/serv.js"</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>ここからはサーバー側のソースコードを読む作業で、serv.jsから辿っていくと複数のソースコードが見えました。<br>ところでこのゲームは1F～4Fのフロア構成になっており、4Fに行くと沢山の旗がキャラクターが取得・使用可能なアイテムとして置いてあります。問題文でも「正しいフラグはどれ？」と聞いているので、それがわかりそうな情報を探すという方針で間違いなさそうです。</p>
+<p>さて、ソースコードを少し読むと、このゲームの実装にはsocket.ioが使われており、いくつかあるメッセージの中に「revealFlag」と言うものを見つけることができました。そしてどうやら何らかのアクションを起こせばこのイベントが発生して、PICO_CTF_FLAGという名前の環境変数に書き込まれているフラグを読めるようだ、ということがわかりました。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">outcome.flag = process.env[<span class="string">"PICO_CTF_FLAG"</span>];</span><br></pre></td></tr></table></figure>
+<p>さらにソースコードを見ていくとステージ情報が定義されたファイルが含まれており、その中でも特に例の4Fの旗アイテムを使用すると全アイテムロストもしくはrevealFlag effectが発生する、つまり正しいフラグを取得・使用すれば正解を見ることができ、間違えればその機会が潰えるということがわかりました。使用されたフラグアイテムが正しいフラグであるかはrevealFlagメッセージを処理するコード部</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (entity.items[action.item].effects[i].check == <span class="number">64</span>)</span><br></pre></td></tr></table></figure>
+<p>で確認していることがわかるので、あとは普通にゲームを進めて正しいフラグを取得し、使用するとフラグを見ることができます。</p>
+<img src="/blog/2017/05/03/web100.png" alt="図1.Toaster Wars" title="図1.Toaster Wars">
+<h3 id="Biscuit_(level3,_75pt)">Biscuit (level3, 75pt)</h3><p>開くと「Access Denied」と言われるのでソースコードを見るとコメントでcookies.sqliteというファイルにクッキーを隠してるから安全だぜと言った趣旨の文章が書かれていて、/private/cookies.sqliteにアクセスするとダウンロードすることができます。この中身をsqliteを使って見てみるとそれっぽい文字列が入っているのが見えるのでこれを問題サイトのIDというクッキーを書き換えて設定、再アクセスするとフラグがもらえます。</p>
+<h3 id="A_Happy_Union_(level3,_110pt)">A Happy Union (level3, 110pt)</h3><p>開くとLogin/Registerボタンが出てきて、流石にlevel1の問題のようには行きません。とりあえずhogeみたいな適当なアカウントをRegisterしてLoginすると何かポストできるページが出てきます(図2)。</p>
+<img src="/blog/2017/05/03/web110_1.png" alt="図2.ログイン後のページ" title="図2.ログイン後のページ">
+<p>問題文からSQLのunionを使ったSQLiであることが推察でき、色々試しているうちにユーザー登録時にSQL命令を混入させることでログイン後のページに情報を表示させることができそう、ということがわかりました。ということでまとめると</p>
+<ol>
+<li>SQL(union selectでadminのpassを取得するようなものを作る)を混入させたユーザー名でユーザーを新規登録する</li>
+<li>1で作成したユーザーでログインする</li>
+<li>ログイン後画面にadminのpass(フラグ)が表示されて優勝</li>
+</ol>
+<p>という手順で解けます。詰まったところとしてはユーザー名部分でSQLを組み立てる時にシングルクォーテーションを意識しなければならない点、カラム数を合わせる必要がある点でした。前者はコメントでは回避できなかったので、pass取得のための命令の後に</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">where user='admin</span><br></pre></td></tr></table></figure>
+<p>を付け加えて回避しました。後者は最終的にnullをselectのリストに加えることで回避しました。この手順を踏むと無事フラグを取得することができました(図3)。unionベースSQLiの原理把握にあたり、<a href="http://www.sqlinjection.net/union/" target="_blank" rel="external">このあたり</a>などを参考にしました。</p>
+<img src="/blog/2017/05/03/web110_2.png" alt="図3.unionで情報を抜き出す" title="図3.unionで情報を抜き出す">
+<h2 id="おわりに">おわりに</h2><p>気合いを入れて解いたのはTW_GR_E1_ARTとHappy Unionで、それ以外の問題は割りとサクっといきました(というかTWはゲームを進めてフロア4まで行くのが普通に楽しかったので遊んでしまった)。特にHappy Unionが解けた時はEAnbai『Web』担当を自称しておきながら今まであまりちゃんとWeb問を解けなかったので、嬉しかったです。ただLevel3の残り2問と4のWeb問などまだまだ解けていないものがあるので、精進します。</p>
+<p>あとpwnもそろそろちゃんとできるようになりたいので、チーム内でpwnable.krの問題を解いたりしていますがpicoctfの問題も難易度が良い感じなのでwriteupを適宜見ながらやっていきたいです。</p>
+<p>以上です。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="はじめに">はじめに</h2><p>どうも、EAnbai『Web』担当(自称)です。もうしばらく前の話になってしまいましたが、picoctf2017にいつも通りEAnbaiで参加していました。Web問題メインで取り組んだので、解くことができたWeb問をメモしておきます。</p>]]>
+    
+    </summary>
+    
+      <category term="ctf" scheme="http://wassan128.github.io/blog/tags/ctf/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[AlexCTFに出て少し問題を解いた話]]></title>
