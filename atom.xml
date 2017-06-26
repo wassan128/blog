@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://wassan128.github.io/blog/"/>
-  <updated>2017-06-26T01:23:03.111Z</updated>
+  <updated>2017-06-26T12:39:17.908Z</updated>
   <id>http://wassan128.github.io/blog/</id>
   
   <author>
@@ -19,8 +19,8 @@
     <title>Hardening 1010 Cash Flowに参加した話</title>
     <link href="http://wassan128.github.io/blog/2017/06/26/"/>
     <id>http://wassan128.github.io/blog/2017/06/26/</id>
-    <published>2017-06-25T23:43:48.000Z</published>
-    <updated>2017-06-26T01:23:03.111Z</updated>
+    <published>2017-06-26T00:43:48.000Z</published>
+    <updated>2017-06-26T12:39:17.908Z</updated>
     
     <content type="html"><![CDATA[<h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>去る23日、沖縄コンベンションセンターで10回目(記念回!)の「<a href="https://wasforum.jp/2017/04/hardening-1010-cash-flow/" target="_blank" rel="external">Hardening 1010 Cash Flow</a>」が開催されており、そこに参加しました。チーム「術中Hack」のメンバーとして参加し、グランプリをいただきました。記念回に初参加で参戦できただけでなく、10時間という今までにない競技時間を体験できたり、ラスト(?)沖縄回に参加できたり、グランプリをいただけたりと、本当に参加できて良かったと思えました。運営の皆様、MPの皆様、術中Hackの皆様、その他すべての関係者の皆様に感謝しております。<br>本記事ではチームのことや僕が競技中にやったことのメモを残したいと思います。</p>
 <img src="/blog/2017/06/26/grand.png" alt="チーム「術中Hack」グランプリ(੭ ᐕ)੭" title="チーム「術中Hack」グランプリ(੭ ᐕ)੭">
