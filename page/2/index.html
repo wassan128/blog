@@ -5,15 +5,12 @@
   
   <title>クロワッサンは黒くない</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
+  <meta property="og:type" content="website">
 <meta property="og:title" content="クロワッサンは黒くない">
 <meta property="og:url" content="http://wassan128.github.io/blog/page/2/index.html">
 <meta property="og:site_name" content="クロワッサンは黒くない">
-<meta property="og:description">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="クロワッサンは黒くない">
-<meta name="twitter:description">
   
     <link rel="alternative" href="/blog/atom.xml" title="クロワッサンは黒くない" type="application/atom+xml">
   
@@ -21,7 +18,7 @@
     <link rel="icon" href="/favicon.png">
   
   <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/blog/css/style.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <link rel="stylesheet" href="/blog/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 </head>
@@ -33,11 +30,11 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/blog/" id="logo">クロワッサンは黒くない</a>
+        <a href="/blog/blog/" id="logo">クロワッサンは黒くない</a>
       </h1>
       
         <h2 id="subtitle-wrap">
-          <a href="/blog/" id="subtitle">とある高専生の備忘録的な何かになるかもしれない</a>
+          <a href="/blog/blog/" id="subtitle">とある高専生の備忘録的な何かになるかもしれない</a>
         </h2>
       
     </div>
@@ -45,9 +42,9 @@
       <nav id="main-nav">
         <a id="main-nav-toggle" class="nav-icon"></a>
         
-          <a class="main-nav-link" href="/blog/">Home</a>
+          <a class="main-nav-link" href="/blog/blog/">Home</a>
         
-          <a class="main-nav-link" href="/blog/archives/">Archives</a>
+          <a class="main-nav-link" href="/blog/blog/archives/">Archives</a>
         
       </nav>
       <nav id="sub-nav">
@@ -57,13 +54,63 @@
         <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://wassan128.github.io/blog"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://wassan128.github.io/blog"></form>
       </div>
     </div>
   </div>
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-図書館が開いてるか教えてくれるだけのbotを作った話" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2016/04/03/" class="article-date">
+  <time datetime="2016-04-03T02:17:29.000Z" itemprop="datePublished">2016-04-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2016/04/03/">図書館が開いてるか教えてくれるだけのbotを作った話</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><img src="/blog/2016/04/03/siri.png" alt="”わかりて”" title="”わかりて”">
+<p>時は2016年4月。人工知能が世の中で盛り上がりを見せる中、某O高専の学生は「図書館今日開いてたっけ」と思った時、お手元の人工知能に尋ねるわけにもいかず、通常は直接足を運ぶか、インターネット上に公開されている「開館カレンダー」を見ることで開館状況を確認する。しかしそのためだけにいちいちPCを起動し、n回のクリックを経てサイトにアクセスするのは面倒だ。もう少し気軽に開館状況を知ることができれば…。<br>するとそこへ一羽の青い鳥が颯爽と現れ、大丈夫さ、と呟く…。</p>
+<blockquote>
+<p>――そう、Twitterならね。</p>
+</blockquote>
+<p>ということで、今回はPythonの勉強も兼ねて、開館状況を知りたい日付をリプライすると、その日の開館状況を返してくれるだけのTwitterBotを作りました(なお現在(2016/4/3時点)は動作させていません)。</p>
+        
+          <p class="article-more-link">
+            <a href="/blog/2016/04/03/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wassan128.github.io/blog/2016/04/03/" data-id="cj4dg98es000k0osuhcub1t9q" class="article-share-link">Share</a>
+      
+        <a href="http://wassan128.github.io/blog/2016/04/03/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/twitter/">twitter</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-Hexoでの記事追加とコメント機能について" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -87,7 +134,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="今回の記事について">今回の記事について</h2><p>昨日書いた記事の中で、Hexoで新しい記事を作成するところについて触れていなかったので、その追記がてら、しれっと追加したコメント機能のところについて書き残しておきます。<br>
+        <h2 id="今回の記事について"><a href="#今回の記事について" class="headerlink" title="今回の記事について"></a>今回の記事について</h2><p>昨日書いた記事の中で、Hexoで新しい記事を作成するところについて触れていなかったので、その追記がてら、しれっと追加したコメント機能のところについて書き残しておきます。<br>
         
           <p class="article-more-link">
             <a href="/blog/2015/09/11/#more">Read More</a>
@@ -96,7 +143,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wassan128.github.io/blog/2015/09/11/" data-id="cj28w4byv0018pgwveii3r9cn" class="article-share-link">Share</a>
+      <a data-url="http://wassan128.github.io/blog/2015/09/11/" data-id="cj4dg98e200040osu6cfx2ayh" class="article-share-link">Share</a>
       
         <a href="http://wassan128.github.io/blog/2015/09/11/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -133,7 +180,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>どうも、太鼓の達人(実機)をしばらくプレイしないうちに腕がなまってしまった太古の達人(?)わっさんです。さて、今回はこのブログを生成してGitHubを使って公開するまでの流れを書き残しておきたいと思います。</p>
-<h2 id="要約(というか超雑な流れ)">要約(というか超雑な流れ)</h2><p>長文になるので、今回の説明の大まかな流れを示します。</p>
+<h2 id="要約-というか超雑な流れ"><a href="#要約-というか超雑な流れ" class="headerlink" title="要約(というか超雑な流れ)"></a>要約(というか超雑な流れ)</h2><p>長文になるので、今回の説明の大まかな流れを示します。</p>
 <ol>
 <li>Node.jsをインストール</li>
 <li>Hexoをnpmでインストール</li>
@@ -148,7 +195,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wassan128.github.io/blog/2015/09/10/" data-id="cj28w4bys0013pgwv3textc07" class="article-share-link">Share</a>
+      <a data-url="http://wassan128.github.io/blog/2015/09/10/" data-id="cj4dg98dx00030osuypq9kgx6" class="article-share-link">Share</a>
       
         <a href="http://wassan128.github.io/blog/2015/09/10/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -184,14 +231,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="ようやくつくった">ようやくつくった</h2><p>ずっと作る作るといって作ってなかったので、夏休みを利用してブログを作ることにしました。</p>
-<h2 id="今回使ったもの">今回使ったもの</h2><p>Hexo： 静的サイトジェネレーター<br>GitHub Pages: 置き場所</p>
+        <h2 id="ようやくつくった"><a href="#ようやくつくった" class="headerlink" title="ようやくつくった"></a>ようやくつくった</h2><p>ずっと作る作るといって作ってなかったので、夏休みを利用してブログを作ることにしました。</p>
+<h2 id="今回使ったもの"><a href="#今回使ったもの" class="headerlink" title="今回使ったもの"></a>今回使ったもの</h2><p>Hexo： 静的サイトジェネレーター<br>GitHub Pages: 置き場所</p>
 <p>gitがまだよくわからないのでいろいろ躓いた…(´・ω・`)<br>かなり雑ですが、またいつか記事にしますので、今日はここまででさようなら。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wassan128.github.io/blog/2015/09/08/" data-id="cj28w4bx10007pgwvhd8q6yuo" class="article-share-link">Share</a>
+      <a data-url="http://wassan128.github.io/blog/2015/09/08/" data-id="cj4dg98ev000l0osudpcpobf4" class="article-share-link">Share</a>
       
         <a href="http://wassan128.github.io/blog/2015/09/08/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -207,7 +254,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+      <a class="extend prev" rel="prev" href="/blog/">&laquo; Prev</a><a class="page-number" href="/blog/">1</a><span class="page-number current">2</span>
     </nav>
   
 </section>
@@ -220,7 +267,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Node-js/">Node.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ctf/">ctf</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/disqus/">disqus</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/git/">git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hexo/">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/javascript/">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/malware/">malware</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/math/">math</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/misc/">misc</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/python/">python</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/raspberry-pi/">raspberry pi</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/twitter/">twitter</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/windows-media-player/">windows media player</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Hardening/">Hardening</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Node-js/">Node.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ctf/">ctf</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/disqus/">disqus</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/git/">git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hexo/">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/javascript/">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/malware/">malware</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/math/">math</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/misc/">misc</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/python/">python</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/raspberry-pi/">raspberry pi</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/twitter/">twitter</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/windows-media-player/">windows media player</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -229,7 +276,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/blog/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/blog/tags/ctf/" style="font-size: 20px;">ctf</a> <a href="/blog/tags/disqus/" style="font-size: 10px;">disqus</a> <a href="/blog/tags/git/" style="font-size: 13.33px;">git</a> <a href="/blog/tags/hexo/" style="font-size: 16.67px;">hexo</a> <a href="/blog/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/blog/tags/malware/" style="font-size: 10px;">malware</a> <a href="/blog/tags/math/" style="font-size: 10px;">math</a> <a href="/blog/tags/misc/" style="font-size: 10px;">misc</a> <a href="/blog/tags/python/" style="font-size: 20px;">python</a> <a href="/blog/tags/raspberry-pi/" style="font-size: 10px;">raspberry pi</a> <a href="/blog/tags/twitter/" style="font-size: 10px;">twitter</a> <a href="/blog/tags/windows-media-player/" style="font-size: 10px;">windows media player</a>
+      <a href="/blog/tags/Hardening/" style="font-size: 10px;">Hardening</a> <a href="/blog/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/blog/tags/ctf/" style="font-size: 20px;">ctf</a> <a href="/blog/tags/disqus/" style="font-size: 10px;">disqus</a> <a href="/blog/tags/git/" style="font-size: 13.33px;">git</a> <a href="/blog/tags/hexo/" style="font-size: 16.67px;">hexo</a> <a href="/blog/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/blog/tags/malware/" style="font-size: 10px;">malware</a> <a href="/blog/tags/math/" style="font-size: 10px;">math</a> <a href="/blog/tags/misc/" style="font-size: 10px;">misc</a> <a href="/blog/tags/python/" style="font-size: 20px;">python</a> <a href="/blog/tags/raspberry-pi/" style="font-size: 10px;">raspberry pi</a> <a href="/blog/tags/twitter/" style="font-size: 10px;">twitter</a> <a href="/blog/tags/windows-media-player/" style="font-size: 10px;">windows media player</a>
     </div>
   </div>
 
@@ -238,7 +285,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/05/">May 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/12/">December 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/08/">August 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/05/">May 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/09/">September 2015</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/06/">June 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/05/">May 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/12/">December 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/08/">August 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/05/">May 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/09/">September 2015</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -248,6 +295,10 @@
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/blog/2017/06/26/">Hardening 1010 Cash Flowに参加した話</a>
+          </li>
         
           <li>
             <a href="/blog/2017/05/03/">picoctf2017で解いたWeb問の話</a>
@@ -263,10 +314,6 @@
         
           <li>
             <a href="/blog/2016/12/04/">KOSENセキュリティ・コンテスト2016に参加した話</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2016/08/26/">Windows Media Playerのスキンを作る話</a>
           </li>
         
       </ul>
@@ -289,9 +336,9 @@
     </div>
     <nav id="mobile-nav">
   
-    <a href="/blog/" class="mobile-nav-link">Home</a>
+    <a href="/blog/blog/" class="mobile-nav-link">Home</a>
   
-    <a href="/blog/archives/" class="mobile-nav-link">Archives</a>
+    <a href="/blog/blog/archives/" class="mobile-nav-link">Archives</a>
   
 </nav>
     
@@ -311,11 +358,11 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
-  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" type="text/css">
-  <script src="/blog/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="/blog/js/script.js" type="text/javascript"></script>
+<script src="/blog/js/script.js"></script>
 
   </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>

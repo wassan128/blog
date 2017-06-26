@@ -6,21 +6,23 @@
   <title>SECCON 2016 online CTFで解けた問題とかの話 | クロワッサンは黒くない</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="概要2016/12/10 15：00～の24時間、SECCON 2016 online CTF(オンライン予選)が開催されました。私はチームEanbai(先輩、同級生、私の三人)として初参加を果たし、チーム得点は500点、順位は1834チーム中159位で終えました。ちなみに12月10日はやんばるツーデーマーチというウォーキングイベントも開催されていて、例年通り私は40kmコースに友人たちと4：00">
+<meta name="keywords" content="ctf">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SECCON 2016 online CTFで解けた問題とかの話">
 <meta property="og:url" content="http://wassan128.github.io/blog/2016/12/11/index.html">
 <meta property="og:site_name" content="クロワッサンは黒くない">
 <meta property="og:description" content="概要2016/12/10 15：00～の24時間、SECCON 2016 online CTF(オンライン予選)が開催されました。私はチームEanbai(先輩、同級生、私の三人)として初参加を果たし、チーム得点は500点、順位は1834チーム中159位で終えました。ちなみに12月10日はやんばるツーデーマーチというウォーキングイベントも開催されていて、例年通り私は40kmコースに友人たちと4：00">
-<meta property="og:image" content="http://wassan128.github.io/blog/blog/2016/12/11/eanbai.png">
-<meta property="og:image" content="http://wassan128.github.io/blog/blog/2016/12/11/obtain_password.png">
-<meta property="og:image" content="http://wassan128.github.io/blog/blog/2016/12/11/ntglobalflag.png">
-<meta property="og:image" content="http://wassan128.github.io/blog/blog/2016/12/11/ntglobalflag_ok.png">
-<meta property="og:image" content="http://wassan128.github.io/blog/blog/2016/12/11/almost_flag_get.png">
-<meta property="og:image" content="http://wassan128.github.io/blog/blog/2016/12/11/pngovertel.png">
-<meta property="og:updated_time" content="2016-12-11T13:45:59.646Z">
+<meta property="og:image" content="http://wassan128.github.io/blog/2016/12/11/eanbai.png">
+<meta property="og:image" content="http://wassan128.github.io/blog/2016/12/11/obtain_password.png">
+<meta property="og:image" content="http://wassan128.github.io/blog/2016/12/11/ntglobalflag.png">
+<meta property="og:image" content="http://wassan128.github.io/blog/2016/12/11/ntglobalflag_ok.png">
+<meta property="og:image" content="http://wassan128.github.io/blog/2016/12/11/almost_flag_get.png">
+<meta property="og:image" content="http://wassan128.github.io/blog/2016/12/11/pngovertel.png">
+<meta property="og:updated_time" content="2016-12-11T13:46:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SECCON 2016 online CTFで解けた問題とかの話">
 <meta name="twitter:description" content="概要2016/12/10 15：00～の24時間、SECCON 2016 online CTF(オンライン予選)が開催されました。私はチームEanbai(先輩、同級生、私の三人)として初参加を果たし、チーム得点は500点、順位は1834チーム中159位で終えました。ちなみに12月10日はやんばるツーデーマーチというウォーキングイベントも開催されていて、例年通り私は40kmコースに友人たちと4：00">
+<meta name="twitter:image" content="http://wassan128.github.io/blog/2016/12/11/eanbai.png">
   
     <link rel="alternative" href="/blog/atom.xml" title="クロワッサンは黒くない" type="application/atom+xml">
   
@@ -28,7 +30,7 @@
     <link rel="icon" href="/favicon.png">
   
   <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/blog/css/style.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <link rel="stylesheet" href="/blog/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 </head>
@@ -40,11 +42,11 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/blog/" id="logo">クロワッサンは黒くない</a>
+        <a href="/blog/blog/" id="logo">クロワッサンは黒くない</a>
       </h1>
       
         <h2 id="subtitle-wrap">
-          <a href="/blog/" id="subtitle">とある高専生の備忘録的な何かになるかもしれない</a>
+          <a href="/blog/blog/" id="subtitle">とある高専生の備忘録的な何かになるかもしれない</a>
         </h2>
       
     </div>
@@ -52,9 +54,9 @@
       <nav id="main-nav">
         <a id="main-nav-toggle" class="nav-icon"></a>
         
-          <a class="main-nav-link" href="/blog/">Home</a>
+          <a class="main-nav-link" href="/blog/blog/">Home</a>
         
-          <a class="main-nav-link" href="/blog/archives/">Archives</a>
+          <a class="main-nav-link" href="/blog/blog/archives/">Archives</a>
         
       </nav>
       <nav id="sub-nav">
@@ -64,7 +66,7 @@
         <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://wassan128.github.io/blog"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://wassan128.github.io/blog"></form>
       </div>
     </div>
   </div>
@@ -92,12 +94,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="概要">概要</h2><p>2016/12/10 15：00～の24時間、SECCON 2016 online CTF(オンライン予選)が開催されました。私はチームEanbai(先輩、同級生、私の三人)として初参加を果たし、チーム得点は500点、順位は1834チーム中159位で終えました。<br>ちなみに12月10日は<a href="http://www.city.nago.okinawa.jp/9/8944.html" target="_blank" rel="external">やんばるツーデーマーチ</a>というウォーキングイベントも開催されていて、例年通り私は40kmコースに友人たちと4：00～15：30まで参加してからのSECCONログインだったので身体も頭もくたくたになりましたが、どちらも楽しかったです。<br>では早速、解けた問題のWriteupをば。</p>
+        <h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>2016/12/10 15：00～の24時間、SECCON 2016 online CTF(オンライン予選)が開催されました。私はチームEanbai(先輩、同級生、私の三人)として初参加を果たし、チーム得点は500点、順位は1834チーム中159位で終えました。<br>ちなみに12月10日は<a href="http://www.city.nago.okinawa.jp/9/8944.html" target="_blank" rel="external">やんばるツーデーマーチ</a>というウォーキングイベントも開催されていて、例年通り私は40kmコースに友人たちと4：00～15：30まで参加してからのSECCONログインだったので身体も頭もくたくたになりましたが、どちらも楽しかったです。<br>では早速、解けた問題のWriteupをば。</p>
 <img src="/blog/2016/12/11/eanbai.png" alt="Eanbaiで参加しました" title="Eanbaiで参加しました">
 <a id="more"></a>
-<h2 id="Anti-Debugging(Binary_-_100)">Anti-Debugging(Binary - 100)</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Anti-Debugging&#10;Reverse it.</span><br></pre></td></tr></table></figure>
+<h2 id="Anti-Debugging-Binary-100"><a href="#Anti-Debugging-Binary-100" class="headerlink" title="Anti-Debugging(Binary - 100)"></a>Anti-Debugging(Binary - 100)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Anti-Debugging</div><div class="line">Reverse it.</div></pre></td></tr></table></figure>
 <p>シンプルな問題文にbinというファイルが添えられていました。fileコマンドで何のファイルなのか確認すると</p>
-<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ file</span><br><span class="line"><span class="function">bin: <span class="title">PE32</span> <span class="title">executable</span> (<span class="title">console</span>) <span class="title">Intel</span> 80386, <span class="title">for</span> <span class="title">MS</span> <span class="title">Windows</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ file</div><div class="line"><span class="function">bin: <span class="title">PE32</span> <span class="title">executable</span> (<span class="title">console</span>) <span class="title">Intel</span> 80386, <span class="title">for</span> <span class="title">MS</span> <span class="title">Windows</span></span></div></pre></td></tr></table></figure>
 <p>とのことだったので、ひとまず拡張子をexeに変えて実行します。すると、「Input password &gt;」と表示されて入力待ち状態になります。適当に「hogehoge」とか打つと「password is wrong.」と怒られてしまうので、ひとまず次の手順に従ってパスワードを入手しました。</p>
 <ol>
 <li>「Input password &gt;」をセットしている部分のアドレスを確認</li>
@@ -114,29 +116,29 @@
 <img src="/blog/2016/12/11/almost_flag_get.png" alt="フラグっぽいやつが見える" title="フラグっぽいやつが見える">
 <p>全ての検出機構を無事突破し、フラグの復号処理を抜けたら終わりです。ちなみに出てきたフラグを見てもわかりますが、Ascii85というエンコード方式なんだそう。へー。また一つ知見を得ました。<br>以上、pafish.exeが頭に浮かんだ状態で終始取り組んだ問題でした。</p>
 <p>Flag: SECCON{check_Ascii85}</p>
-<h2 id="Memory_Analysis(Forensics_-_100)">Memory Analysis(Forensics - 100)</h2><p>メモリダンプのファイルが渡されて、中身を解析してフラグをくれるWebサイトにアクセスしてね！という問題。ヒントが2つ与えられていて、とりあえず1つ目のヒントに従ってVolatility<a href="http://www.volatilityfoundation.org/" target="_blank" rel="external">(公式サイトリンク)</a>というフォレンジックツールを導入しました。CUIツールで、引数に色々とオプションを付けるとよしなにやってくれる良い奴です。下記の例では、imageinfoオプションを付けて推奨Profileを調べています(このダンプファイルはWinXPSP2x86でやっていけば良さそう。後でも使います)。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ volatility.exe -f f.raw imageinfo&#10;Volatility Foundation Volatility Framework 2.5&#10;INFO    : volatility.debug    : Determining profile based on KDBG search...&#10;          Suggested Profile(s) : WinXPSP2x86, WinXPSP3x86 (Instantiated with WinXPSP2x86)&#10;          (&#20013;&#30053;)&#10;           Image date and time : 2016-12-06 05:28:47 UTC+0000&#10;     Image local date and time : 2016-12-06 14:28:47 +0900</span><br></pre></td></tr></table></figure>
+<h2 id="Memory-Analysis-Forensics-100"><a href="#Memory-Analysis-Forensics-100" class="headerlink" title="Memory Analysis(Forensics - 100)"></a>Memory Analysis(Forensics - 100)</h2><p>メモリダンプのファイルが渡されて、中身を解析してフラグをくれるWebサイトにアクセスしてね！という問題。ヒントが2つ与えられていて、とりあえず1つ目のヒントに従ってVolatility<a href="http://www.volatilityfoundation.org/" target="_blank" rel="external">(公式サイトリンク)</a>というフォレンジックツールを導入しました。CUIツールで、引数に色々とオプションを付けるとよしなにやってくれる良い奴です。下記の例では、imageinfoオプションを付けて推奨Profileを調べています(このダンプファイルはWinXPSP2x86でやっていけば良さそう。後でも使います)。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ volatility.exe -f f.raw imageinfo</div><div class="line">Volatility Foundation Volatility Framework 2.5</div><div class="line">INFO    : volatility.debug    : Determining profile based on KDBG search...</div><div class="line">          Suggested Profile(s) : WinXPSP2x86, WinXPSP3x86 (Instantiated with WinXPSP2x86)</div><div class="line">          (中略)</div><div class="line">           Image date and time : 2016-12-06 05:28:47 UTC+0000</div><div class="line">     Image local date and time : 2016-12-06 14:28:47 +0900</div></pre></td></tr></table></figure>
 <p>さて、2つ目のヒントにhostsを見ろと書いてあったので、とりあえずファイルのダンプの仕方を調べてやってみます。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ volatility.exe -f f.raw filescan | grep hosts&#10;Volatility Foundation Volatility Framework 2.5&#10;0x000000000217b748      1      0 R--rw- \Device\HarddiskVolume1\WINDOWS\system32\drivers\etc\hosts&#10;&#10;$ volatility.exe -f f.raw dumpfiles -Q 0x000000000217b748 --name -D ./&#10;Volatility Foundation Volatility Framework 2.5&#10;DataSectionObject 0x0217b748   None   \Device\HarddiskVolume1\WINDOWS\system32\drivers\etc\hosts</span><br></pre></td></tr></table></figure>
-<p>これでカレントディレクトリにfile.None.0x819a3008.hosts.datみたいなファイルが生成されて、この中身を見ると<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># Copyright (c) 1993-1999 Microsoft Corp.&#10;#&#10;# This is a sample HOSTS file used by Microsoft TCP/IP for Windows.&#10;#&#10;# This file contains the mappings of IP addresses to host names. Each&#10;# entry should be kept on an individual line. The IP address should&#10;# be placed in the first column followed by the corresponding host name.&#10;# The IP address and the host name should be separated by at least one&#10;# space.&#10;#&#10;# Additionally, comments (such as these) may be inserted on individual&#10;# lines or following the machine name denoted by a &#39;#&#39; symbol.&#10;#&#10;# For example:&#10;#&#10;#      102.54.94.97     rhino.acme.com          # source server&#10;#       38.25.63.10     x.acme.com              # x client host&#10;&#10;127.0.0.1       localhost&#10;153.127.200.178    crattack.tistory.com</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ volatility.exe -f f.raw filescan | grep hosts</div><div class="line">Volatility Foundation Volatility Framework 2.5</div><div class="line">0x000000000217b748      1      0 R--rw- \Device\HarddiskVolume1\WINDOWS\system32\drivers\etc\hosts</div><div class="line"></div><div class="line">$ volatility.exe -f f.raw dumpfiles -Q 0x000000000217b748 --name -D ./</div><div class="line">Volatility Foundation Volatility Framework 2.5</div><div class="line">DataSectionObject 0x0217b748   None   \Device\HarddiskVolume1\WINDOWS\system32\drivers\etc\hosts</div></pre></td></tr></table></figure>
+<p>これでカレントディレクトリにfile.None.0x819a3008.hosts.datみたいなファイルが生成されて、この中身を見ると<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"># Copyright (c) 1993-1999 Microsoft Corp.</div><div class="line">#</div><div class="line"># This is a sample HOSTS file used by Microsoft TCP/IP for Windows.</div><div class="line">#</div><div class="line"># This file contains the mappings of IP addresses to host names. Each</div><div class="line"># entry should be kept on an individual line. The IP address should</div><div class="line"># be placed in the first column followed by the corresponding host name.</div><div class="line"># The IP address and the host name should be separated by at least one</div><div class="line"># space.</div><div class="line">#</div><div class="line"># Additionally, comments (such as these) may be inserted on individual</div><div class="line"># lines or following the machine name denoted by a &apos;#&apos; symbol.</div><div class="line">#</div><div class="line"># For example:</div><div class="line">#</div><div class="line">#      102.54.94.97     rhino.acme.com          # source server</div><div class="line">#       38.25.63.10     x.acme.com              # x client host</div><div class="line"></div><div class="line">127.0.0.1       localhost</div><div class="line">153.127.200.178    crattack.tistory.com</div></pre></td></tr></table></figure></p>
 <p>hostsですね。注目すべきは最後の行のcrattack.tistory.comというやつ。果たして本当にそうでしょうか？と33分探偵ばり(ネタが古い)にnslookupすると</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#21517;&#21069;:    crattack.tistory.com&#10;Addresses:  175.126.170.70&#10;          175.126.170.110</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">名前:    crattack.tistory.com</div><div class="line">Addresses:  175.126.170.70</div><div class="line">          175.126.170.110</div></pre></td></tr></table></figure>
 <p>ほらね。やっぱり何かありそうです。問題文でも偽のアクセスがどうのこうのと言ってるので、方針は良さそうです。ここからはコマンドリファレンスとにらめっこして情報を幾つか見ましたが、最終的に答えにたどり着けたのは「<a href="https://github.com/volatilityfoundation/volatility/wiki/Command%20Reference#iehistory" target="_blank" rel="external">iehistory</a>」というオプションでした。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ volatility.exe -f f.raw iehistory | grep crattack.tistory.com&#10;Volatility Foundation Volatility Framework 2.5&#10;Location: http://crattack.tistory.com/entry/Data-Science-import-pandas-as-pd&#10;Location: Visited: SYSTEM@http://crattack.tistory.com/rss&#10;Location: Visited: SYSTEM@http://crattack.tistory.com/entry/Data-Science-import-pandas-as-pd&#10;Location: Visited: SYSTEM@http://crattack.tistory.com/entry/Data-Science-import-pandas-as-pd&#10;Location: http://crattack.tistory.com/entry/Data-Science-import-pandas-as-pd&#10;Location: Visited: SYSTEM@http://crattack.tistory.com/rss&#10;Location: Visited: SYSTEM@http://crattack.tistory.com/entry/Data-Science-import-pandas-as-pd&#10;Location: Visited: SYSTEM@http://crattack.tistory.com/entry/Data-Science-import-pandas-as-pd&#10;Location: :2016120620161207: SYSTEM@http://crattack.tistory.com/entry/Data-Science-import-pandas-as-pd&#10;Location: :2016120620161207: SYSTEM@:Host: crattack.tistory.com&#10;Location: :2016120620161207: SYSTEM@http://crattack.tistory.com/entry/Data-Science-import-pandas-as-pd</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">$ volatility.exe -f f.raw iehistory | grep crattack.tistory.com</div><div class="line">Volatility Foundation Volatility Framework 2.5</div><div class="line">Location: http://crattack.tistory.com/entry/Data-Science-import-pandas-as-pd</div><div class="line">Location: Visited: SYSTEM@http://crattack.tistory.com/rss</div><div class="line">Location: Visited: SYSTEM@http://crattack.tistory.com/entry/Data-Science-import-pandas-as-pd</div><div class="line">Location: Visited: SYSTEM@http://crattack.tistory.com/entry/Data-Science-import-pandas-as-pd</div><div class="line">Location: http://crattack.tistory.com/entry/Data-Science-import-pandas-as-pd</div><div class="line">Location: Visited: SYSTEM@http://crattack.tistory.com/rss</div><div class="line">Location: Visited: SYSTEM@http://crattack.tistory.com/entry/Data-Science-import-pandas-as-pd</div><div class="line">Location: Visited: SYSTEM@http://crattack.tistory.com/entry/Data-Science-import-pandas-as-pd</div><div class="line">Location: :2016120620161207: SYSTEM@http://crattack.tistory.com/entry/Data-Science-import-pandas-as-pd</div><div class="line">Location: :2016120620161207: SYSTEM@:Host: crattack.tistory.com</div><div class="line">Location: :2016120620161207: SYSTEM@http://crattack.tistory.com/entry/Data-Science-import-pandas-as-pd</div></pre></td></tr></table></figure>
 <p>このサイト自体はアクセスしても特にフラグらしいものは得られませんでしたが、iehistoryで出てきた/Data-Science-import-pandas-as-pdというやつにアクセスするとファイルが落ちてきて、それをテキストエディタとかで読むとフラグが書いてある、というオチでした。</p>
 <p>これらの作業をするにあたって、<a href="http://downloads.volatilityfoundation.org/releases/2.4/CheatSheet_v2.4.pdf" target="_blank" rel="external">Volatility CheatSheet_v2.4.pdf</a>と<a href="https://github.com/volatilityfoundation/volatility/wiki/Command%20Reference#iehistory" target="_blank" rel="external">Command Reference(at github)</a>を大いに活用しました。</p>
 <p>Flag: SECCON{_h3110_w3_h4ve_fun<em>w4rg4m3</em>}</p>
-<h2 id="その他取り組んだ問題1:_VoIP(Forensics_-_100)">その他取り組んだ問題1: VoIP(Forensics - 100)</h2><p>pcapファイルが渡されて、中にVoIP電話の音声パケットデータが入っているので、それを聞き取る問題。これはEnglishをlistenする問題で英語パーフェクトマスター!wの私は「余裕やんけ」と言いながら聞き取った「SECCON{9001IBR}」をポストするも無残に散りました。正しいフラグは「SECCON{9001I<strong>V</strong>R}」。チームメンバーの先輩が無事得点してくれました。良かったです。</p>
-<h2 id="その他取り組んだ問題2:_PNG_over_Telegraph(Crypto_-_300)">その他取り組んだ問題2: PNG over Telegraph(Crypto - 300)</h2><p>愉快な動きをするSECCON TOWER(<a href="https://www.youtube.com/watch?v=Y6voaURtKlM&amp;feature=youtu.be" target="_blank" rel="external">YouTubeへのリンク</a>)の動きからアルファベットを読み出して、その結果をどうにかデコードしてPNGファイルを出力する問題。最初の趣旨説明部分で21文字(ただし.(ピリオド)含む)がわかるように説明してくれていて、それを表にまとめるとその他のわかっていない6文字もなんとなく推察できるようになっていました。ただ、とにかく動画が長くて、色々しんどい問題だ…ってなったところで解くのをやめてしまいました。面白かったので時間があったらやってみようかなという感じです。</p>
+<h2 id="その他取り組んだ問題1-VoIP-Forensics-100"><a href="#その他取り組んだ問題1-VoIP-Forensics-100" class="headerlink" title="その他取り組んだ問題1: VoIP(Forensics - 100)"></a>その他取り組んだ問題1: VoIP(Forensics - 100)</h2><p>pcapファイルが渡されて、中にVoIP電話の音声パケットデータが入っているので、それを聞き取る問題。これはEnglishをlistenする問題で英語パーフェクトマスター!wの私は「余裕やんけ」と言いながら聞き取った「SECCON{9001IBR}」をポストするも無残に散りました。正しいフラグは「SECCON{9001I<strong>V</strong>R}」。チームメンバーの先輩が無事得点してくれました。良かったです。</p>
+<h2 id="その他取り組んだ問題2-PNG-over-Telegraph-Crypto-300"><a href="#その他取り組んだ問題2-PNG-over-Telegraph-Crypto-300" class="headerlink" title="その他取り組んだ問題2: PNG over Telegraph(Crypto - 300)"></a>その他取り組んだ問題2: PNG over Telegraph(Crypto - 300)</h2><p>愉快な動きをするSECCON TOWER(<a href="https://www.youtube.com/watch?v=Y6voaURtKlM&amp;feature=youtu.be" target="_blank" rel="external">YouTubeへのリンク</a>)の動きからアルファベットを読み出して、その結果をどうにかデコードしてPNGファイルを出力する問題。最初の趣旨説明部分で21文字(ただし.(ピリオド)含む)がわかるように説明してくれていて、それを表にまとめるとその他のわかっていない6文字もなんとなく推察できるようになっていました。ただ、とにかく動画が長くて、色々しんどい問題だ…ってなったところで解くのをやめてしまいました。面白かったので時間があったらやってみようかなという感じです。</p>
 <img src="/blog/2016/12/11/pngovertel.png" alt="対応表を作っていた。赤文字部分は冒頭の英文に出てこなかったために判明しなかったので予想した文字" title="対応表を作っていた。赤文字部分は冒頭の英文に出てこなかったために判明しなかったので予想した文字">
-<h2 id="まとめ">まとめ</h2><p>上に挙げた以外の問題もいくつか触ったりしましたが、pwnの問題もflag.txtという文字がスタック上に見えるのに手が届かない、そういう感じで悔しかったです。あとWeb問も解けなかったので、この辺できるようになりたいなと思いました。</p>
-<h2 id="そういえば">そういえば</h2><p>来週は<a href="http://www.security-camp.org/minicamp/okinawa2016.html" target="_blank" rel="external">セキュリティミニキャンプ in 沖縄</a>ですね。</p>
+<h2 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><p>上に挙げた以外の問題もいくつか触ったりしましたが、pwnの問題もflag.txtという文字がスタック上に見えるのに手が届かない、そういう感じで悔しかったです。あとWeb問も解けなかったので、この辺できるようになりたいなと思いました。</p>
+<h2 id="そういえば"><a href="#そういえば" class="headerlink" title="そういえば"></a>そういえば</h2><p>来週は<a href="http://www.security-camp.org/minicamp/okinawa2016.html" target="_blank" rel="external">セキュリティミニキャンプ in 沖縄</a>ですね。</p>
 <p>以上です。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wassan128.github.io/blog/2016/12/11/" data-id="cj28w4by1000xpgwvd5xni05s" class="article-share-link">Share</a>
+      <a data-url="http://wassan128.github.io/blog/2016/12/11/" data-id="cj4dg98e700050osu6hy9zhva" class="article-share-link">Share</a>
       
         <a href="http://wassan128.github.io/blog/2016/12/11/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -185,7 +187,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Node-js/">Node.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ctf/">ctf</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/disqus/">disqus</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/git/">git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hexo/">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/javascript/">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/malware/">malware</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/math/">math</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/misc/">misc</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/python/">python</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/raspberry-pi/">raspberry pi</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/twitter/">twitter</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/windows-media-player/">windows media player</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Hardening/">Hardening</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Node-js/">Node.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ctf/">ctf</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/disqus/">disqus</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/git/">git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hexo/">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/javascript/">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/malware/">malware</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/math/">math</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/misc/">misc</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/python/">python</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/raspberry-pi/">raspberry pi</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/twitter/">twitter</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/windows-media-player/">windows media player</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -194,7 +196,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/blog/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/blog/tags/ctf/" style="font-size: 20px;">ctf</a> <a href="/blog/tags/disqus/" style="font-size: 10px;">disqus</a> <a href="/blog/tags/git/" style="font-size: 13.33px;">git</a> <a href="/blog/tags/hexo/" style="font-size: 16.67px;">hexo</a> <a href="/blog/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/blog/tags/malware/" style="font-size: 10px;">malware</a> <a href="/blog/tags/math/" style="font-size: 10px;">math</a> <a href="/blog/tags/misc/" style="font-size: 10px;">misc</a> <a href="/blog/tags/python/" style="font-size: 20px;">python</a> <a href="/blog/tags/raspberry-pi/" style="font-size: 10px;">raspberry pi</a> <a href="/blog/tags/twitter/" style="font-size: 10px;">twitter</a> <a href="/blog/tags/windows-media-player/" style="font-size: 10px;">windows media player</a>
+      <a href="/blog/tags/Hardening/" style="font-size: 10px;">Hardening</a> <a href="/blog/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/blog/tags/ctf/" style="font-size: 20px;">ctf</a> <a href="/blog/tags/disqus/" style="font-size: 10px;">disqus</a> <a href="/blog/tags/git/" style="font-size: 13.33px;">git</a> <a href="/blog/tags/hexo/" style="font-size: 16.67px;">hexo</a> <a href="/blog/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/blog/tags/malware/" style="font-size: 10px;">malware</a> <a href="/blog/tags/math/" style="font-size: 10px;">math</a> <a href="/blog/tags/misc/" style="font-size: 10px;">misc</a> <a href="/blog/tags/python/" style="font-size: 20px;">python</a> <a href="/blog/tags/raspberry-pi/" style="font-size: 10px;">raspberry pi</a> <a href="/blog/tags/twitter/" style="font-size: 10px;">twitter</a> <a href="/blog/tags/windows-media-player/" style="font-size: 10px;">windows media player</a>
     </div>
   </div>
 
@@ -203,7 +205,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/05/">May 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/12/">December 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/08/">August 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/05/">May 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/09/">September 2015</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/06/">June 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/05/">May 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/12/">December 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/08/">August 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/05/">May 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/09/">September 2015</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -213,6 +215,10 @@
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/blog/2017/06/26/">Hardening 1010 Cash Flowに参加した話</a>
+          </li>
         
           <li>
             <a href="/blog/2017/05/03/">picoctf2017で解いたWeb問の話</a>
@@ -228,10 +234,6 @@
         
           <li>
             <a href="/blog/2016/12/04/">KOSENセキュリティ・コンテスト2016に参加した話</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2016/08/26/">Windows Media Playerのスキンを作る話</a>
           </li>
         
       </ul>
@@ -254,9 +256,9 @@
     </div>
     <nav id="mobile-nav">
   
-    <a href="/blog/" class="mobile-nav-link">Home</a>
+    <a href="/blog/blog/" class="mobile-nav-link">Home</a>
   
-    <a href="/blog/archives/" class="mobile-nav-link">Archives</a>
+    <a href="/blog/blog/archives/" class="mobile-nav-link">Archives</a>
   
 </nav>
     
@@ -278,11 +280,11 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
-  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" type="text/css">
-  <script src="/blog/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="/blog/js/script.js" type="text/javascript"></script>
+<script src="/blog/js/script.js"></script>
 
   </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">

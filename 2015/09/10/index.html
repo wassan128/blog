@@ -5,31 +5,17 @@
   
   <title>Hexoで生成したブログをGitHub Pagesで公開するまで | クロワッサンは黒くない</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="どうも、太鼓の達人(実機)をしばらくプレイしないうちに腕がなまってしまった太古の達人(?)わっさんです。さて、今回はこのブログを生成してGitHubを使って公開するまでの流れを書き残しておきたいと思います。
-要約(というか超雑な流れ)長文になるので、今回の説明の大まかな流れを示します。
-
-Node.jsをインストール
-Hexoをnpmでインストール
-GitHubリポジトリを用意し、Git周りの設定">
+  <meta name="description" content="どうも、太鼓の達人(実機)をしばらくプレイしないうちに腕がなまってしまった太古の達人(?)わっさんです。さて、今回はこのブログを生成してGitHubを使って公開するまでの流れを書き残しておきたいと思います。 要約(というか超雑な流れ)長文になるので、今回の説明の大まかな流れを示します。  Node.jsをインストール Hexoをnpmでインストール GitHubリポジトリを用意し、Git周りの設定">
+<meta name="keywords" content="Node.js,hexo,git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexoで生成したブログをGitHub Pagesで公開するまで">
 <meta property="og:url" content="http://wassan128.github.io/blog/2015/09/10/index.html">
 <meta property="og:site_name" content="クロワッサンは黒くない">
-<meta property="og:description" content="どうも、太鼓の達人(実機)をしばらくプレイしないうちに腕がなまってしまった太古の達人(?)わっさんです。さて、今回はこのブログを生成してGitHubを使って公開するまでの流れを書き残しておきたいと思います。
-要約(というか超雑な流れ)長文になるので、今回の説明の大まかな流れを示します。
-
-Node.jsをインストール
-Hexoをnpmでインストール
-GitHubリポジトリを用意し、Git周りの設定">
+<meta property="og:description" content="どうも、太鼓の達人(実機)をしばらくプレイしないうちに腕がなまってしまった太古の達人(?)わっさんです。さて、今回はこのブログを生成してGitHubを使って公開するまでの流れを書き残しておきたいと思います。 要約(というか超雑な流れ)長文になるので、今回の説明の大まかな流れを示します。  Node.jsをインストール Hexoをnpmでインストール GitHubリポジトリを用意し、Git周りの設定">
 <meta property="og:updated_time" content="2015-09-11T02:05:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexoで生成したブログをGitHub Pagesで公開するまで">
-<meta name="twitter:description" content="どうも、太鼓の達人(実機)をしばらくプレイしないうちに腕がなまってしまった太古の達人(?)わっさんです。さて、今回はこのブログを生成してGitHubを使って公開するまでの流れを書き残しておきたいと思います。
-要約(というか超雑な流れ)長文になるので、今回の説明の大まかな流れを示します。
-
-Node.jsをインストール
-Hexoをnpmでインストール
-GitHubリポジトリを用意し、Git周りの設定">
+<meta name="twitter:description" content="どうも、太鼓の達人(実機)をしばらくプレイしないうちに腕がなまってしまった太古の達人(?)わっさんです。さて、今回はこのブログを生成してGitHubを使って公開するまでの流れを書き残しておきたいと思います。 要約(というか超雑な流れ)長文になるので、今回の説明の大まかな流れを示します。  Node.jsをインストール Hexoをnpmでインストール GitHubリポジトリを用意し、Git周りの設定">
   
     <link rel="alternative" href="/blog/atom.xml" title="クロワッサンは黒くない" type="application/atom+xml">
   
@@ -37,7 +23,7 @@ GitHubリポジトリを用意し、Git周りの設定">
     <link rel="icon" href="/favicon.png">
   
   <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/blog/css/style.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <link rel="stylesheet" href="/blog/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 </head>
@@ -49,11 +35,11 @@ GitHubリポジトリを用意し、Git周りの設定">
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/blog/" id="logo">クロワッサンは黒くない</a>
+        <a href="/blog/blog/" id="logo">クロワッサンは黒くない</a>
       </h1>
       
         <h2 id="subtitle-wrap">
-          <a href="/blog/" id="subtitle">とある高専生の備忘録的な何かになるかもしれない</a>
+          <a href="/blog/blog/" id="subtitle">とある高専生の備忘録的な何かになるかもしれない</a>
         </h2>
       
     </div>
@@ -61,9 +47,9 @@ GitHubリポジトリを用意し、Git周りの設定">
       <nav id="main-nav">
         <a id="main-nav-toggle" class="nav-icon"></a>
         
-          <a class="main-nav-link" href="/blog/">Home</a>
+          <a class="main-nav-link" href="/blog/blog/">Home</a>
         
-          <a class="main-nav-link" href="/blog/archives/">Archives</a>
+          <a class="main-nav-link" href="/blog/blog/archives/">Archives</a>
         
       </nav>
       <nav id="sub-nav">
@@ -73,7 +59,7 @@ GitHubリポジトリを用意し、Git周りの設定">
         <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://wassan128.github.io/blog"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://wassan128.github.io/blog"></form>
       </div>
     </div>
   </div>
@@ -102,7 +88,7 @@ GitHubリポジトリを用意し、Git周りの設定">
     <div class="article-entry" itemprop="articleBody">
       
         <p>どうも、太鼓の達人(実機)をしばらくプレイしないうちに腕がなまってしまった太古の達人(?)わっさんです。さて、今回はこのブログを生成してGitHubを使って公開するまでの流れを書き残しておきたいと思います。</p>
-<h2 id="要約(というか超雑な流れ)">要約(というか超雑な流れ)</h2><p>長文になるので、今回の説明の大まかな流れを示します。</p>
+<h2 id="要約-というか超雑な流れ"><a href="#要約-というか超雑な流れ" class="headerlink" title="要約(というか超雑な流れ)"></a>要約(というか超雑な流れ)</h2><p>長文になるので、今回の説明の大まかな流れを示します。</p>
 <ol>
 <li>Node.jsをインストール</li>
 <li>Hexoをnpmでインストール</li>
@@ -110,32 +96,32 @@ GitHubリポジトリを用意し、Git周りの設定">
 <li>デプロイ&amp;確認</li>
 </ol>
 <a id="more"></a>
-<h2 id="環境">環境</h2><ul>
+<h2 id="環境"><a href="#環境" class="headerlink" title="環境"></a>環境</h2><ul>
 <li>Windows 7 Enterprise</li>
 <li>Node.js(v0.12.7)</li>
 <li>npm(v2.11.3)</li>
 </ul>
-<h2 id="Node-jsをインストール">Node.jsをインストール</h2><p>Node.jsはサーバーサイドで使用できるJavaScriptの事で、従来フロントエンドで使用してきたJavaScriptをサーバーサイドで使おう、というものです。こちらのインストールはWindows環境ということで、インストーラを使って行いました(<a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js 公式サイト</a>)。インストールが終わったら、コマンドプロンプトで<br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v   <span class="comment">//v0.12.7</span></span><br><span class="line">npm -v   <span class="comment">//2.11.3</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="Node-jsをインストール"><a href="#Node-jsをインストール" class="headerlink" title="Node.jsをインストール"></a>Node.jsをインストール</h2><p>Node.jsはサーバーサイドで使用できるJavaScriptの事で、従来フロントエンドで使用してきたJavaScriptをサーバーサイドで使おう、というものです。こちらのインストールはWindows環境ということで、インストーラを使って行いました(<a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js 公式サイト</a>)。インストールが終わったら、コマンドプロンプトで<br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">node</span> <span class="title">-v</span>   //v0.<span class="number">12.7</span></div><div class="line">npm -v   //<span class="number">2.11</span>.<span class="number">3</span></div></pre></td></tr></table></figure></p>
 <p>として確認を行いました。npmは、「Node Package Manager」の略称らしいです。その名の通り、Node.js関連のモジュールインストールなどで活躍してくれるに違いありません。今回も何回か使います。</p>
-<h2 id="Hexoをインストール">Hexoをインストール</h2><p>次に、ブログの生成ツールをインストールします。今回は、静的サイトジェネレーターの<a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>を使ってブログ本体を生成します。こちらは、先ほど確認を行ったnpmを使ってインストールします。<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="operator"><span class="keyword">install</span> -<span class="keyword">g</span> hexo-cli</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="Hexoを使ってみる">Hexoを使ってみる</h2><p>Hexoでは、コマンドを打ち込むことでブログのひな形を生成したり、記事を作成したりしていきます。まずはひな形を作っていきます。作業用フォルダを生成する場所を決めたらコマンドプロンプトでその場所まで移動して、<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">hexo</span> init FOLDER</span><br></pre></td></tr></table></figure></p>
-<p>というコマンドを実行します。「FOLDER」の部分は、好きな名前にして実行してください(作業用フォルダ名になるだけです)。<br>次に、<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> FOLDER</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure></p>
-<p>として、モジュールをインストールします。これだけでひな形の作成は完了です。<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">hexo</span> s</span><br></pre></td></tr></table></figure></p>
+<h2 id="Hexoをインストール"><a href="#Hexoをインストール" class="headerlink" title="Hexoをインストール"></a>Hexoをインストール</h2><p>次に、ブログの生成ツールをインストールします。今回は、静的サイトジェネレーターの<a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>を使ってブログ本体を生成します。こちらは、先ほど確認を行ったnpmを使ってインストールします。<br><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g hexo-<span class="keyword">cli</span></div></pre></td></tr></table></figure></p>
+<h2 id="Hexoを使ってみる"><a href="#Hexoを使ってみる" class="headerlink" title="Hexoを使ってみる"></a>Hexoを使ってみる</h2><p>Hexoでは、コマンドを打ち込むことでブログのひな形を生成したり、記事を作成したりしていきます。まずはひな形を作っていきます。作業用フォルダを生成する場所を決めたらコマンドプロンプトでその場所まで移動して、<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">hexo init FOLDER</span></div></pre></td></tr></table></figure></p>
+<p>というコマンドを実行します。「FOLDER」の部分は、好きな名前にして実行してください(作業用フォルダ名になるだけです)。<br>次に、<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> FOLDER</div><div class="line">npm install</div></pre></td></tr></table></figure></p>
+<p>として、モジュールをインストールします。これだけでひな形の作成は完了です。<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">hexo s</span></div></pre></td></tr></table></figure></p>
 <p>としてローカルサーバーを起動し、<a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a>にアクセスしてみましょう。宇宙感あふれるページが表示されているかと思います。</p>
-<h2 id="生成したブログの編集">生成したブログの編集</h2><p>ひな形を作れたのは良いですが、このままでは面白くありませんね。ここで生成したフォルダを見てみましょう。「_config.yml」というファイルがあると思いますが、この中身を編集することでブログの全般的な設定をすることが出来ます。<a href="https://hexo.io/docs/configuration.html" target="_blank" rel="external">こちら</a>(Hexo公式ページ)を参考にしながら、ブログのタイトル等を編集していきます。それぞれhtmlに変換した際にmetaタグなどに反映されていきます。</p>
+<h2 id="生成したブログの編集"><a href="#生成したブログの編集" class="headerlink" title="生成したブログの編集"></a>生成したブログの編集</h2><p>ひな形を作れたのは良いですが、このままでは面白くありませんね。ここで生成したフォルダを見てみましょう。「_config.yml」というファイルがあると思いますが、この中身を編集することでブログの全般的な設定をすることが出来ます。<a href="https://hexo.io/docs/configuration.html" target="_blank" rel="external">こちら</a>(Hexo公式ページ)を参考にしながら、ブログのタイトル等を編集していきます。それぞれhtmlに変換した際にmetaタグなどに反映されていきます。</p>
 <p>そのほかにもいろいろとフォルダやらファイルがありますが、例えば「themes」というフォルダの中にブログのデザインに関するスタイラスのファイルなどが入っていますので、その辺を変更することで見た目を変えることが出来ます。</p>
 <p>デフォルトの宇宙感あふれるテーマは「landscape」という名前ですが、ネット上に<a href="https://hexo.io/themes/" target="_blank" rel="external">テーマが多く存在</a>するので、好きに変更することもできます。僕はこのデフォルトのテーマを少しいじったものを使っています。</p>
-<h2 id="GitHubをセットアップ">GitHubをセットアップ</h2><p>まず<a href="https://github.com/" target="_blank" rel="external">GitHub</a>リポジトリを作成します。GitHub Pagesにブログを置くことももちろんできますが、今回僕はサブディレクトリに配置したかったので「blog」というリポジトリを作成しました。「gh-pages」ブランチを作成したら、お手元のGit Bash等を使ってsshキーをジェネレートしてGitHub側に登録しておきます。これでGitHubとマシンのひも付けができるので、GitHub側の準備は完了です。</p>
+<h2 id="GitHubをセットアップ"><a href="#GitHubをセットアップ" class="headerlink" title="GitHubをセットアップ"></a>GitHubをセットアップ</h2><p>まず<a href="https://github.com/" target="_blank" rel="external">GitHub</a>リポジトリを作成します。GitHub Pagesにブログを置くことももちろんできますが、今回僕はサブディレクトリに配置したかったので「blog」というリポジトリを作成しました。「gh-pages」ブランチを作成したら、お手元のGit Bash等を使ってsshキーをジェネレートしてGitHub側に登録しておきます。これでGitHubとマシンのひも付けができるので、GitHub側の準備は完了です。</p>
 <p>(ちなみに僕はこの作業を忘れていたためにデプロイで躓きました…(´・ω・`))</p>
-<h2 id="HexoからGitHubへデプロイ">HexoからGitHubへデプロイ</h2><p>ここまで来たらいよいよデプロイです。先ほど編集した「_config.yml」を開き、<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">url:</span> <span class="string">'http://USER_ID.github.io/REPO_NAME/'</span></span><br><span class="line"><span class="string">root:</span> <span class="regexp">/REPO_NAME/</span></span><br></pre></td></tr></table></figure></p>
-<p>というように先ほど作成したリポジトリ名を指定します。<br>しかし、このままだと「themes」内の「_config.yml」の内容が悪さをしてアーカイブなどのリンクがうまく生成されないので、ファイルの下の方に<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">theme_config</span>:</span><br><span class="line">  <span class="attribute">menu</span>:</span><br><span class="line">    <span class="attribute">Home</span>: /REPO_NAME</span><br><span class="line">    <span class="attribute">Archives</span>: /REPO_NAME/archives</span><br></pre></td></tr></table></figure></p>
-<p>と記述しておきます。その後、<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">deploy</span>:</span><br><span class="line">  <span class="attribute">type</span>: git</span><br><span class="line">  <span class="attribute">repo</span>: <span class="string">'git@github.com:USER_ID/REPO_NAME.git'</span></span><br><span class="line">  <span class="attribute">branch</span>: gh-pages</span><br></pre></td></tr></table></figure></p>
-<p>といった形でデプロイ用の設定を記述します。では、デプロイしましょう！<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">d</span> -<span class="keyword">g</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="HexoからGitHubへデプロイ"><a href="#HexoからGitHubへデプロイ" class="headerlink" title="HexoからGitHubへデプロイ"></a>HexoからGitHubへデプロイ</h2><p>ここまで来たらいよいよデプロイです。先ほど編集した「_config.yml」を開き、<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">url:</span> <span class="string">'http://USER_ID.github.io/REPO_NAME/'</span></div><div class="line"><span class="string">root:</span> <span class="regexp">/REPO_NAME/</span></div></pre></td></tr></table></figure></p>
+<p>というように先ほど作成したリポジトリ名を指定します。<br>しかし、このままだと「themes」内の「_config.yml」の内容が悪さをしてアーカイブなどのリンクがうまく生成されないので、ファイルの下の方に<br><figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">theme_config:</span></div><div class="line"><span class="symbol">  menu:</span></div><div class="line"><span class="symbol">    Home:</span> /REPO_NAME</div><div class="line"><span class="symbol">    Archives:</span> /REPO_NAME/archives</div></pre></td></tr></table></figure></p>
+<p>と記述しておきます。その後、<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">deploy</span>:</div><div class="line">  <span class="attribute">type</span>: git</div><div class="line">  <span class="attribute">repo</span>: <span class="string">'git@github.com:USER_ID/REPO_NAME.git'</span></div><div class="line">  <span class="attribute">branch</span>: gh-pages</div></pre></td></tr></table></figure></p>
+<p>といった形でデプロイ用の設定を記述します。では、デプロイしましょう！<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">hexo d -g</span></div></pre></td></tr></table></figure></p>
 <p>「hexo d」コマンドでデプロイできますが、「-g」オプションを付加するとデプロイ前にhtmlなどを生成してくれます(生成の結果、作業用フォルダ内に「public」というフォルダが作られます)。</p>
 <p>エラーが出なければ成功です！指定したURLにアクセスして、確認しましょう。</p>
-<h2 id="まとめと今後の展望">まとめと今後の展望</h2><p>今回は、Hexoを利用して生成したブログをGitHub Pagesに公開することを目的として作業を行いました。作業にあたって、いろんなサイトを参考にさせてもらいましたが、Windows環境でやって記事にしている方が少なかったので、少し苦労しました(Gitについてよく知らないことが一番の原因だとは思いますが)。</p>
+<h2 id="まとめと今後の展望"><a href="#まとめと今後の展望" class="headerlink" title="まとめと今後の展望"></a>まとめと今後の展望</h2><p>今回は、Hexoを利用して生成したブログをGitHub Pagesに公開することを目的として作業を行いました。作業にあたって、いろんなサイトを参考にさせてもらいましたが、Windows環境でやって記事にしている方が少なかったので、少し苦労しました(Gitについてよく知らないことが一番の原因だとは思いますが)。</p>
 <p>また、この記事はMarkdown形式で書いていますが、まだ書き方がよくわからないのでわかりにくいところや間違ってるところ等あればコメントで教えていただけると幸いです。ブログのテーマについてはファイルをいじることで簡単に変更でき、良さげなので、これからしばらく運営していこうと思います。</p>
-<h2 id="参考にさせていただいたサイト">参考にさせていただいたサイト</h2><ul>
+<h2 id="参考にさせていただいたサイト"><a href="#参考にさせていただいたサイト" class="headerlink" title="参考にさせていただいたサイト"></a>参考にさせていただいたサイト</h2><ul>
 <li><a href="https://hexo.io/" target="_blank" rel="external">Hexo(公式サイト)</a></li>
 <li><a href="http://liginc.co.jp/web/programming/server/104594" target="_blank" rel="external">所要時間3分!? Github PagesとHEXOで爆速ブログ構築してみよう！</a></li>
 <li><a href="http://pagent.github.io/2014/11/24/hexo-windows-deploy/" target="_blank" rel="external">WindowsでHexoを使う(deploy)</a></li>
@@ -144,7 +130,7 @@ GitHubリポジトリを用意し、Git周りの設定">
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wassan128.github.io/blog/2015/09/10/" data-id="cj28w4bys0013pgwv3textc07" class="article-share-link">Share</a>
+      <a data-url="http://wassan128.github.io/blog/2015/09/10/" data-id="cj4dg98dx00030osuypq9kgx6" class="article-share-link">Share</a>
       
         <a href="http://wassan128.github.io/blog/2015/09/10/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -193,7 +179,7 @@ GitHubリポジトリを用意し、Git周りの設定">
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Node-js/">Node.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ctf/">ctf</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/disqus/">disqus</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/git/">git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hexo/">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/javascript/">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/malware/">malware</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/math/">math</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/misc/">misc</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/python/">python</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/raspberry-pi/">raspberry pi</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/twitter/">twitter</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/windows-media-player/">windows media player</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Hardening/">Hardening</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Node-js/">Node.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ctf/">ctf</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/disqus/">disqus</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/git/">git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hexo/">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/javascript/">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/malware/">malware</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/math/">math</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/misc/">misc</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/python/">python</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/raspberry-pi/">raspberry pi</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/twitter/">twitter</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/windows-media-player/">windows media player</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -202,7 +188,7 @@ GitHubリポジトリを用意し、Git周りの設定">
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/blog/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/blog/tags/ctf/" style="font-size: 20px;">ctf</a> <a href="/blog/tags/disqus/" style="font-size: 10px;">disqus</a> <a href="/blog/tags/git/" style="font-size: 13.33px;">git</a> <a href="/blog/tags/hexo/" style="font-size: 16.67px;">hexo</a> <a href="/blog/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/blog/tags/malware/" style="font-size: 10px;">malware</a> <a href="/blog/tags/math/" style="font-size: 10px;">math</a> <a href="/blog/tags/misc/" style="font-size: 10px;">misc</a> <a href="/blog/tags/python/" style="font-size: 20px;">python</a> <a href="/blog/tags/raspberry-pi/" style="font-size: 10px;">raspberry pi</a> <a href="/blog/tags/twitter/" style="font-size: 10px;">twitter</a> <a href="/blog/tags/windows-media-player/" style="font-size: 10px;">windows media player</a>
+      <a href="/blog/tags/Hardening/" style="font-size: 10px;">Hardening</a> <a href="/blog/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/blog/tags/ctf/" style="font-size: 20px;">ctf</a> <a href="/blog/tags/disqus/" style="font-size: 10px;">disqus</a> <a href="/blog/tags/git/" style="font-size: 13.33px;">git</a> <a href="/blog/tags/hexo/" style="font-size: 16.67px;">hexo</a> <a href="/blog/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/blog/tags/malware/" style="font-size: 10px;">malware</a> <a href="/blog/tags/math/" style="font-size: 10px;">math</a> <a href="/blog/tags/misc/" style="font-size: 10px;">misc</a> <a href="/blog/tags/python/" style="font-size: 20px;">python</a> <a href="/blog/tags/raspberry-pi/" style="font-size: 10px;">raspberry pi</a> <a href="/blog/tags/twitter/" style="font-size: 10px;">twitter</a> <a href="/blog/tags/windows-media-player/" style="font-size: 10px;">windows media player</a>
     </div>
   </div>
 
@@ -211,7 +197,7 @@ GitHubリポジトリを用意し、Git周りの設定">
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/05/">May 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/12/">December 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/08/">August 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/05/">May 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/09/">September 2015</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/06/">June 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/05/">May 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/12/">December 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/08/">August 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/05/">May 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/09/">September 2015</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -221,6 +207,10 @@ GitHubリポジトリを用意し、Git周りの設定">
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/blog/2017/06/26/">Hardening 1010 Cash Flowに参加した話</a>
+          </li>
         
           <li>
             <a href="/blog/2017/05/03/">picoctf2017で解いたWeb問の話</a>
@@ -236,10 +226,6 @@ GitHubリポジトリを用意し、Git周りの設定">
         
           <li>
             <a href="/blog/2016/12/04/">KOSENセキュリティ・コンテスト2016に参加した話</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2016/08/26/">Windows Media Playerのスキンを作る話</a>
           </li>
         
       </ul>
@@ -262,9 +248,9 @@ GitHubリポジトリを用意し、Git周りの設定">
     </div>
     <nav id="mobile-nav">
   
-    <a href="/blog/" class="mobile-nav-link">Home</a>
+    <a href="/blog/blog/" class="mobile-nav-link">Home</a>
   
-    <a href="/blog/archives/" class="mobile-nav-link">Archives</a>
+    <a href="/blog/blog/archives/" class="mobile-nav-link">Archives</a>
   
 </nav>
     
@@ -286,11 +272,11 @@ GitHubリポジトリを用意し、Git周りの設定">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
-  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" type="text/css">
-  <script src="/blog/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="/blog/js/script.js" type="text/javascript"></script>
+<script src="/blog/js/script.js"></script>
 
   </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>

@@ -6,18 +6,20 @@
   <title>AlexCTFに出て少し問題を解いた話 | クロワッサンは黒くない</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="はじめに2017/02/03 19:00~2017/02/06 17:00(日本時間)、AlexCTFがアレクサンドリア大学主催で開催されていました。例によってチームEAnbaiの一員として参加し、チームとしては1190ptで215位(/1029?)で終了しました。以下、解いた/取り組んだ問題について簡単に書きます。">
+<meta name="keywords" content="ctf">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AlexCTFに出て少し問題を解いた話">
 <meta property="og:url" content="http://wassan128.github.io/blog/2017/02/06/index.html">
 <meta property="og:site_name" content="クロワッサンは黒くない">
 <meta property="og:description" content="はじめに2017/02/03 19:00~2017/02/06 17:00(日本時間)、AlexCTFがアレクサンドリア大学主催で開催されていました。例によってチームEAnbaiの一員として参加し、チームとしては1190ptで215位(/1029?)で終了しました。以下、解いた/取り組んだ問題について簡単に書きます。">
-<meta property="og:image" content="http://wassan128.github.io/blog/blog/2017/02/06/fore21.png">
-<meta property="og:image" content="http://wassan128.github.io/blog/blog/2017/02/06/fore22.png">
-<meta property="og:image" content="http://wassan128.github.io/blog/blog/2017/02/06/tr4.png">
-<meta property="og:updated_time" content="2017-05-03T11:29:43.508Z">
+<meta property="og:image" content="http://wassan128.github.io/blog/2017/02/06/fore21.png">
+<meta property="og:image" content="http://wassan128.github.io/blog/2017/02/06/fore22.png">
+<meta property="og:image" content="http://wassan128.github.io/blog/2017/02/06/tr4.png">
+<meta property="og:updated_time" content="2017-05-03T11:29:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AlexCTFに出て少し問題を解いた話">
 <meta name="twitter:description" content="はじめに2017/02/03 19:00~2017/02/06 17:00(日本時間)、AlexCTFがアレクサンドリア大学主催で開催されていました。例によってチームEAnbaiの一員として参加し、チームとしては1190ptで215位(/1029?)で終了しました。以下、解いた/取り組んだ問題について簡単に書きます。">
+<meta name="twitter:image" content="http://wassan128.github.io/blog/2017/02/06/fore21.png">
   
     <link rel="alternative" href="/blog/atom.xml" title="クロワッサンは黒くない" type="application/atom+xml">
   
@@ -25,7 +27,7 @@
     <link rel="icon" href="/favicon.png">
   
   <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/blog/css/style.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <link rel="stylesheet" href="/blog/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 </head>
@@ -37,11 +39,11 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/blog/" id="logo">クロワッサンは黒くない</a>
+        <a href="/blog/blog/" id="logo">クロワッサンは黒くない</a>
       </h1>
       
         <h2 id="subtitle-wrap">
-          <a href="/blog/" id="subtitle">とある高専生の備忘録的な何かになるかもしれない</a>
+          <a href="/blog/blog/" id="subtitle">とある高専生の備忘録的な何かになるかもしれない</a>
         </h2>
       
     </div>
@@ -49,9 +51,9 @@
       <nav id="main-nav">
         <a id="main-nav-toggle" class="nav-icon"></a>
         
-          <a class="main-nav-link" href="/blog/">Home</a>
+          <a class="main-nav-link" href="/blog/blog/">Home</a>
         
-          <a class="main-nav-link" href="/blog/archives/">Archives</a>
+          <a class="main-nav-link" href="/blog/blog/archives/">Archives</a>
         
       </nav>
       <nav id="sub-nav">
@@ -61,7 +63,7 @@
         <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://wassan128.github.io/blog"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://wassan128.github.io/blog"></form>
       </div>
     </div>
   </div>
@@ -89,36 +91,36 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="はじめに">はじめに</h2><p>2017/02/03 19:00~2017/02/06 17:00(日本時間)、AlexCTFがアレクサンドリア大学主催で開催されていました。例によってチームEAnbaiの一員として参加し、チームとしては1190ptで215位(/1029?)で終了しました。以下、解いた/取り組んだ問題について簡単に書きます。</p>
+        <h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>2017/02/03 19:00~2017/02/06 17:00(日本時間)、AlexCTFがアレクサンドリア大学主催で開催されていました。例によってチームEAnbaiの一員として参加し、チームとしては1190ptで215位(/1029?)で終了しました。以下、解いた/取り組んだ問題について簡単に書きます。</p>
 <a id="more"></a>
-<h2 id="解いた問題">解いた問題</h2><h3 id="Reversing_1_(50pt)">Reversing 1 (50pt)</h3><p>Stringsコマンドで文字列を見るだけで終わり。<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ strings gifted&#10;(&#20013;&#30053;)&#10;ALEXCTF&#123;Y0u_h4v3_45t0n15h1ng_futur3_1n_r3v3r5ing&#125;&#10;(&#20013;&#30053;)</span><br></pre></td></tr></table></figure></p>
+<h2 id="解いた問題"><a href="#解いた問題" class="headerlink" title="解いた問題"></a>解いた問題</h2><h3 id="Reversing-1-50pt"><a href="#Reversing-1-50pt" class="headerlink" title="Reversing 1 (50pt)"></a>Reversing 1 (50pt)</h3><p>Stringsコマンドで文字列を見るだけで終わり。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ strings gifted</div><div class="line">(中略)</div><div class="line">ALEXCTF&#123;Y0u_h4v3_45t0n15h1ng_futur3_1n_r3v3r5ing&#125;</div><div class="line">(中略)</div></pre></td></tr></table></figure></p>
 <p>Flag: ALEXCTF{Y0u_h4v3_45t0n15h1ng_futur3_1n_r3v3r5ing}</p>
-<h3 id="Forensic_3_(150pt)">Forensic 3 (150pt)</h3><p>USB通信のキャプチャが渡されるのでWiresharkで確認する。どうやらUSB_BULK outというのが怪しく、データが入ってるっぽい。いくつかあるが、その中にそれらしきものを見つけた。</p>
+<h3 id="Forensic-3-150pt"><a href="#Forensic-3-150pt" class="headerlink" title="Forensic 3 (150pt)"></a>Forensic 3 (150pt)</h3><p>USB通信のキャプチャが渡されるのでWiresharkで確認する。どうやらUSB_BULK outというのが怪しく、データが入ってるっぽい。いくつかあるが、その中にそれらしきものを見つけた。</p>
 <img src="/blog/2017/02/06/fore21.png" alt="Wiresharkで開いたところ" title="Wiresharkで開いたところ">
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">89:50:4e:47:0d:0a:1a:0a:00:00:00:0d:49:48:44:.....</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">89:50:4e:47:0d:0a:1a:0a:00:00:00:0d:49:48:44:.....</div></pre></td></tr></table></figure>
 <p>先頭2byteを見るとどうやらpngっぽいのでファイルにして中身を見る。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> struct</span><br><span class="line">data = <span class="string">"89504e470d0a1a0a0000000d...(省略)"</span></span><br><span class="line">raw = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(data), <span class="number">2</span>):</span><br><span class="line">	raw.append(int(<span class="string">"0x"</span> + data[i:i + <span class="number">2</span>], <span class="number">16</span>))</span><br><span class="line"></span><br><span class="line">f = open(<span class="string">"fore2.png"</span>, <span class="string">"wb"</span>)</span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> raw:</span><br><span class="line">	f.write(struct.pack(<span class="string">"B"</span>, x))</span><br><span class="line"></span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> struct</div><div class="line">data = <span class="string">"89504e470d0a1a0a0000000d...(省略)"</span></div><div class="line">raw = []</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(data), <span class="number">2</span>):</div><div class="line">	raw.append(int(<span class="string">"0x"</span> + data[i:i + <span class="number">2</span>], <span class="number">16</span>))</div><div class="line"></div><div class="line">f = open(<span class="string">"fore2.png"</span>, <span class="string">"wb"</span>)</div><div class="line"><span class="keyword">for</span> x <span class="keyword">in</span> raw:</div><div class="line">	f.write(struct.pack(<span class="string">"B"</span>, x))</div><div class="line"></div><div class="line">f.close()</div></pre></td></tr></table></figure>
 <img src="/blog/2017/02/06/fore22.png" alt="flag" title="flag">
 <p>Flag: ALEXCTF{SN1FF_TH3_FL4G_OV3R_USB}</p>
-<h3 id="Trivia_2_(20pt)">Trivia 2 (20pt)</h3><p><div style="text-align: left; font-size: 10pt; font-family: メイリオ; background: #EEE; padding: 1em; font-style: italic;"><br>    <span style="font-size: 12pt; color: #999">問題文</span><br>    SSL 0day<br>    It lead to memory leakage between servers and clients rending large number of private keys accessible. (one word)<br></div><br>ALEXCTF{Heartbleed}?しかしこれが通らない。ここで問題文末尾の「one word」というのが引っかかる。フラグフォーマットはALEXCTF{[A-Za-z0-9_]*}となっているが、それは問題文で指定されていない時に限るとの記述が…。</p>
+<h3 id="Trivia-2-20pt"><a href="#Trivia-2-20pt" class="headerlink" title="Trivia 2 (20pt)"></a>Trivia 2 (20pt)</h3><p><div style="text-align: left; font-size: 10pt; font-family: メイリオ; background: #EEE; padding: 1em; font-style: italic;"><br>    <span style="font-size: 12pt; color: #999">問題文</span><br>    SSL 0day<br>    It lead to memory leakage between servers and clients rending large number of private keys accessible. (one word)<br></div><br>ALEXCTF{Heartbleed}?しかしこれが通らない。ここで問題文末尾の「one word」というのが引っかかる。フラグフォーマットはALEXCTF{[A-Za-z0-9_]*}となっているが、それは問題文で指定されていない時に限るとの記述が…。</p>
 <p>Flag: Heartbleed</p>
-<h3 id="Trivia_4_(40pt)">Trivia 4 (40pt)</h3><p>AlexCTFのページにロゴにフラグが隠されているので探してね、という問題。<br>フラグをテキストで保存し、vimで以下の置換を適用。</p>
+<h3 id="Trivia-4-40pt"><a href="#Trivia-4-40pt" class="headerlink" title="Trivia 4 (40pt)"></a>Trivia 4 (40pt)</h3><p>AlexCTFのページにロゴにフラグが隠されているので探してね、という問題。<br>フラグをテキストで保存し、vimで以下の置換を適用。</p>
 <img src="/blog/2017/02/06/tr4.png" alt="「随分文字の小さいアスキーアートだなぁ」というフラグは回収された" title="「随分文字の小さいアスキーアートだなぁ」というフラグは回収された">
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:%s/[^(A-Z0-9a-z|&#123;|&#125;)|\n|_]//g</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">:%s/[^(A-Z0-9a-z|&#123;|&#125;)|\n|_]//g</div></pre></td></tr></table></figure>
 <p>Flag: ALEXCTF{OUR_LOGO_ROCKS}</p>
-<h2 id="取り組んだ問題">取り組んだ問題</h2><h3 id="Reversing_4_(250pt)">Reversing 4 (250pt)</h3><p>pycが渡されてフラグを探す問題。<a href="https://github.com/zrax/pycdc" target="_blank" rel="external">pycdc</a>を用いてPythonソースコードを復元した。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install cmake&#10;cmake&#10;make&#10;./pycdc unvm_me.pyc</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Source Generated with Decompyle++</span></span><br><span class="line"><span class="comment"># File: unvm_me.pyc (Python 2.7)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> md5</span><br><span class="line">md5s = [</span><br><span class="line">    <span class="number">0x831DAA3C843BA8B087C895F0ED305CE7L</span>,</span><br><span class="line">    <span class="number">0x6722F7A07246C6AF20662B855846C2C8L</span>,</span><br><span class="line">    <span class="number">0x5F04850FEC81A27AB5FC98BEFA4EB40CL</span>,</span><br><span class="line">    <span class="number">0xECF8DCAC7503E63A6A3667C5FB94F610L</span>,</span><br><span class="line">    <span class="number">0xC0FD15AE2C3931BC1E140523AE934722L</span>,</span><br><span class="line">    <span class="number">0x569F606FD6DA5D612F10CFB95C0BDE6DL</span>,</span><br><span class="line">    <span class="number">0x68CB5A1CF54C078BF0E7E89584C1A4EL</span>,</span><br><span class="line">    <span class="number">0xC11E2CD82D1F9FBD7E4D6EE9581FF3BDL</span>,</span><br><span class="line">    <span class="number">0x1DF4C637D625313720F45706A48FF20FL</span>,</span><br><span class="line">    <span class="number">0x3122EF3A001AAECDB8DD9D843C029E06L</span>,</span><br><span class="line">    <span class="number">0xADB778A0F729293E7E0B19B96A4C5A61L</span>,</span><br><span class="line">    <span class="number">0x938C747C6A051B3E163EB802A325148EL</span>,</span><br><span class="line">    <span class="number">0x38543C5E820DD9403B57BEFF6020596DL</span>]</span><br><span class="line"><span class="keyword">print</span> <span class="string">'Can you turn me back to python ? ...'</span></span><br><span class="line">flag = raw_input(<span class="string">'well as you wish.. what is the flag: '</span>)</span><br><span class="line"><span class="keyword">if</span> len(flag) &gt; <span class="number">69</span>:</span><br><span class="line">    <span class="keyword">print</span> <span class="string">'nice try'</span></span><br><span class="line">    exit()</span><br><span class="line"><span class="keyword">if</span> len(flag) % <span class="number">5</span> != <span class="number">0</span>:</span><br><span class="line">    <span class="keyword">print</span> <span class="string">'nice try'</span></span><br><span class="line">    exit()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(flag), <span class="number">5</span>):</span><br><span class="line">    s = flag[i:i + <span class="number">5</span>]</span><br><span class="line">    <span class="keyword">if</span> int(<span class="string">'0x'</span> + md5.new(s).hexdigest(), <span class="number">16</span>) != md5s[i / <span class="number">5</span>]:</span><br><span class="line">        <span class="keyword">print</span> <span class="string">'nice try'</span></span><br><span class="line">        exit()</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line"><span class="keyword">print</span> <span class="string">'Congratz now you have the flag'</span></span><br></pre></td></tr></table></figure>
+<h2 id="取り組んだ問題"><a href="#取り組んだ問題" class="headerlink" title="取り組んだ問題"></a>取り組んだ問題</h2><h3 id="Reversing-4-250pt"><a href="#Reversing-4-250pt" class="headerlink" title="Reversing 4 (250pt)"></a>Reversing 4 (250pt)</h3><p>pycが渡されてフラグを探す問題。<a href="https://github.com/zrax/pycdc" target="_blank" rel="external">pycdc</a>を用いてPythonソースコードを復元した。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install cmake</div><div class="line">cmake</div><div class="line">make</div><div class="line">./pycdc unvm_me.pyc</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Source Generated with Decompyle++</span></div><div class="line"><span class="comment"># File: unvm_me.pyc (Python 2.7)</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> md5</div><div class="line">md5s = [</div><div class="line">    <span class="number">0x831DAA3C843BA8B087C895F0ED305CE7L</span>,</div><div class="line">    <span class="number">0x6722F7A07246C6AF20662B855846C2C8L</span>,</div><div class="line">    <span class="number">0x5F04850FEC81A27AB5FC98BEFA4EB40CL</span>,</div><div class="line">    <span class="number">0xECF8DCAC7503E63A6A3667C5FB94F610L</span>,</div><div class="line">    <span class="number">0xC0FD15AE2C3931BC1E140523AE934722L</span>,</div><div class="line">    <span class="number">0x569F606FD6DA5D612F10CFB95C0BDE6DL</span>,</div><div class="line">    <span class="number">0x68CB5A1CF54C078BF0E7E89584C1A4EL</span>,</div><div class="line">    <span class="number">0xC11E2CD82D1F9FBD7E4D6EE9581FF3BDL</span>,</div><div class="line">    <span class="number">0x1DF4C637D625313720F45706A48FF20FL</span>,</div><div class="line">    <span class="number">0x3122EF3A001AAECDB8DD9D843C029E06L</span>,</div><div class="line">    <span class="number">0xADB778A0F729293E7E0B19B96A4C5A61L</span>,</div><div class="line">    <span class="number">0x938C747C6A051B3E163EB802A325148EL</span>,</div><div class="line">    <span class="number">0x38543C5E820DD9403B57BEFF6020596DL</span>]</div><div class="line"><span class="keyword">print</span> <span class="string">'Can you turn me back to python ? ...'</span></div><div class="line">flag = raw_input(<span class="string">'well as you wish.. what is the flag: '</span>)</div><div class="line"><span class="keyword">if</span> len(flag) &gt; <span class="number">69</span>:</div><div class="line">    <span class="keyword">print</span> <span class="string">'nice try'</span></div><div class="line">    exit()</div><div class="line"><span class="keyword">if</span> len(flag) % <span class="number">5</span> != <span class="number">0</span>:</div><div class="line">    <span class="keyword">print</span> <span class="string">'nice try'</span></div><div class="line">    exit()</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(flag), <span class="number">5</span>):</div><div class="line">    s = flag[i:i + <span class="number">5</span>]</div><div class="line">    <span class="keyword">if</span> int(<span class="string">'0x'</span> + md5.new(s).hexdigest(), <span class="number">16</span>) != md5s[i / <span class="number">5</span>]:</div><div class="line">        <span class="keyword">print</span> <span class="string">'nice try'</span></div><div class="line">        exit()</div><div class="line">        <span class="keyword">continue</span></div><div class="line"><span class="keyword">print</span> <span class="string">'Congratz now you have the flag'</span></div></pre></td></tr></table></figure>
 <p>フラグを5文字ずつに区切ってMD5ハッシュにしたものをソースコード内に保持しているので、ソースコード内のmd5ハッシュを復元すれば終わり。<a href="https://hashkiller.co.uk/md5-decrypter.aspx" target="_blank" rel="external">onlineのデコードサイト</a>でdecryptしたものをつなげて投げたものの通らず、何でだろう…と思っていたら7つ目のハッシュが1文字足りていなかった。チームSlackに投げたところ先輩が解いてくれたので結果オーライ(とは言え悔しいので精進します(´・ω・｀))。頭に0をつけるだけの発想がどうして出てこなかったんだろう…。</p>
-<h3 id="Trivia_3">Trivia 3</h3><p>僕「CA issueって言ってるし何か問題あるんじゃね！？」<br>sio「issuedだと『発行する』の意になるってよ」<br>僕「魔剤！？(ｶﾁｶﾁ…)letsencrypt」</p>
+<h3 id="Trivia-3"><a href="#Trivia-3" class="headerlink" title="Trivia 3"></a>Trivia 3</h3><p>僕「CA issueって言ってるし何か問題あるんじゃね！？」<br>sio「issuedだと『発行する』の意になるってよ」<br>僕「魔剤！？(ｶﾁｶﾁ…)letsencrypt」</p>
 <p>＞ フラグだった ＜</p>
 <p>問題文適当に読みすぎた。英語勉強し直したほうが良い。</p>
-<h2 id="おわりに">おわりに</h2><p>これはCTFに限らず、自分で箱を作ってその中で考えるのではなく、試せるだけの可能性を試すことが大事だと感じました(特にfore3)。<br>また、暗号系の問題を先輩に任せっきりなので、どうにか来年は暗号系もある程度解けるように真面目に数学勉強し直そうと思いました。<br>以上です。</p>
+<h2 id="おわりに"><a href="#おわりに" class="headerlink" title="おわりに"></a>おわりに</h2><p>これはCTFに限らず、自分で箱を作ってその中で考えるのではなく、試せるだけの可能性を試すことが大事だと感じました(特にfore3)。<br>また、暗号系の問題を先輩に任せっきりなので、どうにか来年は暗号系もある程度解けるように真面目に数学勉強し直そうと思いました。<br>以上です。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wassan128.github.io/blog/2017/02/06/" data-id="cj28w4bz7001cpgwvzp8qa1a3" class="article-share-link">Share</a>
+      <a data-url="http://wassan128.github.io/blog/2017/02/06/" data-id="cj4dg98dl00000osuwr9i3emb" class="article-share-link">Share</a>
       
         <a href="http://wassan128.github.io/blog/2017/02/06/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -167,7 +169,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Node-js/">Node.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ctf/">ctf</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/disqus/">disqus</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/git/">git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hexo/">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/javascript/">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/malware/">malware</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/math/">math</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/misc/">misc</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/python/">python</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/raspberry-pi/">raspberry pi</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/twitter/">twitter</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/windows-media-player/">windows media player</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Hardening/">Hardening</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Node-js/">Node.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ctf/">ctf</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/disqus/">disqus</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/git/">git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hexo/">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/javascript/">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/malware/">malware</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/math/">math</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/misc/">misc</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/python/">python</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/raspberry-pi/">raspberry pi</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/twitter/">twitter</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/windows-media-player/">windows media player</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -176,7 +178,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/blog/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/blog/tags/ctf/" style="font-size: 20px;">ctf</a> <a href="/blog/tags/disqus/" style="font-size: 10px;">disqus</a> <a href="/blog/tags/git/" style="font-size: 13.33px;">git</a> <a href="/blog/tags/hexo/" style="font-size: 16.67px;">hexo</a> <a href="/blog/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/blog/tags/malware/" style="font-size: 10px;">malware</a> <a href="/blog/tags/math/" style="font-size: 10px;">math</a> <a href="/blog/tags/misc/" style="font-size: 10px;">misc</a> <a href="/blog/tags/python/" style="font-size: 20px;">python</a> <a href="/blog/tags/raspberry-pi/" style="font-size: 10px;">raspberry pi</a> <a href="/blog/tags/twitter/" style="font-size: 10px;">twitter</a> <a href="/blog/tags/windows-media-player/" style="font-size: 10px;">windows media player</a>
+      <a href="/blog/tags/Hardening/" style="font-size: 10px;">Hardening</a> <a href="/blog/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/blog/tags/ctf/" style="font-size: 20px;">ctf</a> <a href="/blog/tags/disqus/" style="font-size: 10px;">disqus</a> <a href="/blog/tags/git/" style="font-size: 13.33px;">git</a> <a href="/blog/tags/hexo/" style="font-size: 16.67px;">hexo</a> <a href="/blog/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/blog/tags/malware/" style="font-size: 10px;">malware</a> <a href="/blog/tags/math/" style="font-size: 10px;">math</a> <a href="/blog/tags/misc/" style="font-size: 10px;">misc</a> <a href="/blog/tags/python/" style="font-size: 20px;">python</a> <a href="/blog/tags/raspberry-pi/" style="font-size: 10px;">raspberry pi</a> <a href="/blog/tags/twitter/" style="font-size: 10px;">twitter</a> <a href="/blog/tags/windows-media-player/" style="font-size: 10px;">windows media player</a>
     </div>
   </div>
 
@@ -185,7 +187,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/05/">May 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/12/">December 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/08/">August 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/05/">May 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/09/">September 2015</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/06/">June 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/05/">May 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/12/">December 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/08/">August 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/05/">May 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/09/">September 2015</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -195,6 +197,10 @@
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/blog/2017/06/26/">Hardening 1010 Cash Flowに参加した話</a>
+          </li>
         
           <li>
             <a href="/blog/2017/05/03/">picoctf2017で解いたWeb問の話</a>
@@ -210,10 +216,6 @@
         
           <li>
             <a href="/blog/2016/12/04/">KOSENセキュリティ・コンテスト2016に参加した話</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2016/08/26/">Windows Media Playerのスキンを作る話</a>
           </li>
         
       </ul>
@@ -236,9 +238,9 @@
     </div>
     <nav id="mobile-nav">
   
-    <a href="/blog/" class="mobile-nav-link">Home</a>
+    <a href="/blog/blog/" class="mobile-nav-link">Home</a>
   
-    <a href="/blog/archives/" class="mobile-nav-link">Archives</a>
+    <a href="/blog/blog/archives/" class="mobile-nav-link">Archives</a>
   
 </nav>
     
@@ -260,11 +262,11 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
-  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" type="text/css">
-  <script src="/blog/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="/blog/js/script.js" type="text/javascript"></script>
+<script src="/blog/js/script.js"></script>
 
   </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>

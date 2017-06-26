@@ -6,17 +6,19 @@
   <title>ピラミッドに遊びに行ったら野生の10000次正方数列が現れた話 | クロワッサンは黒くない</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="概要高校5年生なので、HSCTF(High School CTF)に登録して参加してみました。というのはもちろん嘘で、実際は大学生枠(?)で参加してみたんですが、その中でも「Egyptian Tomb」という問題についてメモしておきたくなったので、ブログに備忘録的に書き残そうかと思いました。ちなみにチーム制CTFで、最終的にはラボの同級生と先輩と僕という感じのチームでした。もっと貢献したかった(´">
+<meta name="keywords" content="ctf,python,math">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ピラミッドに遊びに行ったら野生の10000次正方数列が現れた話">
 <meta property="og:url" content="http://wassan128.github.io/blog/2016/05/22/index.html">
 <meta property="og:site_name" content="クロワッサンは黒くない">
 <meta property="og:description" content="概要高校5年生なので、HSCTF(High School CTF)に登録して参加してみました。というのはもちろん嘘で、実際は大学生枠(?)で参加してみたんですが、その中でも「Egyptian Tomb」という問題についてメモしておきたくなったので、ブログに備忘録的に書き残そうかと思いました。ちなみにチーム制CTFで、最終的にはラボの同級生と先輩と僕という感じのチームでした。もっと貢献したかった(´">
-<meta property="og:image" content="http://wassan128.github.io/blog/blog/2016/05/22/squares.png">
-<meta property="og:image" content="http://wassan128.github.io/blog/blog/2016/05/22/matrix_calc.png">
+<meta property="og:image" content="http://wassan128.github.io/blog/2016/05/22/squares.png">
+<meta property="og:image" content="http://wassan128.github.io/blog/2016/05/22/matrix_calc.png">
 <meta property="og:updated_time" content="2016-05-22T09:58:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ピラミッドに遊びに行ったら野生の10000次正方数列が現れた話">
 <meta name="twitter:description" content="概要高校5年生なので、HSCTF(High School CTF)に登録して参加してみました。というのはもちろん嘘で、実際は大学生枠(?)で参加してみたんですが、その中でも「Egyptian Tomb」という問題についてメモしておきたくなったので、ブログに備忘録的に書き残そうかと思いました。ちなみにチーム制CTFで、最終的にはラボの同級生と先輩と僕という感じのチームでした。もっと貢献したかった(´">
+<meta name="twitter:image" content="http://wassan128.github.io/blog/2016/05/22/squares.png">
   
     <link rel="alternative" href="/blog/atom.xml" title="クロワッサンは黒くない" type="application/atom+xml">
   
@@ -24,7 +26,7 @@
     <link rel="icon" href="/favicon.png">
   
   <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/blog/css/style.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <link rel="stylesheet" href="/blog/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 </head>
@@ -36,11 +38,11 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/blog/" id="logo">クロワッサンは黒くない</a>
+        <a href="/blog/blog/" id="logo">クロワッサンは黒くない</a>
       </h1>
       
         <h2 id="subtitle-wrap">
-          <a href="/blog/" id="subtitle">とある高専生の備忘録的な何かになるかもしれない</a>
+          <a href="/blog/blog/" id="subtitle">とある高専生の備忘録的な何かになるかもしれない</a>
         </h2>
       
     </div>
@@ -48,9 +50,9 @@
       <nav id="main-nav">
         <a id="main-nav-toggle" class="nav-icon"></a>
         
-          <a class="main-nav-link" href="/blog/">Home</a>
+          <a class="main-nav-link" href="/blog/blog/">Home</a>
         
-          <a class="main-nav-link" href="/blog/archives/">Archives</a>
+          <a class="main-nav-link" href="/blog/blog/archives/">Archives</a>
         
       </nav>
       <nav id="sub-nav">
@@ -60,7 +62,7 @@
         <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://wassan128.github.io/blog"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://wassan128.github.io/blog"></form>
       </div>
     </div>
   </div>
@@ -88,12 +90,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="概要">概要</h2><p>高校5年生なので、HSCTF(High School CTF)に登録して参加してみました。というのはもちろん嘘で、実際は大学生枠(?)で参加してみたんですが、その中でも「Egyptian Tomb」という問題についてメモしておきたくなったので、ブログに備忘録的に書き残そうかと思いました。<br>ちなみにチーム制CTFで、最終的にはラボの同級生と先輩と僕という感じのチームでした。もっと貢献したかった(´・ω・｀)</p>
-<h2 id="問題文の要約">問題文の要約</h2><p>Keithさんという人がいて、エジプトに行きましたと。ピラミッドを見に。するとKeithさんはこんなパズルを見つけたそうです。</p>
+        <h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>高校5年生なので、HSCTF(High School CTF)に登録して参加してみました。というのはもちろん嘘で、実際は大学生枠(?)で参加してみたんですが、その中でも「Egyptian Tomb」という問題についてメモしておきたくなったので、ブログに備忘録的に書き残そうかと思いました。<br>ちなみにチーム制CTFで、最終的にはラボの同級生と先輩と僕という感じのチームでした。もっと貢献したかった(´・ω・｀)</p>
+<h2 id="問題文の要約"><a href="#問題文の要約" class="headerlink" title="問題文の要約"></a>問題文の要約</h2><p>Keithさんという人がいて、エジプトに行きましたと。ピラミッドを見に。するとKeithさんはこんなパズルを見つけたそうです。</p>
 <p>$$<br>\begin{pmatrix}<br>1 &amp; 2 \\ 3 &amp; 4<br>\end{pmatrix}<br>$$</p>
 <p>このパズルの答えは「20」になるそうです。ほーん。と思ったあなたには良いものを上げましょう(おもむろに$ 10000 \times 10000 $の数列を投げつけられる)。ではどうぞ、解いてください！<br>ざっくりいうとこんな感じです。ここからいろいろ考えたり殴ったりするターンになります。</p>
 <a id="more"></a>
-<h2 id="このパズルは何か">このパズルは何か</h2><p>このパズルは問題文によると「sum of all sums of subsquares」、つまり$ n \times n $の正方形の中の$ 1 \times 1, \cdots (n - 1) \times (n - 1), n \times n $までの全ての正方形(all subsquares)の中の数字の和を、足したものがパズルの答え、ということだそうです。上の例だと$ 1 \times 1 $の正方形が4つ、$ 2 \times 2 $の正方形が1つなので、</p>
+<h2 id="このパズルは何か"><a href="#このパズルは何か" class="headerlink" title="このパズルは何か"></a>このパズルは何か</h2><p>このパズルは問題文によると「sum of all sums of subsquares」、つまり$ n \times n $の正方形の中の$ 1 \times 1, \cdots (n - 1) \times (n - 1), n \times n $までの全ての正方形(all subsquares)の中の数字の和を、足したものがパズルの答え、ということだそうです。上の例だと$ 1 \times 1 $の正方形が4つ、$ 2 \times 2 $の正方形が1つなので、</p>
 <p>$$<br>1+2+3+4+(1+2+3+4)=20<br>$$</p>
 <img src="/blog/2016/05/22/squares.png" alt="2×2の数列内には合計5個の正方形がある" title="2×2の数列内には合計5個の正方形がある">
 <p>ということになります。解き方がわかったので、早速$ 10000 \times 10000 $の数列をこの方法で解いてみましょう!ところで、$ 2 \times 2 $の数列内には5個の正方形がありましたが、$ 10000 \times 10000 $だといったいいくつの正方形があるんですかね?$ n \times n $の数列内には</p>
@@ -101,7 +103,7 @@
 <p>個の正方形があるので、$ n=10000 $では</p>
 <p>$$<br>\sum_{k=1}^{10000}k^2=1+2^2+3^2+\cdots+10000^2=333383335000<br>$$</p>
 <p>個の正方形があることになります。たったの3000億個か～／(^o^)＼<br>…これを上の式みたいにのんびり解くと大変なことになりそうなので、他の解き方を考えます。</p>
-<h2 id="考えてみる">考えてみる</h2><p>上の式を見ると、数列の要素$ \{1, 2, 3, 4\} $がそれぞれ2回ずつたされていることに気づきます。つまり、</p>
+<h2 id="考えてみる"><a href="#考えてみる" class="headerlink" title="考えてみる"></a>考えてみる</h2><p>上の式を見ると、数列の要素$ \{1, 2, 3, 4\} $がそれぞれ2回ずつたされていることに気づきます。つまり、</p>
 <p>$$<br>1\times2+2\times2+3\times2+4\times2=20<br>$$</p>
 <p>というように、「{各要素の値} $ \times $ {各要素が足される回数}の総和」で計算できると考えられます。今回問題は$ 10000 \times 10000 $なので、$ n \times n $の$ n $は偶数と考えた上で、各要素が足される回数を要素とした係数数列を考えると、$ 2 \times 2 $の場合は、</p>
 <p>$$<br>\begin{pmatrix}<br>2 &amp; 2 \\ 2 &amp; 2<br>\end{pmatrix}<br>$$</p>
@@ -114,10 +116,10 @@
 <p>$$<br>(m, l) = \sum_{i=1}^{l} i^2 + l \times (\sum_{j=1}^{m} j - \sum_{k=1}^{l} k) + lm \times (\frac{n}{2}- m)<br>$$<br>となり、さらにこれを2乗和の公式などを用いて展開して計算すると、</p>
 <p>$$<br>(m, l) = \frac{l(l+1)(2l+1)}{6} + l(\frac{m(m+1)}{2} - \frac{l(l+1)}{2}) + lm(\frac{n}{2}-m)\\<br>= \frac{l}{3}((l+1)(2l+1) + 3(m(m+1) - l(l+1)+m(3n-6m))\\<br>= \frac{l}{3}(2l^2+3l+1+3m^2+3m-3l^2-3l+3mn-6m^2)\\<br>= \frac{l}{3}(3mn-l^2-3m^2+3m+1)\\<br>= lm(n-m+1)-\frac{l}{3}(l^2-1)\\<br>\therefore (m, l) = lm(n-m+1)-\frac{l}{3}(l^2-1)\\<br>(ただし、l \leq m)<br>$$</p>
 <p>という一般式を得られました。</p>
-<h2 id="プログラムにしてみる">プログラムにしてみる</h2><p>今回はPythonで書いてみました。問題の$ 10000 \times 10000 $数列は「egypt.in」というファイルで与えられたので、それを読み込んで計算させます。</p>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">N</span> = 10000</span><br><span class="line">def formula(<span class="keyword">l</span>, <span class="keyword">m</span>):</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">l</span> * <span class="keyword">m</span> * (<span class="keyword">N</span> - <span class="keyword">m</span> + 1) - (<span class="keyword">l</span> * (pow(<span class="keyword">l</span>, 2) - 1)) / 3</span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">	# load <span class="keyword">input</span> <span class="literal">matrix</span></span><br><span class="line">	data = [item[:-2].<span class="keyword">split</span>(<span class="string">" "</span>) <span class="keyword">for</span> item <span class="keyword">in</span> <span class="keyword">open</span>(<span class="string">"egypt.in"</span>, <span class="string">"r"</span>)]</span><br><span class="line">	<span class="keyword">mat</span> = [[int(elm) <span class="keyword">for</span> elm <span class="keyword">in</span> v] <span class="keyword">for</span> v <span class="keyword">in</span> data]</span><br><span class="line"></span><br><span class="line">	# calc value</span><br><span class="line">	<span class="keyword">sum</span> = 0</span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> <span class="keyword">range</span>(0, <span class="keyword">N</span> / 2):</span><br><span class="line">		<span class="keyword">for</span> j <span class="keyword">in</span> <span class="keyword">range</span>(i, <span class="keyword">N</span> / 2):</span><br><span class="line">			coef = formula(i + 1, j + 1)</span><br><span class="line">			<span class="keyword">sum</span> += coef * (<span class="keyword">mat</span>[i][j] + <span class="keyword">mat</span>[i][<span class="keyword">N</span> - j - 1] + <span class="keyword">mat</span>[<span class="keyword">N</span> - i - 1][j] + <span class="keyword">mat</span>[<span class="keyword">N</span> - i - 1][<span class="keyword">N</span> - j - 1])</span><br><span class="line">			<span class="keyword">if</span> i != j:</span><br><span class="line">				<span class="keyword">sum</span> += coef * (<span class="keyword">mat</span>[j][i] + <span class="keyword">mat</span>[j][<span class="keyword">N</span> - i - 1] + <span class="keyword">mat</span>[<span class="keyword">N</span> - j - 1][i] + <span class="keyword">mat</span>[<span class="keyword">N</span> - j - 1][<span class="keyword">N</span> - i - 1])</span><br><span class="line"></span><br><span class="line">	# result</span><br><span class="line">	<span class="keyword">print</span> <span class="string">"result: %d"</span> % <span class="literal">sum</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">	main()</span><br></pre></td></tr></table></figure>
+<h2 id="プログラムにしてみる"><a href="#プログラムにしてみる" class="headerlink" title="プログラムにしてみる"></a>プログラムにしてみる</h2><p>今回はPythonで書いてみました。問題の$ 10000 \times 10000 $数列は「egypt.in」というファイルで与えられたので、それを読み込んで計算させます。</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">N</span> = 10000</div><div class="line">def formula(<span class="keyword">l</span>, <span class="keyword">m</span>):</div><div class="line">	<span class="keyword">return</span> <span class="keyword">l</span> * <span class="keyword">m</span> * (<span class="keyword">N</span> - <span class="keyword">m</span> + 1) - (<span class="keyword">l</span> * (pow(<span class="keyword">l</span>, 2) - 1)) / 3</div><div class="line"></div><div class="line">def main():</div><div class="line">	# load <span class="keyword">input</span> <span class="built_in">matrix</span></div><div class="line">	data = [item[:-2].<span class="keyword">split</span>(<span class="string">" "</span>) <span class="keyword">for</span> item <span class="keyword">in</span> <span class="keyword">open</span>(<span class="string">"egypt.in"</span>, <span class="string">"r"</span>)]</div><div class="line">	<span class="keyword">mat</span> = [[int(elm) <span class="keyword">for</span> elm <span class="keyword">in</span> v] <span class="keyword">for</span> v <span class="keyword">in</span> data]</div><div class="line"></div><div class="line">	# calc value</div><div class="line">	<span class="keyword">sum</span> = 0</div><div class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> <span class="keyword">range</span>(0, <span class="keyword">N</span> / 2):</div><div class="line">		<span class="keyword">for</span> j <span class="keyword">in</span> <span class="keyword">range</span>(i, <span class="keyword">N</span> / 2):</div><div class="line">			coef = formula(i + 1, j + 1)</div><div class="line">			<span class="keyword">sum</span> += coef * (<span class="keyword">mat</span>[i][j] + <span class="keyword">mat</span>[i][<span class="keyword">N</span> - j - 1] + <span class="keyword">mat</span>[<span class="keyword">N</span> - i - 1][j] + <span class="keyword">mat</span>[<span class="keyword">N</span> - i - 1][<span class="keyword">N</span> - j - 1])</div><div class="line">			<span class="keyword">if</span> i != j:</div><div class="line">				<span class="keyword">sum</span> += coef * (<span class="keyword">mat</span>[j][i] + <span class="keyword">mat</span>[j][<span class="keyword">N</span> - i - 1] + <span class="keyword">mat</span>[<span class="keyword">N</span> - j - 1][i] + <span class="keyword">mat</span>[<span class="keyword">N</span> - j - 1][<span class="keyword">N</span> - i - 1])</div><div class="line"></div><div class="line">	# result</div><div class="line">	<span class="keyword">print</span> <span class="string">"result: %d"</span> % <span class="built_in">sum</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</div><div class="line">	main()</div></pre></td></tr></table></figure>
 <p>3分くらい待って出てきた答えがそのままFLAGでした。<br>この問題はAlgorithm: 300に分類されてました。</p>
-<h2 id="感想">感想</h2><ul>
+<h2 id="感想"><a href="#感想" class="headerlink" title="感想"></a>感想</h2><ul>
 <li>解き方が良いかどうかはさておき、なかなか楽しかった(?)</li>
 <li>@koreander2001が神だった(以前にもCTFではない時に共に数学を鈍器にしたことがあり、その時も楽しかったし神だった)</li>
 <li>CTFもPythonもまだまだ未熟なので頑張ります</li>
@@ -127,7 +129,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wassan128.github.io/blog/2016/05/22/" data-id="cj28w4bx5000cpgwvkmkbkuck" class="article-share-link">Share</a>
+      <a data-url="http://wassan128.github.io/blog/2016/05/22/" data-id="cj4dg98eo000i0osubxjb1vd6" class="article-share-link">Share</a>
       
         <a href="http://wassan128.github.io/blog/2016/05/22/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -176,7 +178,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Node-js/">Node.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ctf/">ctf</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/disqus/">disqus</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/git/">git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hexo/">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/javascript/">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/malware/">malware</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/math/">math</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/misc/">misc</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/python/">python</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/raspberry-pi/">raspberry pi</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/twitter/">twitter</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/windows-media-player/">windows media player</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Hardening/">Hardening</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Node-js/">Node.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ctf/">ctf</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/disqus/">disqus</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/git/">git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hexo/">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/javascript/">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/malware/">malware</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/math/">math</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/misc/">misc</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/python/">python</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/raspberry-pi/">raspberry pi</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/twitter/">twitter</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/windows-media-player/">windows media player</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -185,7 +187,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/blog/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/blog/tags/ctf/" style="font-size: 20px;">ctf</a> <a href="/blog/tags/disqus/" style="font-size: 10px;">disqus</a> <a href="/blog/tags/git/" style="font-size: 13.33px;">git</a> <a href="/blog/tags/hexo/" style="font-size: 16.67px;">hexo</a> <a href="/blog/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/blog/tags/malware/" style="font-size: 10px;">malware</a> <a href="/blog/tags/math/" style="font-size: 10px;">math</a> <a href="/blog/tags/misc/" style="font-size: 10px;">misc</a> <a href="/blog/tags/python/" style="font-size: 20px;">python</a> <a href="/blog/tags/raspberry-pi/" style="font-size: 10px;">raspberry pi</a> <a href="/blog/tags/twitter/" style="font-size: 10px;">twitter</a> <a href="/blog/tags/windows-media-player/" style="font-size: 10px;">windows media player</a>
+      <a href="/blog/tags/Hardening/" style="font-size: 10px;">Hardening</a> <a href="/blog/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/blog/tags/ctf/" style="font-size: 20px;">ctf</a> <a href="/blog/tags/disqus/" style="font-size: 10px;">disqus</a> <a href="/blog/tags/git/" style="font-size: 13.33px;">git</a> <a href="/blog/tags/hexo/" style="font-size: 16.67px;">hexo</a> <a href="/blog/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/blog/tags/malware/" style="font-size: 10px;">malware</a> <a href="/blog/tags/math/" style="font-size: 10px;">math</a> <a href="/blog/tags/misc/" style="font-size: 10px;">misc</a> <a href="/blog/tags/python/" style="font-size: 20px;">python</a> <a href="/blog/tags/raspberry-pi/" style="font-size: 10px;">raspberry pi</a> <a href="/blog/tags/twitter/" style="font-size: 10px;">twitter</a> <a href="/blog/tags/windows-media-player/" style="font-size: 10px;">windows media player</a>
     </div>
   </div>
 
@@ -194,7 +196,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/05/">May 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/12/">December 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/08/">August 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/05/">May 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/09/">September 2015</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/06/">June 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/05/">May 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/12/">December 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/08/">August 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/05/">May 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/09/">September 2015</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -204,6 +206,10 @@
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/blog/2017/06/26/">Hardening 1010 Cash Flowに参加した話</a>
+          </li>
         
           <li>
             <a href="/blog/2017/05/03/">picoctf2017で解いたWeb問の話</a>
@@ -219,10 +225,6 @@
         
           <li>
             <a href="/blog/2016/12/04/">KOSENセキュリティ・コンテスト2016に参加した話</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2016/08/26/">Windows Media Playerのスキンを作る話</a>
           </li>
         
       </ul>
@@ -245,9 +247,9 @@
     </div>
     <nav id="mobile-nav">
   
-    <a href="/blog/" class="mobile-nav-link">Home</a>
+    <a href="/blog/blog/" class="mobile-nav-link">Home</a>
   
-    <a href="/blog/archives/" class="mobile-nav-link">Archives</a>
+    <a href="/blog/blog/archives/" class="mobile-nav-link">Archives</a>
   
 </nav>
     
@@ -269,11 +271,11 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
-  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" type="text/css">
-  <script src="/blog/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="/blog/js/script.js" type="text/javascript"></script>
+<script src="/blog/js/script.js"></script>
 
   </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
