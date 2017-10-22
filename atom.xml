@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://wassan128.github.io/blog/"/>
-  <updated>2017-10-16T07:10:02.066Z</updated>
+  <updated>2017-10-22T05:30:27.109Z</updated>
   <id>http://wassan128.github.io/blog/</id>
   
   <author>
@@ -14,6 +14,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>KOSENセキュリティコンテスト2017に参加した話</title>
+    <link href="http://wassan128.github.io/blog/2017/10/22/"/>
+    <id>http://wassan128.github.io/blog/2017/10/22/</id>
+    <published>2017-10-22T04:08:20.000Z</published>
+    <updated>2017-10-22T05:30:27.109Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>昨日今日(10月21日)の2日間、KOSENセキュリティコンテスト2017が木更津高専主管で開催されていました。実は<a href="http://wassan128.github.io/blog/2016/12/04/#more">去年もKOSENセキュリティコンテストに参加</a>していましたが、今回は前回大会と競技形式が変わり、Jeopardy(クイズ)形式とKoH(King of Hill)形式というライナップでした。<br>私はチームEAnbai(いつもの)のメンバーとして参加し、JeopardyのWeb問題などを解いたり、KoHを触ってみたりしていました。一日目を12位で折り返したチームの最終成績は35チーム中5位で、惜しくも表彰には届きませんでしたが、記憶に新しい内に解いた問題のwriteupや反省をしたいと思います。</p>
+<a id="more"></a>
+<h2 id="解いた問題のWriteup"><a href="#解いた問題のWriteup" class="headerlink" title="解いた問題のWriteup"></a>解いた問題のWriteup</h2><h3 id="ログインせよ-Web-100pt"><a href="#ログインせよ-Web-100pt" class="headerlink" title="ログインせよ(Web, 100pt)"></a>ログインせよ(Web, 100pt)</h3><p>問題のURLが渡されるのでアクセスをすると、ログインフォームが出てきます。すると「adminでログインしてね」(記憶違いかもしれない)と言われるので、ユーザー名に「<code>admin&#39; or 1=1 ---</code>」を入力したらフラグが出ました。</p>
+<h3 id="灯台下暗し-Web-100pt"><a href="#灯台下暗し-Web-100pt" class="headerlink" title="灯台下暗し(Web, 100pt)"></a>灯台下暗し(Web, 100pt)</h3><p>先程の問題と同じようなログインフォームが出てきて、その下の方にそのロジック部分風のソースコードが貼ってありました。adminのパスがフラグ、となっておりさっきよりは複雑なSQLi問なのかな?と思いながらソースを眺めていたらデータベースを読み込んでいる部分が目に入り、おもむろにURLに「/data.db」をつけたらデータベースが降ってきました()<br>それを<code>sqlite3</code>で開き、<code>.ta</code>するとユーザーのテーブルが見えるので<code>select * from users</code>するとフラグが見えました。灯台下暗し…。</p>
+<h3 id="Web1-Web-200pt"><a href="#Web1-Web-200pt" class="headerlink" title="Web1(Web, 200pt)"></a>Web1(Web, 200pt)</h3><p>難読化されたJavaScriptのファイルが見えるページで「deobfuscate js and find the key」と言われるのでどのツールで難読化されたのか知ろうと思い「”___=window;”」みたいなキーワードで検索すると、<a href="https://github.com/adrianton3/jsroller" target="_blank" rel="external">jsroller</a>というのが出てきて「これかなぁ」と思って見たものの、「これ難読化解除機能ない説ある…?」となりました。仕方がないので難読化されたままのコードをBeautifyして夕食後に見直したらなんとなくやってることの雰囲気がわかったので、キーを計算していそうな所に<code>console.log</code>を挟み、DOMがloadするまで待つみたいな処理を消すなどの調整をいくつかして開発者コンソールで実行したらフラグが見えました(調整後のコードは以下)。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">___ = <span class="built_in">window</span>;</div><div class="line">__ = <span class="built_in">document</span>;</div><div class="line">s = <span class="string">"shift"</span>;</div><div class="line">m = [<span class="string">"length"</span>, <span class="string">"join"</span>, <span class="string">"forEach"</span>, <span class="string">"parseInt"</span>, <span class="string">"toString"</span>, <span class="string">"toUpperCase"</span>];</div><div class="line">__ = [<span class="number">18234125</span>, <span class="number">323835316891</span>, <span class="number">11523</span>, <span class="number">907531478812</span>, <span class="number">744387234</span>, <span class="number">44203240442235</span>, <span class="number">844002446169231</span>, <span class="number">4601</span>, ];</div><div class="line"></div><div class="line">____ = &#123;</div><div class="line">    <span class="attr">_</span>: m[s](),</div><div class="line">    <span class="attr">___</span>: m[s]()</div><div class="line">&#125;;</div><div class="line">____.__ = <span class="string">`____`</span> [</div><div class="line">    [____._]</div><div class="line">];</div><div class="line">__[m[s]()](<span class="function">(<span class="params">n, _</span>) =&gt;</span> &#123;</div><div class="line">    __[_] = <span class="string">`<span class="subst">$&#123;___[m[s|s]](n,_+<span class="number">1</span>)[m[s^s^<span class="number">1</span>]](<span class="number">0O22</span>&lt;&lt;<span class="number">1</span>)[m[-~-~s]]()&#125;</span>&#123;<span class="subst">$&#123;n&#125;</span>&#125;`</span>;</div><div class="line">	<span class="built_in">console</span>.log(__[_])</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>他のフラグはleetっぽい雰囲気ある中でそうではなかった上、「フラグの文字列ハードコードされてるんかい！」という気持ちになり、submitするまで合っているか不安な問題ではありました。</p>
+<h3 id="Web2-Web-200pt"><a href="#Web2-Web-200pt" class="headerlink" title="Web2(Web, 200pt)"></a>Web2(Web, 200pt)</h3><p>JavaScriptの穴埋め問題みたいな感じになっていて、10個あるピースを全て正しく配置して<code>alert(1)</code>されたときのコードの(?)ハッシュ値がフラグ、という問題でした。<br>「eval」「call」「(0o000101)」などがピースになっていて、「alert」という文字列を2進・8進・16進文字で表したやつを連結して小文字にして…という意図がわかってからは開発者コンソールでぽちぽちと試しながらやりました。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>[<span class="string">"eval"</span>][<span class="string">"call"</span>]<span class="string">`<span class="subst">$&#123;</span></span></div><div class="line">	[(<span class="number">0o000101</span>), (<span class="number">0b1001100</span>), (<span class="number">101</span>), <span class="number">0x52</span>, <span class="number">0x54</span>]</div><div class="line">	[<span class="string">"map"</span>](x=&gt;<span class="built_in">String</span>[<span class="string">"fromCodePoint"</span>](x))[<span class="string">"join"</span>](<span class="string">""</span>)[<span class="string">"toLowerCase"</span>]()+<span class="string">"(1)"</span></div><div class="line">&#125;`;</div></pre></td></tr></table></figure>
+<h3 id="Weak-RSA2-Crypto-300pt"><a href="#Weak-RSA2-Crypto-300pt" class="headerlink" title="Weak RSA2(Crypto, 300pt)"></a>Weak RSA2(Crypto, 300pt)</h3><p>Weak RSA1はチームメイトに任せてこっちをやっていました。公開鍵(N, e1)、(N, e2)とそれらを使って暗号化されたc1, c2が渡されました。また問題文中に「Same modulo, diffrent key.」とあったのでCommon Modulus Attack(<a href="http://elliptic-shiho.hatenablog.com/entry/2015/12/14/043745" target="_blank" rel="external">こちらが参考になります</a>)か～ということでpythonでdecryptして出てきた値を<code>binascii.a2b_hex(n[2:])</code>したらフラグが出ました。</p>
+<h2 id="終わりに"><a href="#終わりに" class="headerlink" title="終わりに"></a>終わりに</h2><p>この他にもいくつか分業的にJeopardyの問題を触ったりしましたが、KoHについてはほぼ手が出ず、辛かったです。<br>チームのバランス的には結構良く、比較的きれいに分業できていたのでその点は良かったと思いますが、KoHや難易度の高い問題に取り組んでいる時の自分含めた各位の進捗具合の把握などはまだまだ課題かなと感じました。<br>また個人的に、暗号も面白いな～と感じることが多くなってきたのでちゃんとできるようになるためにも数学を勉強し直そう…と思いました。</p>
+<p>簡単ではありますが、以上です。<br>チームメイトの皆さん、担当教員の先生2日間ありがとうございました。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;概要&quot;&gt;&lt;a href=&quot;#概要&quot; class=&quot;headerlink&quot; title=&quot;概要&quot;&gt;&lt;/a&gt;概要&lt;/h2&gt;&lt;p&gt;昨日今日(10月21日)の2日間、KOSENセキュリティコンテスト2017が木更津高専主管で開催されていました。実は&lt;a href=&quot;http://wassan128.github.io/blog/2016/12/04/#more&quot;&gt;去年もKOSENセキュリティコンテストに参加&lt;/a&gt;していましたが、今回は前回大会と競技形式が変わり、Jeopardy(クイズ)形式とKoH(King of Hill)形式というライナップでした。&lt;br&gt;私はチームEAnbai(いつもの)のメンバーとして参加し、JeopardyのWeb問題などを解いたり、KoHを触ってみたりしていました。一日目を12位で折り返したチームの最終成績は35チーム中5位で、惜しくも表彰には届きませんでしたが、記憶に新しい内に解いた問題のwriteupや反省をしたいと思います。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="ctf" scheme="http://wassan128.github.io/blog/tags/ctf/"/>
+    
+  </entry>
   
   <entry>
     <title>プロコン自由部門(procon28)に参加した話</title>
