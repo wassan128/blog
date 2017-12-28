@@ -12,13 +12,13 @@
 <meta property="og:url" content="http://wassan128.github.io/blog/2016/05/22/index.html">
 <meta property="og:site_name" content="クロワッサンは黒くない">
 <meta property="og:description" content="概要高校5年生なので、HSCTF(High School CTF)に登録して参加してみました。というのはもちろん嘘で、実際は大学生枠(?)で参加してみたんですが、その中でも「Egyptian Tomb」という問題についてメモしておきたくなったので、ブログに備忘録的に書き残そうかと思いました。ちなみにチーム制CTFで、最終的にはラボの同級生と先輩と僕という感じのチームでした。もっと貢献したかった(´">
-<meta property="og:image" content="http://wassan128.github.io/blog/2016/05/22/squares.png">
-<meta property="og:image" content="http://wassan128.github.io/blog/2016/05/22/matrix_calc.png">
+<meta property="og:image" content="http://wassan128.github.io/2016/05/22/squares.png">
+<meta property="og:image" content="http://wassan128.github.io/2016/05/22/matrix_calc.png">
 <meta property="og:updated_time" content="2016-05-22T09:58:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ピラミッドに遊びに行ったら野生の10000次正方数列が現れた話">
 <meta name="twitter:description" content="概要高校5年生なので、HSCTF(High School CTF)に登録して参加してみました。というのはもちろん嘘で、実際は大学生枠(?)で参加してみたんですが、その中でも「Egyptian Tomb」という問題についてメモしておきたくなったので、ブログに備忘録的に書き残そうかと思いました。ちなみにチーム制CTFで、最終的にはラボの同級生と先輩と僕という感じのチームでした。もっと貢献したかった(´">
-<meta name="twitter:image" content="http://wassan128.github.io/blog/2016/05/22/squares.png">
+<meta name="twitter:image" content="http://wassan128.github.io/2016/05/22/squares.png">
   
     <link rel="alternative" href="/blog/atom.xml" title="クロワッサンは黒くない" type="application/atom+xml">
   
@@ -26,7 +26,7 @@
     <link rel="icon" href="/favicon.png">
   
   <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/blog/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 </head>
@@ -38,11 +38,11 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/blog/blog/" id="logo">クロワッサンは黒くない</a>
+        <a href="/" id="logo">クロワッサンは黒くない</a>
       </h1>
       
         <h2 id="subtitle-wrap">
-          <a href="/blog/blog/" id="subtitle">とある高専生の備忘録的な何かになるかもしれない</a>
+          <a href="/" id="subtitle">とある高専生の備忘録的な何かになるかもしれない</a>
         </h2>
       
     </div>
@@ -50,9 +50,9 @@
       <nav id="main-nav">
         <a id="main-nav-toggle" class="nav-icon"></a>
         
-          <a class="main-nav-link" href="/blog/blog/">Home</a>
+          <a class="main-nav-link" href="/blog/">Home</a>
         
-          <a class="main-nav-link" href="/blog/blog/archives/">Archives</a>
+          <a class="main-nav-link" href="/blog/archives/">Archives</a>
         
       </nav>
       <nav id="sub-nav">
@@ -70,7 +70,7 @@
       <div class="outer">
         <section id="main"><article id="post-ピラミッドに遊びに行ったら野生の10000次正方数列が現れた話" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/blog/2016/05/22/" class="article-date">
+    <a href="/2016/05/22/" class="article-date">
   <time datetime="2016-05-22T07:54:46.000Z" itemprop="datePublished">2016-05-22</time>
 </a>
     
@@ -97,7 +97,7 @@
 <a id="more"></a>
 <h2 id="このパズルは何か"><a href="#このパズルは何か" class="headerlink" title="このパズルは何か"></a>このパズルは何か</h2><p>このパズルは問題文によると「sum of all sums of subsquares」、つまり$ n \times n $の正方形の中の$ 1 \times 1, \cdots (n - 1) \times (n - 1), n \times n $までの全ての正方形(all subsquares)の中の数字の和を、足したものがパズルの答え、ということだそうです。上の例だと$ 1 \times 1 $の正方形が4つ、$ 2 \times 2 $の正方形が1つなので、</p>
 <p>$$<br>1+2+3+4+(1+2+3+4)=20<br>$$</p>
-<img src="/blog/2016/05/22/squares.png" alt="2×2の数列内には合計5個の正方形がある" title="2×2の数列内には合計5個の正方形がある">
+<img src="/2016/05/22/squares.png" alt="2×2の数列内には合計5個の正方形がある" title="2×2の数列内には合計5個の正方形がある">
 <p>ということになります。解き方がわかったので、早速$ 10000 \times 10000 $の数列をこの方法で解いてみましょう!ところで、$ 2 \times 2 $の数列内には5個の正方形がありましたが、$ 10000 \times 10000 $だといったいいくつの正方形があるんですかね?$ n \times n $の数列内には</p>
 <p>$$<br>\sum_{k=1}^{n}k^2<br>$$</p>
 <p>個の正方形があるので、$ n=10000 $では</p>
@@ -109,7 +109,7 @@
 <p>$$<br>\begin{pmatrix}<br>2 &amp; 2 \\ 2 &amp; 2<br>\end{pmatrix}<br>$$</p>
 <p>となりました。同様に、$ 4 \times 4 $、$ 6 \times 6 $ではそれぞれ</p>
 <p>$$<br>\begin{pmatrix}<br>4 &amp; 6 &amp; 6 &amp; 4 \\<br>6 &amp; 10 &amp; 10 &amp; 6 \\<br>6 &amp; 10 &amp; 10 &amp; 6 \\<br>4 &amp; 6 &amp; 6 &amp; 4 \\<br>\end{pmatrix},\quad<br>\begin{pmatrix}<br>6 &amp; 10 &amp; 12 &amp; 12 &amp; 10 &amp; 6 \\<br>10 &amp; 18 &amp; 22 &amp; 22 &amp; 18 &amp; 10 \\<br>12 &amp; 22 &amp; 28 &amp; 28 &amp; 22 &amp; 12 \\<br>12 &amp; 22 &amp; 28 &amp; 28 &amp; 22 &amp; 12 \\<br>10 &amp; 18 &amp; 22 &amp; 22 &amp; 18 &amp; 10 \\<br>6 &amp; 10 &amp; 12 &amp; 12 &amp; 10 &amp; 6 \\<br>\end{pmatrix}<br>$$</p>
-<p>が係数数列となります。この値は何か計算をして出したわけではなくて、友人(@koreander2001)と「$ 1 \times 1 $の時は全て1回ずつ足されて、$ 2 \times 2 $の時は$ 1, 2, 2,…, 2, 1 $で…」というように数え上げてそれぞれ何回足されるか書き出してみたものです:-)<br>これを見ると、それぞれ図の赤い三角形部分の数字を求められればどうにか全ての要素を網羅できそうな気がしてきます。実際できるので、これを元に頑張って一般化します。<br><img src="/blog/2016/05/22/matrix_calc.png" alt="係数数列の全ての要素を求める必要はなく、赤い三角形の部分を求めて適用すれば良い" title="係数数列の全ての要素を求める必要はなく、赤い三角形の部分を求めて適用すれば良い"></p>
+<p>が係数数列となります。この値は何か計算をして出したわけではなくて、友人(@koreander2001)と「$ 1 \times 1 $の時は全て1回ずつ足されて、$ 2 \times 2 $の時は$ 1, 2, 2,…, 2, 1 $で…」というように数え上げてそれぞれ何回足されるか書き出してみたものです:-)<br>これを見ると、それぞれ図の赤い三角形部分の数字を求められればどうにか全ての要素を網羅できそうな気がしてきます。実際できるので、これを元に頑張って一般化します。<br><img src="/2016/05/22/matrix_calc.png" alt="係数数列の全ての要素を求める必要はなく、赤い三角形の部分を求めて適用すれば良い" title="係数数列の全ての要素を求める必要はなく、赤い三角形の部分を求めて適用すれば良い"></p>
 <p>例えば、$ n=6 $だった場合、$ \frac{n}{2} $ すなわち$ 3 \times 3 $ の、さらに右上三角地帯を計算すれば良く、係数数列の当該部分は<br>$$<br>\begin{Bmatrix}<br>\begin{pmatrix}<br>1 &amp; 1 &amp; 1 \\<br>  &amp; 1 &amp; 1 \\<br>  &amp;   &amp; 1 \\<br>\end{pmatrix}+<br>\begin{pmatrix}<br>1 &amp; 2 &amp; 2 \\<br>  &amp; 4 &amp; 4 \\<br>  &amp;   &amp; 4 \\<br>\end{pmatrix}+<br>\begin{pmatrix}<br>1 &amp; 2 &amp; 3\\<br>  &amp; 4 &amp; 6\\<br>  &amp;   &amp; 9\\<br>\end{pmatrix}<br>\end{Bmatrix}<br>\times2<br>$$</p>
 <p>のように分解できます。それぞれ$ 1 \times 1 $、$ 2 \times 2 $、$ 3 \times 3 $数列で足される回数をカウントしたものです。$ \times2 $をする理由は、$ 1 \times 1 $行列の正方形の個数と$ 6 \times 6 $、$ 2 \times 2 $と$ 5 \times 5 $、$ 3 \times 3 $と$ 4 \times 4 $でそれぞれ足し合わせの回数が対応している、すなわち$ 1 \times 1 $～$ 3 \times 3 $で折り返しているので、全体の足し合わせの回数は$ 1 \times 1 $～$ \frac{n}{2} \times \frac{n}{2} $までの和を2倍すると導出できるためです。<br>実際に計算をして、上で示した$ 6 \times 6 $の係数数列の値と対応しているか確認しつつ一般式の立式を目指します。座標$ (m, l) $が$ (1, 1), (2, 1), (3, 1) $のときそれぞれ<br>$$<br>(1, 1) = (1+1+1) \times 2 = 6\\<br>(2, 1) = (1+2+2) \times 2 = 10\\<br>(3, 1) = (1+2+3) \times 2 = 12\\<br>$$<br>となります。同様に$ (2, 2), (3, 2) $では、<br>$$<br>(2, 2) = (1+4+4) \times 2 = 18\\<br>(3, 2) = (1+4+6) \times 2 = 22\\<br>$$<br>となり、$ (3, 3) $では、<br>$$<br>(3, 3) = (1+4+9) \times 2 = 28\\<br>$$<br>が求まります。<br>ここで、$ (3, 3) $の式が<br>$$<br>\sum_{k=1}^{3}k^2<br>$$<br>を含むことに気づきます。各座標にも、部分的に二乗の総和の式が当てはまっています。これらを利用して、例えば$ (m, 2) $での部分的な一般化を試します(実際は$ n=8 $なども試したほうが良い(というか試した)ですが、今回は記事が長くなりすぎるので、割愛します)。<br>$ (m, 2) $においては、$ 1+4 $までは共通しており、3項目で$ 2 \times m $が足されています。$ n=8, n=10 $などを試すとよりはっきりとわかりますが、これは次のような法則に従って足されています。<br>$$<br>(m, 2) = (1+4+6+8+\cdots+2m+\cdots+2m) \times 2<br>$$<br>同様に$ (m, 3) $での部分的な一般化を試すと、<br>$$<br>(m, 3) = (1+4+9+12+15+\cdots+3m+\cdots+3m) \times 3<br>$$<br>という法則が得られます。この式は3つのパートに分けることができ、1つ目のパートが「二乗の和」、2つ目のパートが「mの倍数の和 - 二乗の和との重複部」、3つ目が「$ \frac{n}{2}-m $個の$ l \times m $」です。つまり、$ (m, l) $においては<br>$$<br>(m, l) = \begin{Bmatrix}(1+4+9+\cdots+l^2)+l \times ((1+2+3+\cdots+m) - (1+2+3+\cdots+l))+(\frac{n}{2}- m) \times l \times m\end{Bmatrix} \times 2<br>$$</p>
 <p>と表すことができ、これを記号を用いて整理すると、</p>
@@ -129,12 +129,12 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wassan128.github.io/blog/2016/05/22/" data-id="cjbjitdy9000s2ssuybo2ot3i" class="article-share-link">Share</a>
+      <a data-url="http://wassan128.github.io/blog/2016/05/22/" data-id="cjbqm4c8e000mmssu6i1k09xv" class="article-share-link">Share</a>
       
         <a href="http://wassan128.github.io/blog/2016/05/22/#disqus_thread" class="article-comment-link">Comments</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/ctf/">ctf</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/math/">math</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/python/">python</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ctf/">ctf</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/math/">math</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
 
     </footer>
   </div>
@@ -142,7 +142,7 @@
     
 <nav id="article-nav">
   
-    <a href="/blog/2016/06/25/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/06/25/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
@@ -152,7 +152,7 @@
     </a>
   
   
-    <a href="/blog/2016/04/03/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/04/03/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">図書館が開いてるか教えてくれるだけのbotを作った話</div>
     </a>
@@ -178,7 +178,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Hardening/">Hardening</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Node-js/">Node.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ctf/">ctf</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/disqus/">disqus</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/git/">git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hexo/">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/javascript/">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/malware/">malware</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/math/">math</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/misc/">misc</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/procon/">procon</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/python/">python</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/raspberry-pi/">raspberry pi</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/twitter/">twitter</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/windows-media-player/">windows media player</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hardening/">Hardening</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/">Node.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ctf/">ctf</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/disqus/">disqus</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/malware/">malware</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/">math</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/misc/">misc</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/procon/">procon</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/raspberry-pi/">raspberry pi</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/twitter/">twitter</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows-media-player/">windows media player</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -187,7 +187,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/blog/tags/Hardening/" style="font-size: 10px;">Hardening</a> <a href="/blog/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/blog/tags/ctf/" style="font-size: 20px;">ctf</a> <a href="/blog/tags/disqus/" style="font-size: 10px;">disqus</a> <a href="/blog/tags/git/" style="font-size: 12.5px;">git</a> <a href="/blog/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/blog/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/blog/tags/malware/" style="font-size: 10px;">malware</a> <a href="/blog/tags/math/" style="font-size: 10px;">math</a> <a href="/blog/tags/misc/" style="font-size: 15px;">misc</a> <a href="/blog/tags/procon/" style="font-size: 10px;">procon</a> <a href="/blog/tags/python/" style="font-size: 17.5px;">python</a> <a href="/blog/tags/raspberry-pi/" style="font-size: 10px;">raspberry pi</a> <a href="/blog/tags/twitter/" style="font-size: 10px;">twitter</a> <a href="/blog/tags/windows-media-player/" style="font-size: 10px;">windows media player</a>
+      <a href="/tags/Hardening/" style="font-size: 10px;">Hardening</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/ctf/" style="font-size: 20px;">ctf</a> <a href="/tags/disqus/" style="font-size: 10px;">disqus</a> <a href="/tags/git/" style="font-size: 12.5px;">git</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/malware/" style="font-size: 10px;">malware</a> <a href="/tags/math/" style="font-size: 10px;">math</a> <a href="/tags/misc/" style="font-size: 15px;">misc</a> <a href="/tags/procon/" style="font-size: 10px;">procon</a> <a href="/tags/python/" style="font-size: 17.5px;">python</a> <a href="/tags/raspberry-pi/" style="font-size: 10px;">raspberry pi</a> <a href="/tags/twitter/" style="font-size: 10px;">twitter</a> <a href="/tags/windows-media-player/" style="font-size: 10px;">windows media player</a>
     </div>
   </div>
 
@@ -196,7 +196,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/12/">December 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/10/">October 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/06/">June 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/05/">May 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/12/">December 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/08/">August 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/05/">May 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/09/">September 2015</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -208,23 +208,23 @@
       <ul>
         
           <li>
-            <a href="/blog/2017/12/24/">『自分の人生には、何円くらいの価値があると思いますか?』</a>
+            <a href="/2017/12/24/">『自分の人生には、何円くらいの価値があると思いますか?』</a>
           </li>
         
           <li>
-            <a href="/blog/2017/10/22/">KOSENセキュリティコンテスト2017に参加した話</a>
+            <a href="/2017/10/22/">KOSENセキュリティコンテスト2017に参加した話</a>
           </li>
         
           <li>
-            <a href="/blog/2017/10/16/">プロコン自由部門(procon28)に参加した話</a>
+            <a href="/2017/10/16/">プロコン自由部門(procon28)に参加した話</a>
           </li>
         
           <li>
-            <a href="/blog/2017/06/26/">Hardening 1010 Cash Flowに参加した話</a>
+            <a href="/2017/06/26/">Hardening 1010 Cash Flowに参加した話</a>
           </li>
         
           <li>
-            <a href="/blog/2017/05/03/">picoctf2017で解いたWeb問の話</a>
+            <a href="/2017/05/03/">picoctf2017で解いたWeb問の話</a>
           </li>
         
       </ul>
@@ -247,9 +247,9 @@
     </div>
     <nav id="mobile-nav">
   
-    <a href="/blog/blog/" class="mobile-nav-link">Home</a>
+    <a href="/blog/" class="mobile-nav-link">Home</a>
   
-    <a href="/blog/blog/archives/" class="mobile-nav-link">Archives</a>
+    <a href="/blog/archives/" class="mobile-nav-link">Archives</a>
   
 </nav>
     
@@ -271,11 +271,11 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
-  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
-  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="/blog/js/script.js"></script>
+<script src="/js/script.js"></script>
 
   </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
