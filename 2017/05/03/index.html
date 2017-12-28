@@ -12,15 +12,15 @@
 <meta property="og:url" content="http://wassan128.github.io/blog/2017/05/03/index.html">
 <meta property="og:site_name" content="クロワッサンは黒くない">
 <meta property="og:description" content="はじめにどうも、EAnbai『Web』担当(自称)です。もうしばらく前の話になってしまいましたが、picoctf2017にいつも通りEAnbaiで参加していました。Web問題メインで取り組んだので、解くことができたWeb問をメモしておきます。">
-<meta property="og:image" content="http://wassan128.github.io/2017/05/03/web100.png">
-<meta property="og:image" content="http://wassan128.github.io/2017/05/03/web110_1.png">
-<meta property="og:image" content="http://wassan128.github.io/2017/05/03/web110_2.png">
-<meta property="og:image" content="http://wassan128.github.io/2017/05/03/web110_3.png">
+<meta property="og:image" content="http://wassan128.github.io/blog/2017/05/03/web100.png">
+<meta property="og:image" content="http://wassan128.github.io/blog/2017/05/03/web110_1.png">
+<meta property="og:image" content="http://wassan128.github.io/blog/2017/05/03/web110_2.png">
+<meta property="og:image" content="http://wassan128.github.io/blog/2017/05/03/web110_3.png">
 <meta property="og:updated_time" content="2017-05-03T12:58:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="picoctf2017で解いたWeb問の話">
 <meta name="twitter:description" content="はじめにどうも、EAnbai『Web』担当(自称)です。もうしばらく前の話になってしまいましたが、picoctf2017にいつも通りEAnbaiで参加していました。Web問題メインで取り組んだので、解くことができたWeb問をメモしておきます。">
-<meta name="twitter:image" content="http://wassan128.github.io/2017/05/03/web100.png">
+<meta name="twitter:image" content="http://wassan128.github.io/blog/2017/05/03/web100.png">
   
     <link rel="alternative" href="/blog/atom.xml" title="クロワッサンは黒くない" type="application/atom+xml">
   
@@ -109,10 +109,10 @@
 <p>さらにソースコードを見ていくとステージ情報が定義されたファイルが含まれており、その中でも特に例の4Fの旗アイテムを使用すると全アイテムロストもしくはrevealFlag effectが発生する、つまり正しいフラグを取得・使用すれば正解を見ることができ、間違えればその機会が潰えるということがわかりました。使用されたフラグアイテムが正しいフラグであるかはrevealFlagメッセージを処理するコード部</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (entity.items[action.item].effects[i].check == <span class="number">64</span>)</div></pre></td></tr></table></figure>
 <p>で確認していることがわかるので、あとは普通にゲームを進めて正しいフラグを取得し、使用するとフラグを見ることができます。</p>
-<img src="/2017/05/03/web100.png" alt="図1.Toaster Wars" title="図1.Toaster Wars">
+<img src="/blog/2017/05/03/web100.png" alt="図1.Toaster Wars" title="図1.Toaster Wars">
 <h3 id="Biscuit-level3-75pt"><a href="#Biscuit-level3-75pt" class="headerlink" title="Biscuit (level3, 75pt)"></a>Biscuit (level3, 75pt)</h3><p>開くと「Access Denied」と言われるのでソースコードを見るとコメントでcookies.sqliteというファイルにクッキーを隠してるから安全だぜと言った趣旨の文章が書かれていて、/private/cookies.sqliteにアクセスするとダウンロードすることができます。この中身をsqliteを使って見てみるとそれっぽい文字列が入っているのが見えるのでこれを問題サイトのIDというクッキーを書き換えて設定、再アクセスするとフラグがもらえます。</p>
 <h3 id="A-Happy-Union-level3-110pt"><a href="#A-Happy-Union-level3-110pt" class="headerlink" title="A Happy Union (level3, 110pt)"></a>A Happy Union (level3, 110pt)</h3><p>開くとLogin/Registerボタンが出てきて、流石にlevel1の問題のようには行きません。とりあえずhogeみたいな適当なアカウントをRegisterしてLoginすると何かポストできるページが出てきます(図2)。</p>
-<img src="/2017/05/03/web110_1.png" alt="図2.ログイン後のページ" title="図2.ログイン後のページ">
+<img src="/blog/2017/05/03/web110_1.png" alt="図2.ログイン後のページ" title="図2.ログイン後のページ">
 <p>問題文からSQLのunionを使ったSQLiであることが推察でき、色々試しているうちにユーザー登録時にSQL命令を混入させることでログイン後のページに情報を表示させることができそう、ということがわかりました。ということでまとめると</p>
 <ol>
 <li>SQL(union selectでadminのpassを取得するようなものを作る)を混入させたユーザー名でユーザーを新規登録する</li>
@@ -120,11 +120,11 @@
 <li>ログイン後画面にadminのpass(フラグ)が表示されて優勝</li>
 </ol>
 <p>という手順で解けます。<br>しかしまだどのtableにユーザー情報が格納されているかわからないので、unionを使って情報収集します。ここで問題文の<code>I like lite sql:)</code>という部分からデータベースにsqliteが採用されていることが窺えるので、sqlite_masterテーブルから情報を抜き出します(図3)。これでusersテーブルと言うものが存在することがわかりました(ユーザー登録時のSQLによってエラー情報を表示(サーバー側でエラーを吐くようになっている)させ、ポスト部分のtable名「posts」をリークし、そこからusersテーブルの存在をエスパーする方法もある)。あとは前述の手順に従ってusersテーブルから情報を抜き出すSQLを混入したユーザーでログインすればフラグが貰えそうです。</p>
-<img src="/2017/05/03/web110_2.png" alt="図3.usersテーブルから情報を抜き出せば良さそう" title="図3.usersテーブルから情報を抜き出せば良さそう">
+<img src="/blog/2017/05/03/web110_2.png" alt="図3.usersテーブルから情報を抜き出せば良さそう" title="図3.usersテーブルから情報を抜き出せば良さそう">
 <p>詰まったところとしてはユーザー名部分でSQLを組み立てる時にシングルクォーテーションを意識しなければならない点、カラム数を合わせる必要がある点でした。前者はコメントでは回避できなかったので、pass取得のための命令の後に</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">where user='admin</div></pre></td></tr></table></figure>
 <p>を付け加えて回避しました。後者は最終的にnullをselectのリストに加えることで回避しました。この手順を踏むと無事フラグを取得することができました(図3)。unionベースSQLiの内容把握にあたり、<a href="http://www.sqlinjection.net/union/" target="_blank" rel="external">このあたり</a>などを参考にしました。</p>
-<img src="/2017/05/03/web110_3.png" alt="図4.フラグがもらえた" title="図4.フラグがもらえた">
+<img src="/blog/2017/05/03/web110_3.png" alt="図4.フラグがもらえた" title="図4.フラグがもらえた">
 <h2 id="おわりに"><a href="#おわりに" class="headerlink" title="おわりに"></a>おわりに</h2><p>気合いを入れて解いたのはTW_GR_E1_ARTとHappy Unionで、それ以外の問題は割りとサクっといきました(というかTWはゲームを進めてフロア4まで行くのが普通に楽しかったので遊んでしまった)。特にHappy Unionが解けた時はEAnbai『Web』担当を自称しておきながら今まであまりちゃんとWeb問を解けなかったので、嬉しかったです。ただLevel3の残り2問と4のWeb問などまだまだ解けていないものがあるので、精進します。</p>
 <p>あとpwnもそろそろちゃんとできるようになりたいので、チーム内でpwnable.krの問題を解いたりしていますがpicoctfの問題も難易度が良い感じなのでwriteupを適宜見ながらやっていきたいです。</p>
 <p>以上です。</p>
@@ -132,7 +132,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wassan128.github.io/blog/2017/05/03/" data-id="cjbqm4c88000imssupulvt5dg" class="article-share-link">Share</a>
+      <a data-url="http://wassan128.github.io/blog/2017/05/03/" data-id="cjbqn08wt000ew8suyhf7x5iw" class="article-share-link">Share</a>
       
         <a href="http://wassan128.github.io/blog/2017/05/03/#disqus_thread" class="article-comment-link">Comments</a>
       

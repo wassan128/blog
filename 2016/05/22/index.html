@@ -12,13 +12,13 @@
 <meta property="og:url" content="http://wassan128.github.io/blog/2016/05/22/index.html">
 <meta property="og:site_name" content="クロワッサンは黒くない">
 <meta property="og:description" content="概要高校5年生なので、HSCTF(High School CTF)に登録して参加してみました。というのはもちろん嘘で、実際は大学生枠(?)で参加してみたんですが、その中でも「Egyptian Tomb」という問題についてメモしておきたくなったので、ブログに備忘録的に書き残そうかと思いました。ちなみにチーム制CTFで、最終的にはラボの同級生と先輩と僕という感じのチームでした。もっと貢献したかった(´">
-<meta property="og:image" content="http://wassan128.github.io/2016/05/22/squares.png">
-<meta property="og:image" content="http://wassan128.github.io/2016/05/22/matrix_calc.png">
+<meta property="og:image" content="http://wassan128.github.io/blog/2016/05/22/squares.png">
+<meta property="og:image" content="http://wassan128.github.io/blog/2016/05/22/matrix_calc.png">
 <meta property="og:updated_time" content="2016-05-22T09:58:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ピラミッドに遊びに行ったら野生の10000次正方数列が現れた話">
 <meta name="twitter:description" content="概要高校5年生なので、HSCTF(High School CTF)に登録して参加してみました。というのはもちろん嘘で、実際は大学生枠(?)で参加してみたんですが、その中でも「Egyptian Tomb」という問題についてメモしておきたくなったので、ブログに備忘録的に書き残そうかと思いました。ちなみにチーム制CTFで、最終的にはラボの同級生と先輩と僕という感じのチームでした。もっと貢献したかった(´">
-<meta name="twitter:image" content="http://wassan128.github.io/2016/05/22/squares.png">
+<meta name="twitter:image" content="http://wassan128.github.io/blog/2016/05/22/squares.png">
   
     <link rel="alternative" href="/blog/atom.xml" title="クロワッサンは黒くない" type="application/atom+xml">
   
@@ -97,7 +97,7 @@
 <a id="more"></a>
 <h2 id="このパズルは何か"><a href="#このパズルは何か" class="headerlink" title="このパズルは何か"></a>このパズルは何か</h2><p>このパズルは問題文によると「sum of all sums of subsquares」、つまり$ n \times n $の正方形の中の$ 1 \times 1, \cdots (n - 1) \times (n - 1), n \times n $までの全ての正方形(all subsquares)の中の数字の和を、足したものがパズルの答え、ということだそうです。上の例だと$ 1 \times 1 $の正方形が4つ、$ 2 \times 2 $の正方形が1つなので、</p>
 <p>$$<br>1+2+3+4+(1+2+3+4)=20<br>$$</p>
-<img src="/2016/05/22/squares.png" alt="2×2の数列内には合計5個の正方形がある" title="2×2の数列内には合計5個の正方形がある">
+<img src="/blog/2016/05/22/squares.png" alt="2×2の数列内には合計5個の正方形がある" title="2×2の数列内には合計5個の正方形がある">
 <p>ということになります。解き方がわかったので、早速$ 10000 \times 10000 $の数列をこの方法で解いてみましょう!ところで、$ 2 \times 2 $の数列内には5個の正方形がありましたが、$ 10000 \times 10000 $だといったいいくつの正方形があるんですかね?$ n \times n $の数列内には</p>
 <p>$$<br>\sum_{k=1}^{n}k^2<br>$$</p>
 <p>個の正方形があるので、$ n=10000 $では</p>
@@ -109,7 +109,7 @@
 <p>$$<br>\begin{pmatrix}<br>2 &amp; 2 \\ 2 &amp; 2<br>\end{pmatrix}<br>$$</p>
 <p>となりました。同様に、$ 4 \times 4 $、$ 6 \times 6 $ではそれぞれ</p>
 <p>$$<br>\begin{pmatrix}<br>4 &amp; 6 &amp; 6 &amp; 4 \\<br>6 &amp; 10 &amp; 10 &amp; 6 \\<br>6 &amp; 10 &amp; 10 &amp; 6 \\<br>4 &amp; 6 &amp; 6 &amp; 4 \\<br>\end{pmatrix},\quad<br>\begin{pmatrix}<br>6 &amp; 10 &amp; 12 &amp; 12 &amp; 10 &amp; 6 \\<br>10 &amp; 18 &amp; 22 &amp; 22 &amp; 18 &amp; 10 \\<br>12 &amp; 22 &amp; 28 &amp; 28 &amp; 22 &amp; 12 \\<br>12 &amp; 22 &amp; 28 &amp; 28 &amp; 22 &amp; 12 \\<br>10 &amp; 18 &amp; 22 &amp; 22 &amp; 18 &amp; 10 \\<br>6 &amp; 10 &amp; 12 &amp; 12 &amp; 10 &amp; 6 \\<br>\end{pmatrix}<br>$$</p>
-<p>が係数数列となります。この値は何か計算をして出したわけではなくて、友人(@koreander2001)と「$ 1 \times 1 $の時は全て1回ずつ足されて、$ 2 \times 2 $の時は$ 1, 2, 2,…, 2, 1 $で…」というように数え上げてそれぞれ何回足されるか書き出してみたものです:-)<br>これを見ると、それぞれ図の赤い三角形部分の数字を求められればどうにか全ての要素を網羅できそうな気がしてきます。実際できるので、これを元に頑張って一般化します。<br><img src="/2016/05/22/matrix_calc.png" alt="係数数列の全ての要素を求める必要はなく、赤い三角形の部分を求めて適用すれば良い" title="係数数列の全ての要素を求める必要はなく、赤い三角形の部分を求めて適用すれば良い"></p>
+<p>が係数数列となります。この値は何か計算をして出したわけではなくて、友人(@koreander2001)と「$ 1 \times 1 $の時は全て1回ずつ足されて、$ 2 \times 2 $の時は$ 1, 2, 2,…, 2, 1 $で…」というように数え上げてそれぞれ何回足されるか書き出してみたものです:-)<br>これを見ると、それぞれ図の赤い三角形部分の数字を求められればどうにか全ての要素を網羅できそうな気がしてきます。実際できるので、これを元に頑張って一般化します。<br><img src="/blog/2016/05/22/matrix_calc.png" alt="係数数列の全ての要素を求める必要はなく、赤い三角形の部分を求めて適用すれば良い" title="係数数列の全ての要素を求める必要はなく、赤い三角形の部分を求めて適用すれば良い"></p>
 <p>例えば、$ n=6 $だった場合、$ \frac{n}{2} $ すなわち$ 3 \times 3 $ の、さらに右上三角地帯を計算すれば良く、係数数列の当該部分は<br>$$<br>\begin{Bmatrix}<br>\begin{pmatrix}<br>1 &amp; 1 &amp; 1 \\<br>  &amp; 1 &amp; 1 \\<br>  &amp;   &amp; 1 \\<br>\end{pmatrix}+<br>\begin{pmatrix}<br>1 &amp; 2 &amp; 2 \\<br>  &amp; 4 &amp; 4 \\<br>  &amp;   &amp; 4 \\<br>\end{pmatrix}+<br>\begin{pmatrix}<br>1 &amp; 2 &amp; 3\\<br>  &amp; 4 &amp; 6\\<br>  &amp;   &amp; 9\\<br>\end{pmatrix}<br>\end{Bmatrix}<br>\times2<br>$$</p>
 <p>のように分解できます。それぞれ$ 1 \times 1 $、$ 2 \times 2 $、$ 3 \times 3 $数列で足される回数をカウントしたものです。$ \times2 $をする理由は、$ 1 \times 1 $行列の正方形の個数と$ 6 \times 6 $、$ 2 \times 2 $と$ 5 \times 5 $、$ 3 \times 3 $と$ 4 \times 4 $でそれぞれ足し合わせの回数が対応している、すなわち$ 1 \times 1 $～$ 3 \times 3 $で折り返しているので、全体の足し合わせの回数は$ 1 \times 1 $～$ \frac{n}{2} \times \frac{n}{2} $までの和を2倍すると導出できるためです。<br>実際に計算をして、上で示した$ 6 \times 6 $の係数数列の値と対応しているか確認しつつ一般式の立式を目指します。座標$ (m, l) $が$ (1, 1), (2, 1), (3, 1) $のときそれぞれ<br>$$<br>(1, 1) = (1+1+1) \times 2 = 6\\<br>(2, 1) = (1+2+2) \times 2 = 10\\<br>(3, 1) = (1+2+3) \times 2 = 12\\<br>$$<br>となります。同様に$ (2, 2), (3, 2) $では、<br>$$<br>(2, 2) = (1+4+4) \times 2 = 18\\<br>(3, 2) = (1+4+6) \times 2 = 22\\<br>$$<br>となり、$ (3, 3) $では、<br>$$<br>(3, 3) = (1+4+9) \times 2 = 28\\<br>$$<br>が求まります。<br>ここで、$ (3, 3) $の式が<br>$$<br>\sum_{k=1}^{3}k^2<br>$$<br>を含むことに気づきます。各座標にも、部分的に二乗の総和の式が当てはまっています。これらを利用して、例えば$ (m, 2) $での部分的な一般化を試します(実際は$ n=8 $なども試したほうが良い(というか試した)ですが、今回は記事が長くなりすぎるので、割愛します)。<br>$ (m, 2) $においては、$ 1+4 $までは共通しており、3項目で$ 2 \times m $が足されています。$ n=8, n=10 $などを試すとよりはっきりとわかりますが、これは次のような法則に従って足されています。<br>$$<br>(m, 2) = (1+4+6+8+\cdots+2m+\cdots+2m) \times 2<br>$$<br>同様に$ (m, 3) $での部分的な一般化を試すと、<br>$$<br>(m, 3) = (1+4+9+12+15+\cdots+3m+\cdots+3m) \times 3<br>$$<br>という法則が得られます。この式は3つのパートに分けることができ、1つ目のパートが「二乗の和」、2つ目のパートが「mの倍数の和 - 二乗の和との重複部」、3つ目が「$ \frac{n}{2}-m $個の$ l \times m $」です。つまり、$ (m, l) $においては<br>$$<br>(m, l) = \begin{Bmatrix}(1+4+9+\cdots+l^2)+l \times ((1+2+3+\cdots+m) - (1+2+3+\cdots+l))+(\frac{n}{2}- m) \times l \times m\end{Bmatrix} \times 2<br>$$</p>
 <p>と表すことができ、これを記号を用いて整理すると、</p>
@@ -129,7 +129,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wassan128.github.io/blog/2016/05/22/" data-id="cjbqm4c8e000mmssu6i1k09xv" class="article-share-link">Share</a>
+      <a data-url="http://wassan128.github.io/blog/2016/05/22/" data-id="cjbqn08x9000nw8suls4k80ph" class="article-share-link">Share</a>
       
         <a href="http://wassan128.github.io/blog/2016/05/22/#disqus_thread" class="article-comment-link">Comments</a>
       

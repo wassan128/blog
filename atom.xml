@@ -69,7 +69,7 @@
     <updated>2017-10-22T05:42:04.030Z</updated>
     
     <content type="html"><![CDATA[<h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>昨日今日(10月21日, 22日)の2日間、KOSENセキュリティコンテスト2017が木更津高専主管で開催されていました。実は<a href="http://wassan128.github.io/blog/2016/12/04/#more">去年もKOSENセキュリティコンテストに参加</a>していましたが、今回は前回大会と競技形式が変わり、Jeopardy(クイズ)形式とKoH(King of Hill)形式というラインナップでした(KoHなどの解説は<a href="https://www.slideshare.net/hiromu1996/ctf-32346373" target="_blank" rel="external">こちら</a>などを参照ください)。<br>私はチームEAnbai(いつもの)のメンバーとして参加し、JeopardyのWeb問題などを解いたり、KoHを触ってみたりしていました。一日目を12位で折り返したチームの最終成績は35チーム中5位で、惜しくも表彰には届きませんでしたが、記憶に新しい内に解いた問題のwriteupや反省をしたいと思います。</p>
-<img src="/2017/10/22/rank.png" alt="EAnbaiは2800ptで5位でした" title="EAnbaiは2800ptで5位でした">
+<img src="/blog/2017/10/22/rank.png" alt="EAnbaiは2800ptで5位でした" title="EAnbaiは2800ptで5位でした">
 <a id="more"></a>
 <h2 id="解いた問題のWriteup"><a href="#解いた問題のWriteup" class="headerlink" title="解いた問題のWriteup"></a>解いた問題のWriteup</h2><h3 id="ログインせよ-Web-100pt"><a href="#ログインせよ-Web-100pt" class="headerlink" title="ログインせよ(Web, 100pt)"></a>ログインせよ(Web, 100pt)</h3><p>問題のURLが渡されるのでアクセスをすると、ログインフォームが出てきます。すると「adminでログインしてね」(記憶違いかもしれない)と言われるので、ユーザー名に「<code>admin&#39; or 1=1 ---</code>」を入力したらフラグが出ました。</p>
 <h3 id="灯台下暗し-Web-100pt"><a href="#灯台下暗し-Web-100pt" class="headerlink" title="灯台下暗し(Web, 100pt)"></a>灯台下暗し(Web, 100pt)</h3><p>先程の問題と同じようなログインフォームが出てきて、その下の方にそのロジック部分風のソースコードが貼ってありました。adminのパスがフラグ、となっておりさっきよりは複雑なSQLi問なのかな?と思いながらソースを眺めていたらデータベースを読み込んでいる部分が目に入り、おもむろにURLに「/data.db」をつけたらデータベースが降ってきました()<br>それを<code>sqlite3</code>で開き、<code>.ta</code>するとユーザーのテーブルが見えるので<code>select * from users</code>するとフラグが見えました。灯台下暗し…。</p>
@@ -86,7 +86,7 @@
     <summary type="html">
     
       &lt;h2 id=&quot;概要&quot;&gt;&lt;a href=&quot;#概要&quot; class=&quot;headerlink&quot; title=&quot;概要&quot;&gt;&lt;/a&gt;概要&lt;/h2&gt;&lt;p&gt;昨日今日(10月21日, 22日)の2日間、KOSENセキュリティコンテスト2017が木更津高専主管で開催されていました。実は&lt;a href=&quot;http://wassan128.github.io/blog/2016/12/04/#more&quot;&gt;去年もKOSENセキュリティコンテストに参加&lt;/a&gt;していましたが、今回は前回大会と競技形式が変わり、Jeopardy(クイズ)形式とKoH(King of Hill)形式というラインナップでした(KoHなどの解説は&lt;a href=&quot;https://www.slideshare.net/hiromu1996/ctf-32346373&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;こちら&lt;/a&gt;などを参照ください)。&lt;br&gt;私はチームEAnbai(いつもの)のメンバーとして参加し、JeopardyのWeb問題などを解いたり、KoHを触ってみたりしていました。一日目を12位で折り返したチームの最終成績は35チーム中5位で、惜しくも表彰には届きませんでしたが、記憶に新しい内に解いた問題のwriteupや反省をしたいと思います。&lt;/p&gt;
-&lt;img src=&quot;/2017/10/22/rank.png&quot; alt=&quot;EAnbaiは2800ptで5位でした&quot; title=&quot;EAnbaiは2800ptで5位でした&quot;&gt;
+&lt;img src=&quot;/blog/2017/10/22/rank.png&quot; alt=&quot;EAnbaiは2800ptで5位でした&quot; title=&quot;EAnbaiは2800ptで5位でした&quot;&gt;
     
     </summary>
     
@@ -150,7 +150,7 @@
     <updated>2017-06-29T11:38:43.688Z</updated>
     
     <content type="html"><![CDATA[<h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>去る23日、沖縄コンベンションセンターで10回目(記念回!)の「<a href="https://wasforum.jp/2017/04/hardening-1010-cash-flow/" target="_blank" rel="external">Hardening 1010 Cash Flow</a>」が開催されており、そこに参加しました。チーム「術中Hack」のメンバーとして参加し、グランプリをいただきました。記念回に初参加で参戦できただけでなく、10時間という今までにない競技時間を体験できたり、ラスト(?)沖縄回に参加できたり、グランプリをいただけたりと、本当に参加できて良かったと思えました。運営の皆様、MPの皆様、術中Hackの皆様、その他すべての関係者の皆様に感謝しております。<br>本記事ではチームのことや僕が競技中にやったことのメモを残したいと思います。</p>
-<img src="/2017/06/26/grand.png" alt="チーム「術中Hack」グランプリ(੭ ᐕ)੭" title="チーム「術中Hack」グランプリ(੭ ᐕ)੭">
+<img src="/blog/2017/06/26/grand.png" alt="チーム「術中Hack」グランプリ(੭ ᐕ)੭" title="チーム「術中Hack」グランプリ(੭ ᐕ)੭">
 <a id="more"></a>
 <h2 id="Hardeningとは"><a href="#Hardeningとは" class="headerlink" title="Hardeningとは?"></a>Hardeningとは?</h2><p>文字通り「堅牢化」を行う競技です。では何を堅牢化するのか?というと「ECサイト」やそれに関連する「サーバー」です。予め脆弱性の仕込まれた環境・ECサイトを安全な状態にし、攻撃者の手に落ちないよう守り、そして売り続ける――概要はこんな感じです。詳しい説明は<a href="https://wasforum.jp" target="_blank" rel="external">公式サイト</a>をご覧ください。</p>
 <h2 id="チーム「術中Hack」"><a href="#チーム「術中Hack」" class="headerlink" title="チーム「術中Hack」"></a>チーム「術中Hack」</h2><p>6人で構成された今回のチームは、内4人が沖縄高専からの参加ということで社会人が多く参加されるこの大会においては平均年齢が若いチームでした。とはいえ社会人の方がチームのリーダーやまとめ役を引き受けてくださり、とても安心感のある、居心地の良いチームでした。<br>高専勢は比較的集まりやすかったこともあり、話し合いをしたり情報共有をしたりしました。チーム全員での集まりはHardening Day前日の22日に行われ、そこで翌日の競技に向けて懇親を兼ねて戦略を話し合いました。この時点でのチームの方針は「初手借金、投資重視」でした。<br>それ以前はチームリーダーが爆速で作ってくださったSlackで情報共有をやったり、trelloでタスクの整理をしていました。</p>
@@ -158,13 +158,13 @@
 <h2 id="良かったこと"><a href="#良かったこと" class="headerlink" title="良かったこと"></a>良かったこと</h2><p>脆弱性を予習していて良かったです。サイトが改ざんされたりシステムが壊されたときにどうしてそれが起こってしまったのか、あたりがつくかつけられないかでかなり気持ち的なところに差があったと思います。予習では実際に自分で環境を作り、脆弱性を検証し、ソースコードを修正して攻撃が通用しないことを確認、というところまでの一連の流れをやっていたので本番でも流れがなんとなくつかみやすく、それなりにスムーズに作業できたと思います。<br>また、お昼のバーガーが美味しかった点が挙げられます。</p>
 <h2 id="悪かったこと"><a href="#悪かったこと" class="headerlink" title="悪かったこと"></a>悪かったこと</h2><p>サーバーのパス変更や脆弱性修正が漏れていた所がありました。中盤～になってその穴を突かれたりしてしまったので、競技環境資料をよく見ながら最初の段階で注意深く確認を行うべきだったと思います。また、脆弱性だけでなくサービス自体の使用を通してノウハウを増やしておけばよかったなと思いました。WordPressなど普段使わないサービスをもう少し触っておけば、管理者パスワードの変更やユーザー登録ボタンの削除などの作業がより円滑になったと思います。この他にも設定ファイルで失敗したり、コマンド慣れが足りなかったりとまだまだ技術的な部分やそうでない部分で自分は未熟だなぁと感じる点が多くありました。<br>また、お昼のバーガーを急いで食べてしまった点が挙げられます。</p>
 <h2 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><p>チームメンバーに恵まれ、MP(製品と担当者の方々)に恵まれ、運にも愛され、グランプリという結果をいただきました。10時間という競技時間は今思えば長かったようで短かったですが、その中で得た学びはとても多かったし、何より楽しかったです。「売上を意識すべき競技」や、セキュリティベンダーの製品を実践的なシチュエーション下で使わせて頂ける、こんな体験はなかなか学生という身分ではできないなと思いました。<br>貴重な体験をさせてくださり、本当にありがとうございました。</p>
-<img src="/2017/06/26/h1010cf.png" alt="Hardening 1010 Cash Flow参加できて良かったです、ありがとうございました!" title="Hardening 1010 Cash Flow参加できて良かったです、ありがとうございました!">
+<img src="/blog/2017/06/26/h1010cf.png" alt="Hardening 1010 Cash Flow参加できて良かったです、ありがとうございました!" title="Hardening 1010 Cash Flow参加できて良かったです、ありがとうございました!">
 ]]></content>
     
     <summary type="html">
     
       &lt;h2 id=&quot;概要&quot;&gt;&lt;a href=&quot;#概要&quot; class=&quot;headerlink&quot; title=&quot;概要&quot;&gt;&lt;/a&gt;概要&lt;/h2&gt;&lt;p&gt;去る23日、沖縄コンベンションセンターで10回目(記念回!)の「&lt;a href=&quot;https://wasforum.jp/2017/04/hardening-1010-cash-flow/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hardening 1010 Cash Flow&lt;/a&gt;」が開催されており、そこに参加しました。チーム「術中Hack」のメンバーとして参加し、グランプリをいただきました。記念回に初参加で参戦できただけでなく、10時間という今までにない競技時間を体験できたり、ラスト(?)沖縄回に参加できたり、グランプリをいただけたりと、本当に参加できて良かったと思えました。運営の皆様、MPの皆様、術中Hackの皆様、その他すべての関係者の皆様に感謝しております。&lt;br&gt;本記事ではチームのことや僕が競技中にやったことのメモを残したいと思います。&lt;/p&gt;
-&lt;img src=&quot;/2017/06/26/grand.png&quot; alt=&quot;チーム「術中Hack」グランプリ(੭ ᐕ)੭&quot; title=&quot;チーム「術中Hack」グランプリ(੭ ᐕ)੭&quot;&gt;
+&lt;img src=&quot;/blog/2017/06/26/grand.png&quot; alt=&quot;チーム「術中Hack」グランプリ(੭ ᐕ)੭&quot; title=&quot;チーム「術中Hack」グランプリ(੭ ᐕ)੭&quot;&gt;
     
     </summary>
     
@@ -197,10 +197,10 @@
 <p>さらにソースコードを見ていくとステージ情報が定義されたファイルが含まれており、その中でも特に例の4Fの旗アイテムを使用すると全アイテムロストもしくはrevealFlag effectが発生する、つまり正しいフラグを取得・使用すれば正解を見ることができ、間違えればその機会が潰えるということがわかりました。使用されたフラグアイテムが正しいフラグであるかはrevealFlagメッセージを処理するコード部</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (entity.items[action.item].effects[i].check == <span class="number">64</span>)</div></pre></td></tr></table></figure>
 <p>で確認していることがわかるので、あとは普通にゲームを進めて正しいフラグを取得し、使用するとフラグを見ることができます。</p>
-<img src="/2017/05/03/web100.png" alt="図1.Toaster Wars" title="図1.Toaster Wars">
+<img src="/blog/2017/05/03/web100.png" alt="図1.Toaster Wars" title="図1.Toaster Wars">
 <h3 id="Biscuit-level3-75pt"><a href="#Biscuit-level3-75pt" class="headerlink" title="Biscuit (level3, 75pt)"></a>Biscuit (level3, 75pt)</h3><p>開くと「Access Denied」と言われるのでソースコードを見るとコメントでcookies.sqliteというファイルにクッキーを隠してるから安全だぜと言った趣旨の文章が書かれていて、/private/cookies.sqliteにアクセスするとダウンロードすることができます。この中身をsqliteを使って見てみるとそれっぽい文字列が入っているのが見えるのでこれを問題サイトのIDというクッキーを書き換えて設定、再アクセスするとフラグがもらえます。</p>
 <h3 id="A-Happy-Union-level3-110pt"><a href="#A-Happy-Union-level3-110pt" class="headerlink" title="A Happy Union (level3, 110pt)"></a>A Happy Union (level3, 110pt)</h3><p>開くとLogin/Registerボタンが出てきて、流石にlevel1の問題のようには行きません。とりあえずhogeみたいな適当なアカウントをRegisterしてLoginすると何かポストできるページが出てきます(図2)。</p>
-<img src="/2017/05/03/web110_1.png" alt="図2.ログイン後のページ" title="図2.ログイン後のページ">
+<img src="/blog/2017/05/03/web110_1.png" alt="図2.ログイン後のページ" title="図2.ログイン後のページ">
 <p>問題文からSQLのunionを使ったSQLiであることが推察でき、色々試しているうちにユーザー登録時にSQL命令を混入させることでログイン後のページに情報を表示させることができそう、ということがわかりました。ということでまとめると</p>
 <ol>
 <li>SQL(union selectでadminのpassを取得するようなものを作る)を混入させたユーザー名でユーザーを新規登録する</li>
@@ -208,11 +208,11 @@
 <li>ログイン後画面にadminのpass(フラグ)が表示されて優勝</li>
 </ol>
 <p>という手順で解けます。<br>しかしまだどのtableにユーザー情報が格納されているかわからないので、unionを使って情報収集します。ここで問題文の<code>I like lite sql:)</code>という部分からデータベースにsqliteが採用されていることが窺えるので、sqlite_masterテーブルから情報を抜き出します(図3)。これでusersテーブルと言うものが存在することがわかりました(ユーザー登録時のSQLによってエラー情報を表示(サーバー側でエラーを吐くようになっている)させ、ポスト部分のtable名「posts」をリークし、そこからusersテーブルの存在をエスパーする方法もある)。あとは前述の手順に従ってusersテーブルから情報を抜き出すSQLを混入したユーザーでログインすればフラグが貰えそうです。</p>
-<img src="/2017/05/03/web110_2.png" alt="図3.usersテーブルから情報を抜き出せば良さそう" title="図3.usersテーブルから情報を抜き出せば良さそう">
+<img src="/blog/2017/05/03/web110_2.png" alt="図3.usersテーブルから情報を抜き出せば良さそう" title="図3.usersテーブルから情報を抜き出せば良さそう">
 <p>詰まったところとしてはユーザー名部分でSQLを組み立てる時にシングルクォーテーションを意識しなければならない点、カラム数を合わせる必要がある点でした。前者はコメントでは回避できなかったので、pass取得のための命令の後に</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">where user='admin</div></pre></td></tr></table></figure>
 <p>を付け加えて回避しました。後者は最終的にnullをselectのリストに加えることで回避しました。この手順を踏むと無事フラグを取得することができました(図3)。unionベースSQLiの内容把握にあたり、<a href="http://www.sqlinjection.net/union/" target="_blank" rel="external">このあたり</a>などを参考にしました。</p>
-<img src="/2017/05/03/web110_3.png" alt="図4.フラグがもらえた" title="図4.フラグがもらえた">
+<img src="/blog/2017/05/03/web110_3.png" alt="図4.フラグがもらえた" title="図4.フラグがもらえた">
 <h2 id="おわりに"><a href="#おわりに" class="headerlink" title="おわりに"></a>おわりに</h2><p>気合いを入れて解いたのはTW_GR_E1_ARTとHappy Unionで、それ以外の問題は割りとサクっといきました(というかTWはゲームを進めてフロア4まで行くのが普通に楽しかったので遊んでしまった)。特にHappy Unionが解けた時はEAnbai『Web』担当を自称しておきながら今まであまりちゃんとWeb問を解けなかったので、嬉しかったです。ただLevel3の残り2問と4のWeb問などまだまだ解けていないものがあるので、精進します。</p>
 <p>あとpwnもそろそろちゃんとできるようになりたいので、チーム内でpwnable.krの問題を解いたりしていますがpicoctfの問題も難易度が良い感じなのでwriteupを適宜見ながらやっていきたいです。</p>
 <p>以上です。</p>
@@ -241,16 +241,16 @@
 <h2 id="解いた問題"><a href="#解いた問題" class="headerlink" title="解いた問題"></a>解いた問題</h2><h3 id="Reversing-1-50pt"><a href="#Reversing-1-50pt" class="headerlink" title="Reversing 1 (50pt)"></a>Reversing 1 (50pt)</h3><p>Stringsコマンドで文字列を見るだけで終わり。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ strings gifted</div><div class="line">(中略)</div><div class="line">ALEXCTF&#123;Y0u_h4v3_45t0n15h1ng_futur3_1n_r3v3r5ing&#125;</div><div class="line">(中略)</div></pre></td></tr></table></figure></p>
 <p>Flag: ALEXCTF{Y0u_h4v3_45t0n15h1ng_futur3_1n_r3v3r5ing}</p>
 <h3 id="Forensic-3-150pt"><a href="#Forensic-3-150pt" class="headerlink" title="Forensic 3 (150pt)"></a>Forensic 3 (150pt)</h3><p>USB通信のキャプチャが渡されるのでWiresharkで確認する。どうやらUSB_BULK outというのが怪しく、データが入ってるっぽい。いくつかあるが、その中にそれらしきものを見つけた。</p>
-<img src="/2017/02/06/fore21.png" alt="Wiresharkで開いたところ" title="Wiresharkで開いたところ">
+<img src="/blog/2017/02/06/fore21.png" alt="Wiresharkで開いたところ" title="Wiresharkで開いたところ">
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">89:50:4e:47:0d:0a:1a:0a:00:00:00:0d:49:48:44:.....</div></pre></td></tr></table></figure>
 <p>先頭2byteを見るとどうやらpngっぽいのでファイルにして中身を見る。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> struct</div><div class="line">data = <span class="string">"89504e470d0a1a0a0000000d...(省略)"</span></div><div class="line">raw = []</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(data), <span class="number">2</span>):</div><div class="line">	raw.append(int(<span class="string">"0x"</span> + data[i:i + <span class="number">2</span>], <span class="number">16</span>))</div><div class="line"></div><div class="line">f = open(<span class="string">"fore2.png"</span>, <span class="string">"wb"</span>)</div><div class="line"><span class="keyword">for</span> x <span class="keyword">in</span> raw:</div><div class="line">	f.write(struct.pack(<span class="string">"B"</span>, x))</div><div class="line"></div><div class="line">f.close()</div></pre></td></tr></table></figure>
-<img src="/2017/02/06/fore22.png" alt="flag" title="flag">
+<img src="/blog/2017/02/06/fore22.png" alt="flag" title="flag">
 <p>Flag: ALEXCTF{SN1FF_TH3_FL4G_OV3R_USB}</p>
 <h3 id="Trivia-2-20pt"><a href="#Trivia-2-20pt" class="headerlink" title="Trivia 2 (20pt)"></a>Trivia 2 (20pt)</h3><p><div style="text-align: left; font-size: 10pt; font-family: メイリオ; background: #EEE; padding: 1em; font-style: italic;"><br>    <span style="font-size: 12pt; color: #999">問題文</span><br>    SSL 0day<br>    It lead to memory leakage between servers and clients rending large number of private keys accessible. (one word)<br></div><br>ALEXCTF{Heartbleed}?しかしこれが通らない。ここで問題文末尾の「one word」というのが引っかかる。フラグフォーマットはALEXCTF{[A-Za-z0-9_]*}となっているが、それは問題文で指定されていない時に限るとの記述が…。</p>
 <p>Flag: Heartbleed</p>
 <h3 id="Trivia-4-40pt"><a href="#Trivia-4-40pt" class="headerlink" title="Trivia 4 (40pt)"></a>Trivia 4 (40pt)</h3><p>AlexCTFのページにロゴにフラグが隠されているので探してね、という問題。<br>フラグをテキストで保存し、vimで以下の置換を適用。</p>
-<img src="/2017/02/06/tr4.png" alt="「随分文字の小さいアスキーアートだなぁ」というフラグは回収された" title="「随分文字の小さいアスキーアートだなぁ」というフラグは回収された">
+<img src="/blog/2017/02/06/tr4.png" alt="「随分文字の小さいアスキーアートだなぁ」というフラグは回収された" title="「随分文字の小さいアスキーアートだなぁ」というフラグは回収された">
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">:%s/[^(A-Z0-9a-z|&#123;|&#125;)|\n|_]//g</div></pre></td></tr></table></figure>
 <p>Flag: ALEXCTF{OUR_LOGO_ROCKS}</p>
 <h2 id="取り組んだ問題"><a href="#取り組んだ問題" class="headerlink" title="取り組んだ問題"></a>取り組んだ問題</h2><h3 id="Reversing-4-250pt"><a href="#Reversing-4-250pt" class="headerlink" title="Reversing 4 (250pt)"></a>Reversing 4 (250pt)</h3><p>pycが渡されてフラグを探す問題。<a href="https://github.com/zrax/pycdc" target="_blank" rel="external">pycdc</a>を用いてPythonソースコードを復元した。</p>
@@ -282,7 +282,7 @@
     <updated>2016-12-11T13:46:00.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>2016/12/10 15：00～の24時間、SECCON 2016 online CTF(オンライン予選)が開催されました。私はチームEanbai(先輩、同級生、私の三人)として初参加を果たし、チーム得点は500点、順位は1834チーム中159位で終えました。<br>ちなみに12月10日は<a href="http://www.city.nago.okinawa.jp/9/8944.html" target="_blank" rel="external">やんばるツーデーマーチ</a>というウォーキングイベントも開催されていて、例年通り私は40kmコースに友人たちと4：00～15：30まで参加してからのSECCONログインだったので身体も頭もくたくたになりましたが、どちらも楽しかったです。<br>では早速、解けた問題のWriteupをば。</p>
-<img src="/2016/12/11/eanbai.png" alt="Eanbaiで参加しました" title="Eanbaiで参加しました">
+<img src="/blog/2016/12/11/eanbai.png" alt="Eanbaiで参加しました" title="Eanbaiで参加しました">
 <a id="more"></a>
 <h2 id="Anti-Debugging-Binary-100"><a href="#Anti-Debugging-Binary-100" class="headerlink" title="Anti-Debugging(Binary - 100)"></a>Anti-Debugging(Binary - 100)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Anti-Debugging</div><div class="line">Reverse it.</div></pre></td></tr></table></figure>
 <p>シンプルな問題文にbinというファイルが添えられていました。fileコマンドで何のファイルなのか確認すると</p>
@@ -294,13 +294,13 @@
 <li>ステップ実行していき、入力値を検査している箇所に来たらレジスタの値を確認</li>
 </ol>
 <p>1はIDAで確認しました。この時ついでにIDAが吐いてくれるアセンブリのグラフビューを眺めてbinがどのようなプログラムになっているのか、大きなプログラムでもなかったので大まかに把握しました。2、3までやったところで、パスワードが「I have a pen.」であることがわかりました。流行を抑えていくスタイルなんですね。正しいパスワードがわかったのでもう一度プログラムを(デバッガ無しで)普通に起動して打ち込んでやると今度は「Your password is correct.」と言われてプログラムは終了します。やったぜ！…ところでフラグは?デバッガでどうなっているのかもう一度見ていきます。</p>
-<img src="/2016/12/11/obtain_password.png" alt="パスワードは「I have a pen.」" title="パスワードは「I have a pen.」">
+<img src="/blog/2016/12/11/obtain_password.png" alt="パスワードは「I have a pen.」" title="パスワードは「I have a pen.」">
 <p>そして、ここから問題名にもある通りAnti-debugとの戦いになります。ollydbgで掴んだ状態でもう一度I have a pen.を唱えると今度は「But detected debugger!」とも言われるようになりました。該当部分のコードを確認すると、どうやらIsDebuggerPresent関数を使って自分自身がデバッガに掴まれていることを検知してフラグを守っている健気な姿が見られました。</p>
-<img src="/2016/12/11/ntglobalflag.png" alt="NtGlobalFlag" title="NtGlobalFlag">
+<img src="/blog/2016/12/11/ntglobalflag.png" alt="NtGlobalFlag" title="NtGlobalFlag">
 <p>これを突破するためにOlly AdvancedというAnti-Anti-debugを実装したプラグインがあったので、それを使おうと思ったのですが、IsDebuggerPresentの次のNtGlobalFlag隠しを有効にしても突破できず、その後は結局手動でバイナリを書き換えていきました。ちゃんと読まないでプログラムのバイナリを書き換えるのはあまりよろしくないですが、Anti-debugに関しては少しの命令を実行して、その結果レジスタにロードされる値などを元に検出を行っているものが大半なので、cmp命令の部分をnopで埋めればプログラムの大元の動作を破壊することなく突破できてしまいます。<br>例えば、先程のNtGlobalFlagもcmp命令をなかったことでJNZ命令に引っかからなくなり、スキップできます。少なくとも今回のバイナリに関しては手元で試した全ての検出手法がこのcmp2nop(勝手にそう呼んでる)でスキップできました。</p>
-<img src="/2016/12/11/ntglobalflag_ok.png" alt="cmp2nop!" title="cmp2nop!">
+<img src="/blog/2016/12/11/ntglobalflag_ok.png" alt="cmp2nop!" title="cmp2nop!">
 <p>ただ最後の最後、(暗号化された)フラグっぽい文字列がollydbgでも見えるようになってきたところで0と1を比較して違ったらフラグ見せない、みたいな処理があったのでそこは比較結果が一致になるように改変して突破しました。</p>
-<img src="/2016/12/11/almost_flag_get.png" alt="フラグっぽいやつが見える" title="フラグっぽいやつが見える">
+<img src="/blog/2016/12/11/almost_flag_get.png" alt="フラグっぽいやつが見える" title="フラグっぽいやつが見える">
 <p>全ての検出機構を無事突破し、フラグの復号処理を抜けたら終わりです。ちなみに出てきたフラグを見てもわかりますが、Ascii85というエンコード方式なんだそう。へー。また一つ知見を得ました。<br>以上、pafish.exeが頭に浮かんだ状態で終始取り組んだ問題でした。</p>
 <p>Flag: SECCON{check_Ascii85}</p>
 <h2 id="Memory-Analysis-Forensics-100"><a href="#Memory-Analysis-Forensics-100" class="headerlink" title="Memory Analysis(Forensics - 100)"></a>Memory Analysis(Forensics - 100)</h2><p>メモリダンプのファイルが渡されて、中身を解析してフラグをくれるWebサイトにアクセスしてね！という問題。ヒントが2つ与えられていて、とりあえず1つ目のヒントに従ってVolatility<a href="http://www.volatilityfoundation.org/" target="_blank" rel="external">(公式サイトリンク)</a>というフォレンジックツールを導入しました。CUIツールで、引数に色々とオプションを付けるとよしなにやってくれる良い奴です。下記の例では、imageinfoオプションを付けて推奨Profileを調べています(このダンプファイルはWinXPSP2x86でやっていけば良さそう。後でも使います)。</p>
@@ -317,7 +317,7 @@
 <p>Flag: SECCON{_h3110_w3_h4ve_fun<em>w4rg4m3</em>}</p>
 <h2 id="その他取り組んだ問題1-VoIP-Forensics-100"><a href="#その他取り組んだ問題1-VoIP-Forensics-100" class="headerlink" title="その他取り組んだ問題1: VoIP(Forensics - 100)"></a>その他取り組んだ問題1: VoIP(Forensics - 100)</h2><p>pcapファイルが渡されて、中にVoIP電話の音声パケットデータが入っているので、それを聞き取る問題。これはEnglishをlistenする問題で英語パーフェクトマスター!wの私は「余裕やんけ」と言いながら聞き取った「SECCON{9001IBR}」をポストするも無残に散りました。正しいフラグは「SECCON{9001I<strong>V</strong>R}」。チームメンバーの先輩が無事得点してくれました。良かったです。</p>
 <h2 id="その他取り組んだ問題2-PNG-over-Telegraph-Crypto-300"><a href="#その他取り組んだ問題2-PNG-over-Telegraph-Crypto-300" class="headerlink" title="その他取り組んだ問題2: PNG over Telegraph(Crypto - 300)"></a>その他取り組んだ問題2: PNG over Telegraph(Crypto - 300)</h2><p>愉快な動きをするSECCON TOWER(<a href="https://www.youtube.com/watch?v=Y6voaURtKlM&amp;feature=youtu.be" target="_blank" rel="external">YouTubeへのリンク</a>)の動きからアルファベットを読み出して、その結果をどうにかデコードしてPNGファイルを出力する問題。最初の趣旨説明部分で21文字(ただし.(ピリオド)含む)がわかるように説明してくれていて、それを表にまとめるとその他のわかっていない6文字もなんとなく推察できるようになっていました。ただ、とにかく動画が長くて、色々しんどい問題だ…ってなったところで解くのをやめてしまいました。面白かったので時間があったらやってみようかなという感じです。</p>
-<img src="/2016/12/11/pngovertel.png" alt="対応表を作っていた。赤文字部分は冒頭の英文に出てこなかったために判明しなかったので予想した文字" title="対応表を作っていた。赤文字部分は冒頭の英文に出てこなかったために判明しなかったので予想した文字">
+<img src="/blog/2016/12/11/pngovertel.png" alt="対応表を作っていた。赤文字部分は冒頭の英文に出てこなかったために判明しなかったので予想した文字" title="対応表を作っていた。赤文字部分は冒頭の英文に出てこなかったために判明しなかったので予想した文字">
 <h2 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><p>上に挙げた以外の問題もいくつか触ったりしましたが、pwnの問題もflag.txtという文字がスタック上に見えるのに手が届かない、そういう感じで悔しかったです。あとWeb問も解けなかったので、この辺できるようになりたいなと思いました。</p>
 <h2 id="そういえば"><a href="#そういえば" class="headerlink" title="そういえば"></a>そういえば</h2><p>来週は<a href="http://www.security-camp.org/minicamp/okinawa2016.html" target="_blank" rel="external">セキュリティミニキャンプ in 沖縄</a>ですね。</p>
 <p>以上です。</p>
@@ -326,7 +326,7 @@
     <summary type="html">
     
       &lt;h2 id=&quot;概要&quot;&gt;&lt;a href=&quot;#概要&quot; class=&quot;headerlink&quot; title=&quot;概要&quot;&gt;&lt;/a&gt;概要&lt;/h2&gt;&lt;p&gt;2016/12/10 15：00～の24時間、SECCON 2016 online CTF(オンライン予選)が開催されました。私はチームEanbai(先輩、同級生、私の三人)として初参加を果たし、チーム得点は500点、順位は1834チーム中159位で終えました。&lt;br&gt;ちなみに12月10日は&lt;a href=&quot;http://www.city.nago.okinawa.jp/9/8944.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;やんばるツーデーマーチ&lt;/a&gt;というウォーキングイベントも開催されていて、例年通り私は40kmコースに友人たちと4：00～15：30まで参加してからのSECCONログインだったので身体も頭もくたくたになりましたが、どちらも楽しかったです。&lt;br&gt;では早速、解けた問題のWriteupをば。&lt;/p&gt;
-&lt;img src=&quot;/2016/12/11/eanbai.png&quot; alt=&quot;Eanbaiで参加しました&quot; title=&quot;Eanbaiで参加しました&quot;&gt;
+&lt;img src=&quot;/blog/2016/12/11/eanbai.png&quot; alt=&quot;Eanbaiで参加しました&quot; title=&quot;Eanbaiで参加しました&quot;&gt;
     
     </summary>
     
@@ -502,7 +502,7 @@
     <content type="html"><![CDATA[<h2 id="今回の記事-というかメモ"><a href="#今回の記事-というかメモ" class="headerlink" title="今回の記事(というかメモ)"></a>今回の記事(というかメモ)</h2><p>pythonのコードをバイナリにできるのは知っていたが、実際に使ったことはなかったのでやってみた。手元のマシンはx64、pythonもx64用しかなかったので、このままではx64バイナリしか吐けない。そこで今回はx64マシンに新たにx86用pythonをインストールし、pythonコードからバイナリを吐き出すユーティリティである「py2exe」(もちろんx86用)を導入してx86バイナリを出力させる。</p>
 <a id="more"></a>
 <h2 id="py2exe導入手順"><a href="#py2exe導入手順" class="headerlink" title="py2exe導入手順"></a>py2exe導入手順</h2><p>py2exeはpythonコードからWindows実行形式ファイル(以下、バイナリ)を出力するpythonのユーティリティである。導入にはインストーラを用いる。pipを使わない理由は、pipでインストールできるpy2exeはpython3対応のもののみだから(手元では現在python2.7を使用している)。<br>インストーラは<a href="https://sourceforge.net/projects/py2exe/files/py2exe/" target="_blank" rel="external">ここ</a>から入手する。適当なバージョンを選択し、ダウンロード、インストールを行う。この時、x64のpythonしかない環境でx86のpy2exeをインストールしようとすると、「Python version 2.x required, which was not found in the registry」という感じのエラーが出る。手元にはpython2.7(x64)しかインストールされていないため、レジストリの参照に失敗していると考えられる。これは<a href="https://www.python.org/download/releases/2.7/" target="_blank" rel="external">x86のpythonをダウンロード、インストール</a>することで解決する。バージョンは2.7で揃えた(特に意味は無いが)。ちゃんと見つかるとこんな感じの画面になる(図1)。あとは通常通りインストールを行えば良い。</p>
-<img src="/2016/08/18/py2exe_x86python_found.png" alt="py2exeインストール正常進行の途中画面" title="py2exeインストール正常進行の途中画面">
+<img src="/blog/2016/08/18/py2exe_x86python_found.png" alt="py2exeインストール正常進行の途中画面" title="py2exeインストール正常進行の途中画面">
 <h2 id="使ってみる"><a href="#使ってみる" class="headerlink" title="使ってみる"></a>使ってみる</h2><p>py2exeでバイナリを吐き出すには次の手順を踏む。</p>
 <ol>
 <li>バイナリにしたいpythonのコードを書く</li>
@@ -553,12 +553,12 @@
 <p>の2つが必要になります。1については、ひとまず適当なwebアプリのページを作って、URLを黒板かスライドにでも書いてアクセスしてもらい、コメントを打ってもらえば良いか、という感じで後回しにし、2の方に先にとりかかりました。思いついた当初はだいぶ楽観的で、<br>「まあ、PowerPointだし、Excelみたいにマクロあるっしょ(おもむろにAlt + F11を押す)。ほらVBA書けるやん、良い感じにDOMのデータ取ってきてテキストオブジェクト作ってアニメーション当てれば行けるっしょ～」<br>と考えていた時期が僕にもありますた。実際、VBAではInternetExplorerを起動してDOMの操作もでき、さらにreadyState(サイトのロードステータス)を扱った処理もできるようでした(※1)。また、検索の途中で面白そうな資料も発見しました(※2、いつかVBAやらないといけなくなった時にまた見たい)。</p>
 <h2 id="でもやっぱり"><a href="#でもやっぱり" class="headerlink" title="でもやっぱり?"></a>でもやっぱり?</h2><p>そうはいってもreadyStateはブラウザによって実装のされ方が違うらしく、その影響なのかVBAから使う際の良さみが浅い感じでした。また、開発期間もあまり長くない状況で使い慣れない言語を使うよりは”い つ も の”でどうにかしたい気持ちが強くなり、その方向へ転換してグーグリングを継続しました。というかPowerPoint VBAとExcel VBAで若干言語仕様が違って、PPT VBAの資料が圧倒的に少ないのがだいぶ辛かったです。さて、ここからようやく開発本編です(僕の記事は前置きというか無駄話が長いことであまりにも有名)。</p>
 <h2 id="い-つ-も-の"><a href="#い-つ-も-の" class="headerlink" title="い つ も の"></a>い つ も の</h2><p>やっぱりWebベースで全部やりたくなるんですよ。その願いを叶えてくれたのが、「<strong>Adobe Air</strong>」でした。恥ずかしながら存在自体を今回の開発時まで知らず、「へーこんなのあるんだー」「Flashと何が違うんや…」「でもActionScriptで開発しないといけないんじゃないの…？」などいろいろ疑問がありました。実際はAir SDKをダウンロードすることで「HTML + JavaScript」で開発ができるので、VBAの沼にはまりかけた時に比べればだいぶ気は楽でした。後はやるだけ。<br>ただ当初WebSocketで通信できないかなと思ってたんですが、AirではWebSocketがサポートされておらず、独自のSocketAPIが…(※3)とあったので、今回はSocketを捨てて「Comet」方式で実装することにしました(逃げ)。以下の図は全体のイメージをまとめたものです。Cometでファイルの変更を監視し、変更差分を画面に投げます。</p>
-<img src="/2016/06/25/system_image.png" alt="ユーザーからのインプットが画面を流れるまで" title="ユーザーからのインプットが画面を流れるまで">
+<img src="/blog/2016/06/25/system_image.png" alt="ユーザーからのインプットが画面を流れるまで" title="ユーザーからのインプットが画面を流れるまで">
 <h2 id="開発環境"><a href="#開発環境" class="headerlink" title="開発環境"></a>開発環境</h2><p>OS: Windows7<br>言語: Python(2.7.11) + JavaScript(jquery(v1.12.4))</p>
 <h2 id="核となるコードを書く"><a href="#核となるコードを書く" class="headerlink" title="核となるコードを書く"></a>核となるコードを書く</h2><p>PHP+JSでのCometの実装(※4)を参考に、ファイルの差分をJSONで返すPythonのコード(こんなのしか思いつかなかったのでもっと良い書き方あったら教えて下さい)。<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">prevLines = int(<span class="keyword">form</span>[<span class="string">"prev"</span>].value)</div><div class="line"><span class="keyword">while</span> True:</div><div class="line">	nowLines = <span class="built_in">sum</span>(1 <span class="keyword">for</span> <span class="keyword">line</span> <span class="keyword">in</span> <span class="keyword">open</span>(LOGFILE))</div><div class="line">	<span class="keyword">if</span> prevLines != nowLines:</div><div class="line">		<span class="keyword">ret</span> = []</div><div class="line">		<span class="keyword">for</span> i <span class="keyword">in</span> <span class="keyword">range</span>(0, nowLines - prevLines):</div><div class="line">			<span class="keyword">ret</span>.<span class="keyword">append</span>(linecache.getline(LOGFILE, nowLines - i))</div><div class="line">		<span class="keyword">break</span></div><div class="line">	time.<span class="keyword">sleep</span>(1)</div><div class="line"></div><div class="line">linecache.clearcache()</div><div class="line"><span class="keyword">print</span> json.dumps(&#123;<span class="string">"ret"</span>: <span class="keyword">ret</span>, <span class="string">"prev"</span>: nowLines&#125;)</div></pre></td></tr></table></figure></p>
 <p>と、それを投げたり良い感じにするJS側のコード。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> firstFlag = <span class="literal">true</span>;</div><div class="line"><span class="keyword">var</span> prev = <span class="number">0</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">cometCheck</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	$.ajax(&#123;</div><div class="line">		<span class="attr">url</span>: <span class="string">"./cgi/comet.py?prev="</span> + prev,</div><div class="line">		<span class="attr">type</span>: <span class="string">"get"</span></div><div class="line">	&#125;)</div><div class="line">	.done(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</div><div class="line">		<span class="keyword">var</span> json = <span class="built_in">JSON</span>.parse(data);</div><div class="line">		prev = json.prev;</div><div class="line"></div><div class="line">		<span class="comment">//起動時にもログが読み込まれてくるが、それは表示しない</span></div><div class="line">		<span class="keyword">if</span> (firstFlag) &#123;</div><div class="line">			firstFlag = <span class="literal">false</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">else</span> &#123;</div><div class="line">			<span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; (json.ret).length; i++) &#123;</div><div class="line">				nicoscreen.add(json.ret[i], <span class="string">"white"</span>, <span class="string">"48pt"</span>);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;)</div><div class="line">	.fail(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">		<span class="comment">//do something</span></div><div class="line">	&#125;)</div><div class="line">	.always(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">		cometCheck();</div><div class="line">	&#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>JSコード中のnicoscreen.add関数ですが、これはニコニココメント風にwebページの画面上にに文字を流すjqueryのプラグイン(※5)があったので拝借し、少し中身を改造して使わせていただきました。以下動作確認時のスクリーンショットです(左側が入力用のユーザーが見るページ、右側が拡張ディスプレイに表示したPowerPointスライドと、その上を流れるコメント)。</p>
-<img src="/2016/06/25/test.png" alt="実際に使った入力画面からのコメントが、画面を流れる様子を確認" title="実際に使った入力画面からのコメントが、画面を流れる様子を確認">
+<img src="/blog/2016/06/25/test.png" alt="実際に使った入力画面からのコメントが、画面を流れる様子を確認" title="実際に使った入力画面からのコメントが、画面を流れる様子を確認">
 <h2 id="なにもないところを文字が流れているように見えるんだけど…？"><a href="#なにもないところを文字が流れているように見えるんだけど…？" class="headerlink" title="なにもないところを文字が流れているように見えるんだけど…？"></a>なにもないところを文字が流れているように見えるんだけど…？</h2><p>これについてはAdobe Airの力でして、Airのアプリを書く際はまずxmlを書くんですが、その中でウィンドウを透明にしたり、フルスクリーンモードをオンにしたりなど設定ができます。また、詳しくはHTML + JavaScript開発者用ドキュメント(※6)を読めばわかりますが、簡潔に言うとSDKにJSを拡張するJSが入っていて、そいつを読み込んでAir JSなコードを少し書くとAirアプリのウィンドウを最前面に配置したりできます。</p>
 <h2 id="作ってみての感想など"><a href="#作ってみての感想など" class="headerlink" title="作ってみての感想など"></a>作ってみての感想など</h2><p>最初からVBAじゃなくてWebの方法にあたりをつければよかった(VBAでしばらくはまり、Webベースに切り替えてから2～3日で作ったので)です。まあでもこんな機会でもなければVBA(ましてやPowerPoint VBA)を触る機会がない(ような気がする)ので良い経験にはなったかな、と思うようにしてます。<br>実際に使ってみて受けが良かったのかは正直よくわかりませんが、コメント書き込んでもらえて良かったです(誰もPC開いてない or コメント書いてくれないケースを想像すると…())。今後このツールを使う機会があるかは謎ですが、同じようなことをしようと考える方の参考に少しでもなれれば幸いです。以上です。</p>
 <h2 id="参考にさせていただいたサイト"><a href="#参考にさせていただいたサイト" class="headerlink" title="参考にさせていただいたサイト"></a>参考にさせていただいたサイト</h2><p>※1 <a href="http://www.vba-ie.net/" target="_blank" rel="external">VBAのIE制御入門 | IE操作の自動化</a><br>※2 <a href="http://www.slideshare.net/satoshiohya/vba-62341558" target="_blank" rel="external">こじらせVBA - SlideShare</a><br>※3 <a href="http://help.adobe.com/ja_JP/air/html/dev/WSb2ba3b1aad8a27b0-67c0013e126afbe6c4d-8000.html" target="_blank" rel="external">Adobe&#160;Flash&#160;Platform * AIR でサポートされていない WebKit の機能</a><br>※4 <a href="http://rewish.jp/blog/tech/php_with_jquery_comet" target="_blank" rel="external">PHPとjQueryでCometっぽいモノを実装する</a><br>※5 <a href="http://labs.r9game.com/nicoscreen/" target="_blank" rel="external">NicoScreen.js：画像や動画の上に、ニコニコ動画のような文字を流すことが出来るjqueryプラグイン</a><br>※6 <a href="http://help.adobe.com/ja_JP/air/html/dev/index.html" target="_blank" rel="external">Adobe Air用HTML開発ガイド</a></p>
@@ -590,7 +590,7 @@
 <a id="more"></a>
 <h2 id="このパズルは何か"><a href="#このパズルは何か" class="headerlink" title="このパズルは何か"></a>このパズルは何か</h2><p>このパズルは問題文によると「sum of all sums of subsquares」、つまり$ n \times n $の正方形の中の$ 1 \times 1, \cdots (n - 1) \times (n - 1), n \times n $までの全ての正方形(all subsquares)の中の数字の和を、足したものがパズルの答え、ということだそうです。上の例だと$ 1 \times 1 $の正方形が4つ、$ 2 \times 2 $の正方形が1つなので、</p>
 <p>$$<br>1+2+3+4+(1+2+3+4)=20<br>$$</p>
-<img src="/2016/05/22/squares.png" alt="2×2の数列内には合計5個の正方形がある" title="2×2の数列内には合計5個の正方形がある">
+<img src="/blog/2016/05/22/squares.png" alt="2×2の数列内には合計5個の正方形がある" title="2×2の数列内には合計5個の正方形がある">
 <p>ということになります。解き方がわかったので、早速$ 10000 \times 10000 $の数列をこの方法で解いてみましょう!ところで、$ 2 \times 2 $の数列内には5個の正方形がありましたが、$ 10000 \times 10000 $だといったいいくつの正方形があるんですかね?$ n \times n $の数列内には</p>
 <p>$$<br>\sum_{k=1}^{n}k^2<br>$$</p>
 <p>個の正方形があるので、$ n=10000 $では</p>
@@ -602,7 +602,7 @@
 <p>$$<br>\begin{pmatrix}<br>2 &amp; 2 \\ 2 &amp; 2<br>\end{pmatrix}<br>$$</p>
 <p>となりました。同様に、$ 4 \times 4 $、$ 6 \times 6 $ではそれぞれ</p>
 <p>$$<br>\begin{pmatrix}<br>4 &amp; 6 &amp; 6 &amp; 4 \\<br>6 &amp; 10 &amp; 10 &amp; 6 \\<br>6 &amp; 10 &amp; 10 &amp; 6 \\<br>4 &amp; 6 &amp; 6 &amp; 4 \\<br>\end{pmatrix},\quad<br>\begin{pmatrix}<br>6 &amp; 10 &amp; 12 &amp; 12 &amp; 10 &amp; 6 \\<br>10 &amp; 18 &amp; 22 &amp; 22 &amp; 18 &amp; 10 \\<br>12 &amp; 22 &amp; 28 &amp; 28 &amp; 22 &amp; 12 \\<br>12 &amp; 22 &amp; 28 &amp; 28 &amp; 22 &amp; 12 \\<br>10 &amp; 18 &amp; 22 &amp; 22 &amp; 18 &amp; 10 \\<br>6 &amp; 10 &amp; 12 &amp; 12 &amp; 10 &amp; 6 \\<br>\end{pmatrix}<br>$$</p>
-<p>が係数数列となります。この値は何か計算をして出したわけではなくて、友人(@koreander2001)と「$ 1 \times 1 $の時は全て1回ずつ足されて、$ 2 \times 2 $の時は$ 1, 2, 2,…, 2, 1 $で…」というように数え上げてそれぞれ何回足されるか書き出してみたものです:-)<br>これを見ると、それぞれ図の赤い三角形部分の数字を求められればどうにか全ての要素を網羅できそうな気がしてきます。実際できるので、これを元に頑張って一般化します。<br><img src="/2016/05/22/matrix_calc.png" alt="係数数列の全ての要素を求める必要はなく、赤い三角形の部分を求めて適用すれば良い" title="係数数列の全ての要素を求める必要はなく、赤い三角形の部分を求めて適用すれば良い"></p>
+<p>が係数数列となります。この値は何か計算をして出したわけではなくて、友人(@koreander2001)と「$ 1 \times 1 $の時は全て1回ずつ足されて、$ 2 \times 2 $の時は$ 1, 2, 2,…, 2, 1 $で…」というように数え上げてそれぞれ何回足されるか書き出してみたものです:-)<br>これを見ると、それぞれ図の赤い三角形部分の数字を求められればどうにか全ての要素を網羅できそうな気がしてきます。実際できるので、これを元に頑張って一般化します。<br><img src="/blog/2016/05/22/matrix_calc.png" alt="係数数列の全ての要素を求める必要はなく、赤い三角形の部分を求めて適用すれば良い" title="係数数列の全ての要素を求める必要はなく、赤い三角形の部分を求めて適用すれば良い"></p>
 <p>例えば、$ n=6 $だった場合、$ \frac{n}{2} $ すなわち$ 3 \times 3 $ の、さらに右上三角地帯を計算すれば良く、係数数列の当該部分は<br>$$<br>\begin{Bmatrix}<br>\begin{pmatrix}<br>1 &amp; 1 &amp; 1 \\<br>  &amp; 1 &amp; 1 \\<br>  &amp;   &amp; 1 \\<br>\end{pmatrix}+<br>\begin{pmatrix}<br>1 &amp; 2 &amp; 2 \\<br>  &amp; 4 &amp; 4 \\<br>  &amp;   &amp; 4 \\<br>\end{pmatrix}+<br>\begin{pmatrix}<br>1 &amp; 2 &amp; 3\\<br>  &amp; 4 &amp; 6\\<br>  &amp;   &amp; 9\\<br>\end{pmatrix}<br>\end{Bmatrix}<br>\times2<br>$$</p>
 <p>のように分解できます。それぞれ$ 1 \times 1 $、$ 2 \times 2 $、$ 3 \times 3 $数列で足される回数をカウントしたものです。$ \times2 $をする理由は、$ 1 \times 1 $行列の正方形の個数と$ 6 \times 6 $、$ 2 \times 2 $と$ 5 \times 5 $、$ 3 \times 3 $と$ 4 \times 4 $でそれぞれ足し合わせの回数が対応している、すなわち$ 1 \times 1 $～$ 3 \times 3 $で折り返しているので、全体の足し合わせの回数は$ 1 \times 1 $～$ \frac{n}{2} \times \frac{n}{2} $までの和を2倍すると導出できるためです。<br>実際に計算をして、上で示した$ 6 \times 6 $の係数数列の値と対応しているか確認しつつ一般式の立式を目指します。座標$ (m, l) $が$ (1, 1), (2, 1), (3, 1) $のときそれぞれ<br>$$<br>(1, 1) = (1+1+1) \times 2 = 6\\<br>(2, 1) = (1+2+2) \times 2 = 10\\<br>(3, 1) = (1+2+3) \times 2 = 12\\<br>$$<br>となります。同様に$ (2, 2), (3, 2) $では、<br>$$<br>(2, 2) = (1+4+4) \times 2 = 18\\<br>(3, 2) = (1+4+6) \times 2 = 22\\<br>$$<br>となり、$ (3, 3) $では、<br>$$<br>(3, 3) = (1+4+9) \times 2 = 28\\<br>$$<br>が求まります。<br>ここで、$ (3, 3) $の式が<br>$$<br>\sum_{k=1}^{3}k^2<br>$$<br>を含むことに気づきます。各座標にも、部分的に二乗の総和の式が当てはまっています。これらを利用して、例えば$ (m, 2) $での部分的な一般化を試します(実際は$ n=8 $なども試したほうが良い(というか試した)ですが、今回は記事が長くなりすぎるので、割愛します)。<br>$ (m, 2) $においては、$ 1+4 $までは共通しており、3項目で$ 2 \times m $が足されています。$ n=8, n=10 $などを試すとよりはっきりとわかりますが、これは次のような法則に従って足されています。<br>$$<br>(m, 2) = (1+4+6+8+\cdots+2m+\cdots+2m) \times 2<br>$$<br>同様に$ (m, 3) $での部分的な一般化を試すと、<br>$$<br>(m, 3) = (1+4+9+12+15+\cdots+3m+\cdots+3m) \times 3<br>$$<br>という法則が得られます。この式は3つのパートに分けることができ、1つ目のパートが「二乗の和」、2つ目のパートが「mの倍数の和 - 二乗の和との重複部」、3つ目が「$ \frac{n}{2}-m $個の$ l \times m $」です。つまり、$ (m, l) $においては<br>$$<br>(m, l) = \begin{Bmatrix}(1+4+9+\cdots+l^2)+l \times ((1+2+3+\cdots+m) - (1+2+3+\cdots+l))+(\frac{n}{2}- m) \times l \times m\end{Bmatrix} \times 2<br>$$</p>
 <p>と表すことができ、これを記号を用いて整理すると、</p>
@@ -645,7 +645,7 @@
     <published>2016-04-03T02:17:29.000Z</published>
     <updated>2016-04-03T05:39:22.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><img src="/2016/04/03/siri.png" alt="”わかりて”" title="”わかりて”">
+    <content type="html"><![CDATA[<h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><img src="/blog/2016/04/03/siri.png" alt="”わかりて”" title="”わかりて”">
 <p>時は2016年4月。人工知能が世の中で盛り上がりを見せる中、某O高専の学生は「図書館今日開いてたっけ」と思った時、お手元の人工知能に尋ねるわけにもいかず、通常は直接足を運ぶか、インターネット上に公開されている「開館カレンダー」を見ることで開館状況を確認する。しかしそのためだけにいちいちPCを起動し、n回のクリックを経てサイトにアクセスするのは面倒だ。もう少し気軽に開館状況を知ることができれば…。<br>するとそこへ一羽の青い鳥が颯爽と現れ、大丈夫さ、と呟く…。</p>
 <blockquote>
 <p>――そう、Twitterならね。</p>
@@ -654,7 +654,7 @@
 <a id="more"></a>
 <h2 id="開発環境"><a href="#開発環境" class="headerlink" title="開発環境"></a>開発環境</h2><p>OS: Windows7<br>言語: Python(2.7.11)</p>
 <h2 id="開館状況の取得方法を検討する"><a href="#開館状況の取得方法を検討する" class="headerlink" title="開館状況の取得方法を検討する"></a>開館状況の取得方法を検討する</h2><p>開館カレンダーは画像に示すように、開館の状況によって日付の背景色を変える表示方法が採用されています。カレンダーはHTMLのtableタグで構成されており、日付がそれぞれtdタグ(セル)に収まっているようです。よって、任意の日付の開館状況を知りたければ、その日付のtdの背景色を取得・判定できれば良さそうです。</p>
-<img src="/2016/04/03/library_calendar.png" alt="開館カレンダーの見た目。開館状況と背景色の対応表も示されている。" title="開館カレンダーの見た目。開館状況と背景色の対応表も示されている。">
+<img src="/blog/2016/04/03/library_calendar.png" alt="開館カレンダーの見た目。開館状況と背景色の対応表も示されている。" title="開館カレンダーの見た目。開館状況と背景色の対応表も示されている。">
 <h2 id="スクレイピングの方法を検討する"><a href="#スクレイピングの方法を検討する" class="headerlink" title="スクレイピングの方法を検討する"></a>スクレイピングの方法を検討する</h2><p>上記の通り、カレンダーはHTMLで構成されているため、その要素であるtdにアクセスするためにスクレイピングを行います。今回は、pythonでスクレイピングに使用できるライブラリ</p>
 <ul>
 <li>lxml(<a href="http://lxml.de/" target="_blank" rel="external">http://lxml.de/</a>)</li>
@@ -666,7 +666,7 @@
 <h2 id="Twitterとの連携を行う方法を検討する"><a href="#Twitterとの連携を行う方法を検討する" class="headerlink" title="Twitterとの連携を行う方法を検討する"></a>Twitterとの連携を行う方法を検討する</h2><p>今回は定期的に呟くタイプのBot形式ではなく、StreamingAPIを使用してリプライに反応するような仕様にしました。特にStreamingAPIにこだわる理由はありませんでしたが、pythonでStreamingAPIを叩いたことがなかったので、やってみたかったという感じです。ライブラリには「<a href="https://pypi.python.org/pypi/twitter" target="_blank" rel="external">twitter(1.17.1)</a>」を使用しました。<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip <span class="keyword">install</span> twitter</div></pre></td></tr></table></figure></p>
 <p>Streamingへの接続方法は以下のとおりです。<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> twitter import *</div><div class="line"><span class="comment"># OAuth認証用のキーを指定して認証情報を生成</span></div><div class="line">auth = OAuth(ACCESSTOKEN, ACCESSSECRET, CONSUMERKEY, CONSUMERSECRET)</div><div class="line"><span class="comment"># 接続</span></div><div class="line">stream = TwitterStream(<span class="attribute">auth</span>=auth, <span class="attribute">domain</span>=<span class="string">"userstream.twitter.com"</span>)</div></pre></td></tr></table></figure></p>
 <p>反応の仕方は、<br>「@islibopen islib N」(Nは任意の日付)<br>というリプライを受け取ったら処理を実行し、結果をリプライする、という感じです。</p>
-<h2 id="できたもの"><a href="#できたもの" class="headerlink" title="できたもの"></a>できたもの</h2><img src="/2016/04/03/exec_test.png" alt="図書館が開いているか実際に聞いてみた。やってる事自体は難しくないので、ちゃんと動作している。" title="図書館が開いているか実際に聞いてみた。やってる事自体は難しくないので、ちゃんと動作している。">
+<h2 id="できたもの"><a href="#できたもの" class="headerlink" title="できたもの"></a>できたもの</h2><img src="/blog/2016/04/03/exec_test.png" alt="図書館が開いているか実際に聞いてみた。やってる事自体は難しくないので、ちゃんと動作している。" title="図書館が開いているか実際に聞いてみた。やってる事自体は難しくないので、ちゃんと動作している。">
 <h2 id="Botの公開・運営について"><a href="#Botの公開・運営について" class="headerlink" title="Botの公開・運営について"></a>Botの公開・運営について</h2><p>未定です。</p>
 <h2 id="作って思ったこととかまとめ"><a href="#作って思ったこととかまとめ" class="headerlink" title="作って思ったこととかまとめ"></a>作って思ったこととかまとめ</h2><ul>
 <li>td内にstyle属性が直書きされてるタイプのHTMLだったので、ザルな正規表現で背景色が取得できた。</li>
@@ -681,7 +681,7 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;概要&quot;&gt;&lt;a href=&quot;#概要&quot; class=&quot;headerlink&quot; title=&quot;概要&quot;&gt;&lt;/a&gt;概要&lt;/h2&gt;&lt;img src=&quot;/2016/04/03/siri.png&quot; alt=&quot;”わかりて”&quot; title=&quot;”わかりて”&quot;&gt;
+      &lt;h2 id=&quot;概要&quot;&gt;&lt;a href=&quot;#概要&quot; class=&quot;headerlink&quot; title=&quot;概要&quot;&gt;&lt;/a&gt;概要&lt;/h2&gt;&lt;img src=&quot;/blog/2016/04/03/siri.png&quot; alt=&quot;”わかりて”&quot; title=&quot;”わかりて”&quot;&gt;
 &lt;p&gt;時は2016年4月。人工知能が世の中で盛り上がりを見せる中、某O高専の学生は「図書館今日開いてたっけ」と思った時、お手元の人工知能に尋ねるわけにもいかず、通常は直接足を運ぶか、インターネット上に公開されている「開館カレンダー」を見ることで開館状況を確認する。しかしそのためだけにいちいちPCを起動し、n回のクリックを経てサイトにアクセスするのは面倒だ。もう少し気軽に開館状況を知ることができれば…。&lt;br&gt;するとそこへ一羽の青い鳥が颯爽と現れ、大丈夫さ、と呟く…。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;――そう、Twitterならね。&lt;/p&gt;
@@ -707,9 +707,9 @@
     <content type="html"><![CDATA[<h2 id="今回の記事について"><a href="#今回の記事について" class="headerlink" title="今回の記事について"></a>今回の記事について</h2><p>昨日書いた記事の中で、Hexoで新しい記事を作成するところについて触れていなかったので、その追記がてら、しれっと追加したコメント機能のところについて書き残しておきます。<br><a id="more"></a></p>
 <h2 id="記事を追加する「へくそにゅー」"><a href="#記事を追加する「へくそにゅー」" class="headerlink" title="記事を追加する「へくそにゅー」"></a>記事を追加する「へくそにゅー」</h2><p>さて、「新しい記事を追加する」という作業は記事に書き忘れるほど<strong>とても簡単</strong>にできます。その作業とは、コマンドプロンプトで作業用フォルダ上まで行き、<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo <span class="keyword">new</span> <span class="string">"ARTICLE_TITLE"</span></div></pre></td></tr></table></figure></p>
 <p>とするだけです。簡単ですね…。このコマンドによって「作業用フォルダ &gt; source &gt; _posts」内に「ARTICLE_TITLE.md」というファイルが作成されます。ですので、あとはこの中にMarkdown形式で記事を書いていけばOKです。</p>
-<h2 id="コメント機能"><a href="#コメント機能" class="headerlink" title="コメント機能"></a>コメント機能</h2><p>次に、コメント機能についてですが、Hexoのテーマによっては最初からコメント欄がついているものもあるみたいですが、このデフォルトのテーマ「landscape」にはついていませんでした。どうやってつけるのか調べていたら、「<a href="https://disqus.com/" target="_blank" rel="external">DISQUS</a>」というディスカッションツール(?)を導入できることがわかりました。<br><img src="/2015/09/11/disqus.png" alt="DISQUS" title="DISQUS"><br>まずDisqusの<a href="https://disqus.com/profile/signup/?next=https%3A%2F%2Fdisqus.com%2F" target="_blank" rel="external">アカウントを取得</a>、もしくは既存のSNSアカウントでログインします。今回僕はTwitterアカウントでログインしました。その後、歯車アイコンの中の「Add Disqus To Site」というメニューから登録したいサイトのURLとshortnameという項目を設定します。このshortnameという項目に指定したものは後で「_config.yml」に設定します。「Finish registration」というボタンを押して登録完了です。<br><img src="/2015/09/11/disqus_site.png" alt="shortnameは覚えやすいものにした方がよいです" title="shortnameは覚えやすいものにした方がよいです"></p>
+<h2 id="コメント機能"><a href="#コメント機能" class="headerlink" title="コメント機能"></a>コメント機能</h2><p>次に、コメント機能についてですが、Hexoのテーマによっては最初からコメント欄がついているものもあるみたいですが、このデフォルトのテーマ「landscape」にはついていませんでした。どうやってつけるのか調べていたら、「<a href="https://disqus.com/" target="_blank" rel="external">DISQUS</a>」というディスカッションツール(?)を導入できることがわかりました。<br><img src="/blog/2015/09/11/disqus.png" alt="DISQUS" title="DISQUS"><br>まずDisqusの<a href="https://disqus.com/profile/signup/?next=https%3A%2F%2Fdisqus.com%2F" target="_blank" rel="external">アカウントを取得</a>、もしくは既存のSNSアカウントでログインします。今回僕はTwitterアカウントでログインしました。その後、歯車アイコンの中の「Add Disqus To Site」というメニューから登録したいサイトのURLとshortnameという項目を設定します。このshortnameという項目に指定したものは後で「_config.yml」に設定します。「Finish registration」というボタンを押して登録完了です。<br><img src="/blog/2015/09/11/disqus_site.png" alt="shortnameは覚えやすいものにした方がよいです" title="shortnameは覚えやすいものにした方がよいです"></p>
 <p>あとはHexo側の設定をすればコメント欄が自動的に追加されます。Hexo側は手動で「_config.yml」の設定をするか以下のコマンドで<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo<span class="built_in"> config </span>disqus_shortname &#123;YOUR_SHORTNAME&#125;</div><div class="line">hexo --config themes/light/_config.yml<span class="built_in"> config </span>comment_provider disqus</div></pre></td></tr></table></figure></p>
-<p>とすることで設定が完了します。これでコメント欄が使えるようになりました！<br><img src="/2015/09/11/disqus_comment.png" alt="やせいの コメント欄 があらわれた!" title="やせいの コメント欄 があらわれた!"></p>
+<p>とすることで設定が完了します。これでコメント欄が使えるようになりました！<br><img src="/blog/2015/09/11/disqus_comment.png" alt="やせいの コメント欄 があらわれた!" title="やせいの コメント欄 があらわれた!"></p>
 <h2 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><p>今回は記事の追加方法とコメント欄の追加について書きました。どちらも簡単にできました。Disqusのようにプラグインを簡単に導入できるのもHexoの強みなんでしょうね。これからも良さげなプラグインがあったら入れてみたいと思います。</p>
 <h2 id="参考にさせていただいたサイト"><a href="#参考にさせていただいたサイト" class="headerlink" title="参考にさせていただいたサイト"></a>参考にさせていただいたサイト</h2><ul>
 <li><a href="http://liginc.co.jp/web/programming/server/104594" target="_blank" rel="external">所要時間3分!? Github PagesとHEXOで爆速ブログ構築してみよう！</a></li>

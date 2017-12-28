@@ -12,14 +12,14 @@
 <meta property="og:url" content="http://wassan128.github.io/blog/2015/09/11/index.html">
 <meta property="og:site_name" content="クロワッサンは黒くない">
 <meta property="og:description" content="今回の記事について昨日書いた記事の中で、Hexoで新しい記事を作成するところについて触れていなかったので、その追記がてら、しれっと追加したコメント機能のところについて書き残しておきます。">
-<meta property="og:image" content="http://wassan128.github.io/2015/09/11/disqus.png">
-<meta property="og:image" content="http://wassan128.github.io/2015/09/11/disqus_site.png">
-<meta property="og:image" content="http://wassan128.github.io/2015/09/11/disqus_comment.png">
+<meta property="og:image" content="http://wassan128.github.io/blog/2015/09/11/disqus.png">
+<meta property="og:image" content="http://wassan128.github.io/blog/2015/09/11/disqus_site.png">
+<meta property="og:image" content="http://wassan128.github.io/blog/2015/09/11/disqus_comment.png">
 <meta property="og:updated_time" content="2015-09-11T14:06:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexoでの記事の追加とコメント機能について">
 <meta name="twitter:description" content="今回の記事について昨日書いた記事の中で、Hexoで新しい記事を作成するところについて触れていなかったので、その追記がてら、しれっと追加したコメント機能のところについて書き残しておきます。">
-<meta name="twitter:image" content="http://wassan128.github.io/2015/09/11/disqus.png">
+<meta name="twitter:image" content="http://wassan128.github.io/blog/2015/09/11/disqus.png">
   
     <link rel="alternative" href="/blog/atom.xml" title="クロワッサンは黒くない" type="application/atom+xml">
   
@@ -94,9 +94,9 @@
         <h2 id="今回の記事について"><a href="#今回の記事について" class="headerlink" title="今回の記事について"></a>今回の記事について</h2><p>昨日書いた記事の中で、Hexoで新しい記事を作成するところについて触れていなかったので、その追記がてら、しれっと追加したコメント機能のところについて書き残しておきます。<br><a id="more"></a></p>
 <h2 id="記事を追加する「へくそにゅー」"><a href="#記事を追加する「へくそにゅー」" class="headerlink" title="記事を追加する「へくそにゅー」"></a>記事を追加する「へくそにゅー」</h2><p>さて、「新しい記事を追加する」という作業は記事に書き忘れるほど<strong>とても簡単</strong>にできます。その作業とは、コマンドプロンプトで作業用フォルダ上まで行き、<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo <span class="keyword">new</span> <span class="string">"ARTICLE_TITLE"</span></div></pre></td></tr></table></figure></p>
 <p>とするだけです。簡単ですね…。このコマンドによって「作業用フォルダ &gt; source &gt; _posts」内に「ARTICLE_TITLE.md」というファイルが作成されます。ですので、あとはこの中にMarkdown形式で記事を書いていけばOKです。</p>
-<h2 id="コメント機能"><a href="#コメント機能" class="headerlink" title="コメント機能"></a>コメント機能</h2><p>次に、コメント機能についてですが、Hexoのテーマによっては最初からコメント欄がついているものもあるみたいですが、このデフォルトのテーマ「landscape」にはついていませんでした。どうやってつけるのか調べていたら、「<a href="https://disqus.com/" target="_blank" rel="external">DISQUS</a>」というディスカッションツール(?)を導入できることがわかりました。<br><img src="/2015/09/11/disqus.png" alt="DISQUS" title="DISQUS"><br>まずDisqusの<a href="https://disqus.com/profile/signup/?next=https%3A%2F%2Fdisqus.com%2F" target="_blank" rel="external">アカウントを取得</a>、もしくは既存のSNSアカウントでログインします。今回僕はTwitterアカウントでログインしました。その後、歯車アイコンの中の「Add Disqus To Site」というメニューから登録したいサイトのURLとshortnameという項目を設定します。このshortnameという項目に指定したものは後で「_config.yml」に設定します。「Finish registration」というボタンを押して登録完了です。<br><img src="/2015/09/11/disqus_site.png" alt="shortnameは覚えやすいものにした方がよいです" title="shortnameは覚えやすいものにした方がよいです"></p>
+<h2 id="コメント機能"><a href="#コメント機能" class="headerlink" title="コメント機能"></a>コメント機能</h2><p>次に、コメント機能についてですが、Hexoのテーマによっては最初からコメント欄がついているものもあるみたいですが、このデフォルトのテーマ「landscape」にはついていませんでした。どうやってつけるのか調べていたら、「<a href="https://disqus.com/" target="_blank" rel="external">DISQUS</a>」というディスカッションツール(?)を導入できることがわかりました。<br><img src="/blog/2015/09/11/disqus.png" alt="DISQUS" title="DISQUS"><br>まずDisqusの<a href="https://disqus.com/profile/signup/?next=https%3A%2F%2Fdisqus.com%2F" target="_blank" rel="external">アカウントを取得</a>、もしくは既存のSNSアカウントでログインします。今回僕はTwitterアカウントでログインしました。その後、歯車アイコンの中の「Add Disqus To Site」というメニューから登録したいサイトのURLとshortnameという項目を設定します。このshortnameという項目に指定したものは後で「_config.yml」に設定します。「Finish registration」というボタンを押して登録完了です。<br><img src="/blog/2015/09/11/disqus_site.png" alt="shortnameは覚えやすいものにした方がよいです" title="shortnameは覚えやすいものにした方がよいです"></p>
 <p>あとはHexo側の設定をすればコメント欄が自動的に追加されます。Hexo側は手動で「_config.yml」の設定をするか以下のコマンドで<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo<span class="built_in"> config </span>disqus_shortname &#123;YOUR_SHORTNAME&#125;</div><div class="line">hexo --config themes/light/_config.yml<span class="built_in"> config </span>comment_provider disqus</div></pre></td></tr></table></figure></p>
-<p>とすることで設定が完了します。これでコメント欄が使えるようになりました！<br><img src="/2015/09/11/disqus_comment.png" alt="やせいの コメント欄 があらわれた!" title="やせいの コメント欄 があらわれた!"></p>
+<p>とすることで設定が完了します。これでコメント欄が使えるようになりました！<br><img src="/blog/2015/09/11/disqus_comment.png" alt="やせいの コメント欄 があらわれた!" title="やせいの コメント欄 があらわれた!"></p>
 <h2 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><p>今回は記事の追加方法とコメント欄の追加について書きました。どちらも簡単にできました。Disqusのようにプラグインを簡単に導入できるのもHexoの強みなんでしょうね。これからも良さげなプラグインがあったら入れてみたいと思います。</p>
 <h2 id="参考にさせていただいたサイト"><a href="#参考にさせていただいたサイト" class="headerlink" title="参考にさせていただいたサイト"></a>参考にさせていただいたサイト</h2><ul>
 <li><a href="http://liginc.co.jp/web/programming/server/104594" target="_blank" rel="external">所要時間3分!? Github PagesとHEXOで爆速ブログ構築してみよう！</a></li>
@@ -107,7 +107,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wassan128.github.io/blog/2015/09/11/" data-id="cjbqm4c7g0003mssu2ytkm9xj" class="article-share-link">Share</a>
+      <a data-url="http://wassan128.github.io/blog/2015/09/11/" data-id="cjbqn08w10003w8suxt7jupxi" class="article-share-link">Share</a>
       
         <a href="http://wassan128.github.io/blog/2015/09/11/#disqus_thread" class="article-comment-link">Comments</a>
       

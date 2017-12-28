@@ -12,12 +12,12 @@
 <meta property="og:url" content="http://wassan128.github.io/blog/2017/10/22/index.html">
 <meta property="og:site_name" content="クロワッサンは黒くない">
 <meta property="og:description" content="概要昨日今日(10月21日, 22日)の2日間、KOSENセキュリティコンテスト2017が木更津高専主管で開催されていました。実は去年もKOSENセキュリティコンテストに参加していましたが、今回は前回大会と競技形式が変わり、Jeopardy(クイズ)形式とKoH(King of Hill)形式というラインナップでした(KoHなどの解説はこちらなどを参照ください)。私はチームEAnbai(いつもの)">
-<meta property="og:image" content="http://wassan128.github.io/2017/10/22/rank.png">
+<meta property="og:image" content="http://wassan128.github.io/blog/2017/10/22/rank.png">
 <meta property="og:updated_time" content="2017-10-22T05:42:04.030Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="KOSENセキュリティコンテスト2017に参加した話">
 <meta name="twitter:description" content="概要昨日今日(10月21日, 22日)の2日間、KOSENセキュリティコンテスト2017が木更津高専主管で開催されていました。実は去年もKOSENセキュリティコンテストに参加していましたが、今回は前回大会と競技形式が変わり、Jeopardy(クイズ)形式とKoH(King of Hill)形式というラインナップでした(KoHなどの解説はこちらなどを参照ください)。私はチームEAnbai(いつもの)">
-<meta name="twitter:image" content="http://wassan128.github.io/2017/10/22/rank.png">
+<meta name="twitter:image" content="http://wassan128.github.io/blog/2017/10/22/rank.png">
   
     <link rel="alternative" href="/blog/atom.xml" title="クロワッサンは黒くない" type="application/atom+xml">
   
@@ -90,7 +90,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>昨日今日(10月21日, 22日)の2日間、KOSENセキュリティコンテスト2017が木更津高専主管で開催されていました。実は<a href="http://wassan128.github.io/blog/2016/12/04/#more">去年もKOSENセキュリティコンテストに参加</a>していましたが、今回は前回大会と競技形式が変わり、Jeopardy(クイズ)形式とKoH(King of Hill)形式というラインナップでした(KoHなどの解説は<a href="https://www.slideshare.net/hiromu1996/ctf-32346373" target="_blank" rel="external">こちら</a>などを参照ください)。<br>私はチームEAnbai(いつもの)のメンバーとして参加し、JeopardyのWeb問題などを解いたり、KoHを触ってみたりしていました。一日目を12位で折り返したチームの最終成績は35チーム中5位で、惜しくも表彰には届きませんでしたが、記憶に新しい内に解いた問題のwriteupや反省をしたいと思います。</p>
-<img src="/2017/10/22/rank.png" alt="EAnbaiは2800ptで5位でした" title="EAnbaiは2800ptで5位でした">
+<img src="/blog/2017/10/22/rank.png" alt="EAnbaiは2800ptで5位でした" title="EAnbaiは2800ptで5位でした">
 <a id="more"></a>
 <h2 id="解いた問題のWriteup"><a href="#解いた問題のWriteup" class="headerlink" title="解いた問題のWriteup"></a>解いた問題のWriteup</h2><h3 id="ログインせよ-Web-100pt"><a href="#ログインせよ-Web-100pt" class="headerlink" title="ログインせよ(Web, 100pt)"></a>ログインせよ(Web, 100pt)</h3><p>問題のURLが渡されるのでアクセスをすると、ログインフォームが出てきます。すると「adminでログインしてね」(記憶違いかもしれない)と言われるので、ユーザー名に「<code>admin&#39; or 1=1 ---</code>」を入力したらフラグが出ました。</p>
 <h3 id="灯台下暗し-Web-100pt"><a href="#灯台下暗し-Web-100pt" class="headerlink" title="灯台下暗し(Web, 100pt)"></a>灯台下暗し(Web, 100pt)</h3><p>先程の問題と同じようなログインフォームが出てきて、その下の方にそのロジック部分風のソースコードが貼ってありました。adminのパスがフラグ、となっておりさっきよりは複雑なSQLi問なのかな?と思いながらソースを眺めていたらデータベースを読み込んでいる部分が目に入り、おもむろにURLに「/data.db」をつけたらデータベースが降ってきました()<br>それを<code>sqlite3</code>で開き、<code>.ta</code>するとユーザーのテーブルが見えるので<code>select * from users</code>するとフラグが見えました。灯台下暗し…。</p>
@@ -106,7 +106,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wassan128.github.io/blog/2017/10/22/" data-id="cjbqm4c7w0008mssubkbq63ag" class="article-share-link">Share</a>
+      <a data-url="http://wassan128.github.io/blog/2017/10/22/" data-id="cjbqn08wk0008w8su86hyslrn" class="article-share-link">Share</a>
       
         <a href="http://wassan128.github.io/blog/2017/10/22/#disqus_thread" class="article-comment-link">Comments</a>
       

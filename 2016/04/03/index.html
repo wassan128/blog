@@ -12,14 +12,14 @@
 <meta property="og:url" content="http://wassan128.github.io/blog/2016/04/03/index.html">
 <meta property="og:site_name" content="クロワッサンは黒くない">
 <meta property="og:description" content="概要 時は2016年4月。人工知能が世の中で盛り上がりを見せる中、某O高専の学生は「図書館今日開いてたっけ」と思った時、お手元の人工知能に尋ねるわけにもいかず、通常は直接足を運ぶか、インターネット上に公開されている「開館カレンダー」を見ることで開館状況を確認する。しかしそのためだけにいちいちPCを起動し、n回のクリックを経てサイトにアクセスするのは面倒だ。もう少し気軽に開館状況を知ることができれば">
-<meta property="og:image" content="http://wassan128.github.io/2016/04/03/siri.png">
-<meta property="og:image" content="http://wassan128.github.io/2016/04/03/library_calendar.png">
-<meta property="og:image" content="http://wassan128.github.io/2016/04/03/exec_test.png">
+<meta property="og:image" content="http://wassan128.github.io/blog/2016/04/03/siri.png">
+<meta property="og:image" content="http://wassan128.github.io/blog/2016/04/03/library_calendar.png">
+<meta property="og:image" content="http://wassan128.github.io/blog/2016/04/03/exec_test.png">
 <meta property="og:updated_time" content="2016-04-03T05:39:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="図書館が開いてるか教えてくれるだけのbotを作った話">
 <meta name="twitter:description" content="概要 時は2016年4月。人工知能が世の中で盛り上がりを見せる中、某O高専の学生は「図書館今日開いてたっけ」と思った時、お手元の人工知能に尋ねるわけにもいかず、通常は直接足を運ぶか、インターネット上に公開されている「開館カレンダー」を見ることで開館状況を確認する。しかしそのためだけにいちいちPCを起動し、n回のクリックを経てサイトにアクセスするのは面倒だ。もう少し気軽に開館状況を知ることができれば">
-<meta name="twitter:image" content="http://wassan128.github.io/2016/04/03/siri.png">
+<meta name="twitter:image" content="http://wassan128.github.io/blog/2016/04/03/siri.png">
   
     <link rel="alternative" href="/blog/atom.xml" title="クロワッサンは黒くない" type="application/atom+xml">
   
@@ -91,7 +91,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><img src="/2016/04/03/siri.png" alt="”わかりて”" title="”わかりて”">
+        <h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><img src="/blog/2016/04/03/siri.png" alt="”わかりて”" title="”わかりて”">
 <p>時は2016年4月。人工知能が世の中で盛り上がりを見せる中、某O高専の学生は「図書館今日開いてたっけ」と思った時、お手元の人工知能に尋ねるわけにもいかず、通常は直接足を運ぶか、インターネット上に公開されている「開館カレンダー」を見ることで開館状況を確認する。しかしそのためだけにいちいちPCを起動し、n回のクリックを経てサイトにアクセスするのは面倒だ。もう少し気軽に開館状況を知ることができれば…。<br>するとそこへ一羽の青い鳥が颯爽と現れ、大丈夫さ、と呟く…。</p>
 <blockquote>
 <p>――そう、Twitterならね。</p>
@@ -100,7 +100,7 @@
 <a id="more"></a>
 <h2 id="開発環境"><a href="#開発環境" class="headerlink" title="開発環境"></a>開発環境</h2><p>OS: Windows7<br>言語: Python(2.7.11)</p>
 <h2 id="開館状況の取得方法を検討する"><a href="#開館状況の取得方法を検討する" class="headerlink" title="開館状況の取得方法を検討する"></a>開館状況の取得方法を検討する</h2><p>開館カレンダーは画像に示すように、開館の状況によって日付の背景色を変える表示方法が採用されています。カレンダーはHTMLのtableタグで構成されており、日付がそれぞれtdタグ(セル)に収まっているようです。よって、任意の日付の開館状況を知りたければ、その日付のtdの背景色を取得・判定できれば良さそうです。</p>
-<img src="/2016/04/03/library_calendar.png" alt="開館カレンダーの見た目。開館状況と背景色の対応表も示されている。" title="開館カレンダーの見た目。開館状況と背景色の対応表も示されている。">
+<img src="/blog/2016/04/03/library_calendar.png" alt="開館カレンダーの見た目。開館状況と背景色の対応表も示されている。" title="開館カレンダーの見た目。開館状況と背景色の対応表も示されている。">
 <h2 id="スクレイピングの方法を検討する"><a href="#スクレイピングの方法を検討する" class="headerlink" title="スクレイピングの方法を検討する"></a>スクレイピングの方法を検討する</h2><p>上記の通り、カレンダーはHTMLで構成されているため、その要素であるtdにアクセスするためにスクレイピングを行います。今回は、pythonでスクレイピングに使用できるライブラリ</p>
 <ul>
 <li>lxml(<a href="http://lxml.de/" target="_blank" rel="external">http://lxml.de/</a>)</li>
@@ -112,7 +112,7 @@
 <h2 id="Twitterとの連携を行う方法を検討する"><a href="#Twitterとの連携を行う方法を検討する" class="headerlink" title="Twitterとの連携を行う方法を検討する"></a>Twitterとの連携を行う方法を検討する</h2><p>今回は定期的に呟くタイプのBot形式ではなく、StreamingAPIを使用してリプライに反応するような仕様にしました。特にStreamingAPIにこだわる理由はありませんでしたが、pythonでStreamingAPIを叩いたことがなかったので、やってみたかったという感じです。ライブラリには「<a href="https://pypi.python.org/pypi/twitter" target="_blank" rel="external">twitter(1.17.1)</a>」を使用しました。<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip <span class="keyword">install</span> twitter</div></pre></td></tr></table></figure></p>
 <p>Streamingへの接続方法は以下のとおりです。<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> twitter import *</div><div class="line"><span class="comment"># OAuth認証用のキーを指定して認証情報を生成</span></div><div class="line">auth = OAuth(ACCESSTOKEN, ACCESSSECRET, CONSUMERKEY, CONSUMERSECRET)</div><div class="line"><span class="comment"># 接続</span></div><div class="line">stream = TwitterStream(<span class="attribute">auth</span>=auth, <span class="attribute">domain</span>=<span class="string">"userstream.twitter.com"</span>)</div></pre></td></tr></table></figure></p>
 <p>反応の仕方は、<br>「@islibopen islib N」(Nは任意の日付)<br>というリプライを受け取ったら処理を実行し、結果をリプライする、という感じです。</p>
-<h2 id="できたもの"><a href="#できたもの" class="headerlink" title="できたもの"></a>できたもの</h2><img src="/2016/04/03/exec_test.png" alt="図書館が開いているか実際に聞いてみた。やってる事自体は難しくないので、ちゃんと動作している。" title="図書館が開いているか実際に聞いてみた。やってる事自体は難しくないので、ちゃんと動作している。">
+<h2 id="できたもの"><a href="#できたもの" class="headerlink" title="できたもの"></a>できたもの</h2><img src="/blog/2016/04/03/exec_test.png" alt="図書館が開いているか実際に聞いてみた。やってる事自体は難しくないので、ちゃんと動作している。" title="図書館が開いているか実際に聞いてみた。やってる事自体は難しくないので、ちゃんと動作している。">
 <h2 id="Botの公開・運営について"><a href="#Botの公開・運営について" class="headerlink" title="Botの公開・運営について"></a>Botの公開・運営について</h2><p>未定です。</p>
 <h2 id="作って思ったこととかまとめ"><a href="#作って思ったこととかまとめ" class="headerlink" title="作って思ったこととかまとめ"></a>作って思ったこととかまとめ</h2><ul>
 <li>td内にstyle属性が直書きされてるタイプのHTMLだったので、ザルな正規表現で背景色が取得できた。</li>
@@ -127,7 +127,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wassan128.github.io/blog/2016/04/03/" data-id="cjbqm4c8u000umssuzsbis1m6" class="article-share-link">Share</a>
+      <a data-url="http://wassan128.github.io/blog/2016/04/03/" data-id="cjbqn08xi000sw8su9gm9jbwz" class="article-share-link">Share</a>
       
         <a href="http://wassan128.github.io/blog/2016/04/03/#disqus_thread" class="article-comment-link">Comments</a>
       

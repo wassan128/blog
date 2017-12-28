@@ -12,12 +12,12 @@
 <meta property="og:url" content="http://wassan128.github.io/blog/2016/08/18/index.html">
 <meta property="og:site_name" content="クロワッサンは黒くない">
 <meta property="og:description" content="今回の記事(というかメモ)pythonのコードをバイナリにできるのは知っていたが、実際に使ったことはなかったのでやってみた。手元のマシンはx64、pythonもx64用しかなかったので、このままではx64バイナリしか吐けない。そこで今回はx64マシンに新たにx86用pythonをインストールし、pythonコードからバイナリを吐き出すユーティリティである「py2exe」(もちろんx86用)を導入し">
-<meta property="og:image" content="http://wassan128.github.io/2016/08/18/py2exe_x86python_found.png">
+<meta property="og:image" content="http://wassan128.github.io/blog/2016/08/18/py2exe_x86python_found.png">
 <meta property="og:updated_time" content="2016-08-18T13:25:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="x64マシンでpy2exeを使ってx86バイナリを吐き出した話">
 <meta name="twitter:description" content="今回の記事(というかメモ)pythonのコードをバイナリにできるのは知っていたが、実際に使ったことはなかったのでやってみた。手元のマシンはx64、pythonもx64用しかなかったので、このままではx64バイナリしか吐けない。そこで今回はx64マシンに新たにx86用pythonをインストールし、pythonコードからバイナリを吐き出すユーティリティである「py2exe」(もちろんx86用)を導入し">
-<meta name="twitter:image" content="http://wassan128.github.io/2016/08/18/py2exe_x86python_found.png">
+<meta name="twitter:image" content="http://wassan128.github.io/blog/2016/08/18/py2exe_x86python_found.png">
   
     <link rel="alternative" href="/blog/atom.xml" title="クロワッサンは黒くない" type="application/atom+xml">
   
@@ -92,7 +92,7 @@
         <h2 id="今回の記事-というかメモ"><a href="#今回の記事-というかメモ" class="headerlink" title="今回の記事(というかメモ)"></a>今回の記事(というかメモ)</h2><p>pythonのコードをバイナリにできるのは知っていたが、実際に使ったことはなかったのでやってみた。手元のマシンはx64、pythonもx64用しかなかったので、このままではx64バイナリしか吐けない。そこで今回はx64マシンに新たにx86用pythonをインストールし、pythonコードからバイナリを吐き出すユーティリティである「py2exe」(もちろんx86用)を導入してx86バイナリを出力させる。</p>
 <a id="more"></a>
 <h2 id="py2exe導入手順"><a href="#py2exe導入手順" class="headerlink" title="py2exe導入手順"></a>py2exe導入手順</h2><p>py2exeはpythonコードからWindows実行形式ファイル(以下、バイナリ)を出力するpythonのユーティリティである。導入にはインストーラを用いる。pipを使わない理由は、pipでインストールできるpy2exeはpython3対応のもののみだから(手元では現在python2.7を使用している)。<br>インストーラは<a href="https://sourceforge.net/projects/py2exe/files/py2exe/" target="_blank" rel="external">ここ</a>から入手する。適当なバージョンを選択し、ダウンロード、インストールを行う。この時、x64のpythonしかない環境でx86のpy2exeをインストールしようとすると、「Python version 2.x required, which was not found in the registry」という感じのエラーが出る。手元にはpython2.7(x64)しかインストールされていないため、レジストリの参照に失敗していると考えられる。これは<a href="https://www.python.org/download/releases/2.7/" target="_blank" rel="external">x86のpythonをダウンロード、インストール</a>することで解決する。バージョンは2.7で揃えた(特に意味は無いが)。ちゃんと見つかるとこんな感じの画面になる(図1)。あとは通常通りインストールを行えば良い。</p>
-<img src="/2016/08/18/py2exe_x86python_found.png" alt="py2exeインストール正常進行の途中画面" title="py2exeインストール正常進行の途中画面">
+<img src="/blog/2016/08/18/py2exe_x86python_found.png" alt="py2exeインストール正常進行の途中画面" title="py2exeインストール正常進行の途中画面">
 <h2 id="使ってみる"><a href="#使ってみる" class="headerlink" title="使ってみる"></a>使ってみる</h2><p>py2exeでバイナリを吐き出すには次の手順を踏む。</p>
 <ol>
 <li>バイナリにしたいpythonのコードを書く</li>
@@ -116,7 +116,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wassan128.github.io/blog/2016/08/18/" data-id="cjbqm4c86000hmssuqlc4sdk6" class="article-share-link">Share</a>
+      <a data-url="http://wassan128.github.io/blog/2016/08/18/" data-id="cjbqn08x1000jw8sux64ay2cu" class="article-share-link">Share</a>
       
         <a href="http://wassan128.github.io/blog/2016/08/18/#disqus_thread" class="article-comment-link">Comments</a>
       
