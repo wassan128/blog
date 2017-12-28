@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>クロワッサンは黒くない</title>
   <subtitle>とある高専生の備忘録的な何かになるかもしれない</subtitle>
-  <link href="/atom.xml" rel="self"/>
+  <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://wassan128.github.io/blog/"/>
   <updated>2017-12-28T14:57:34.089Z</updated>
